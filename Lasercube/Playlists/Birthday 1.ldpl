@@ -1,0 +1,165 @@
+{
+    "version": 3,
+    "vis": [
+        {
+            "id": "Birthday - Cake Dance 2",
+            "sourceGlobalId": "Animations/Birthday/Cake Dance 2"
+        },
+        {
+            "id": "Birthday - Balloons 4",
+            "sourceGlobalId": "Animations/Birthday/Balloons 4"
+        },
+        {
+            "id": "Birthday - Cake Dance 3",
+            "sourceGlobalId": "Animations/Birthday/Cake Dance 3"
+        },
+        {
+            "id": "Birthday - Cat Bday",
+            "sourceGlobalId": "Animations/Birthday/Cat Bday"
+        },
+        {
+            "id": "Birthday - Candle",
+            "sourceGlobalId": "Animations/Birthday/Candle"
+        },
+        {
+            "id": "Birthday - Cat Bday 5",
+            "sourceGlobalId": "Animations/Birthday/Cat Bday 5"
+        },
+        {
+            "id": "Birthday - Celebration",
+            "sourceGlobalId": "Animations/Birthday/Celebration"
+        },
+        {
+            "id": "Birthday - Dancing Birthday Hat",
+            "sourceGlobalId": "Animations/Birthday/Dancing Birthday Hat"
+        },
+        {
+            "id": "Birthday - Dino Bday 2",
+            "sourceGlobalId": "Animations/Birthday/Dino Bday 2"
+        },
+        {
+            "id": "Birthday - Duck Bday",
+            "sourceGlobalId": "Animations/Birthday/Duck Bday"
+        },
+        {
+            "id": "Birthday - Gift 4",
+            "sourceGlobalId": "Animations/Birthday/Gift 4"
+        },
+        {
+            "id": "Birthday - Hamster Bday",
+            "sourceGlobalId": "Animations/Birthday/Hamster Bday"
+        },
+        {
+            "id": "Birthday - Happy Birthday 2",
+            "sourceGlobalId": "Animations/Birthday/Happy Birthday 2"
+        },
+        {
+            "id": "Birthday - Happy Birthday 5",
+            "sourceGlobalId": "Animations/Birthday/Happy Birthday 5"
+        },
+        {
+            "id": "Birthday - Hat Sprinkles",
+            "sourceGlobalId": "Animations/Birthday/Hat Sprinkles"
+        },
+        {
+            "id": "Birthday - Penguin Balloon",
+            "sourceGlobalId": "Animations/Birthday/Penguin Balloon"
+        },
+        {
+            "id": "Birthday - Spinning Cake",
+            "sourceGlobalId": "Animations/Birthday/Spinning Cake"
+        },
+        {
+            "id": "Birthday - Snoopy Bday",
+            "sourceGlobalId": "Animations/Birthday/Snoopy Bday"
+        },
+        {
+            "id": "Birthday - Meme Gift",
+            "sourceGlobalId": "Animations/Birthday/Meme Gift"
+        },
+        {
+            "id": "Birthday - Happy Birthday",
+            "sourceGlobalId": "Animations/Birthday/Happy Birthday"
+        },
+        {
+            "id": "Birthday - Happy Birthday 4",
+            "sourceGlobalId": "Animations/Birthday/Happy Birthday 4"
+        },
+        {
+            "id": "Birthday - Happy Birthday 3",
+            "sourceGlobalId": "Animations/Birthday/Happy Birthday 3"
+        },
+        {
+            "id": "Birthday - Koala Bday",
+            "sourceGlobalId": "Animations/Birthday/Koala Bday"
+        },
+        {
+            "id": "Birthday - Rabbit Bday",
+            "sourceGlobalId": "Animations/Birthday/Rabbit Bday"
+        },
+        {
+            "id": "Birthday - Snoopy Bday 2",
+            "sourceGlobalId": "Animations/Birthday/Snoopy Bday 2"
+        },
+        {
+            "id": "Birthday - Balloon 2",
+            "sourceGlobalId": "Animations/Birthday/Balloon 2"
+        },
+        {
+            "id": "Birthday - Balloon",
+            "sourceGlobalId": "Animations/Birthday/Balloon"
+        },
+        {
+            "id": "Birthday - Bday Cake 3",
+            "sourceGlobalId": "Animations/Birthday/Bday Cake 3"
+        },
+        {
+            "id": "Birthday - Cake Jump",
+            "sourceGlobalId": "Animations/Birthday/Cake Jump"
+        },
+        {
+            "id": "Birthday - Cake Jump 2",
+            "sourceGlobalId": "Animations/Birthday/Cake Jump 2"
+        },
+        {
+            "id": "Birthday - Cake",
+            "sourceGlobalId": "Animations/Birthday/Cake"
+        },
+        {
+            "id": "Birthday - Cat Bday 2",
+            "sourceGlobalId": "Animations/Birthday/Cat Bday 2"
+        },
+        {
+            "id": "Birthday - Cat Dance",
+            "sourceGlobalId": "Animations/Birthday/Cat Dance"
+        },
+        {
+            "id": "Birthday - Excited Cake",
+            "sourceGlobalId": "Animations/Birthday/Excited Cake"
+        },
+        {
+            "id": "Birthday - Frog Bday",
+            "sourceGlobalId": "Animations/Birthday/Frog Bday"
+        },
+        {
+            "id": "Birthday - Gift 3",
+            "sourceGlobalId": "Animations/Birthday/Gift 3"
+        },
+        {
+            "id": "Birthday - Gift 2",
+            "sourceGlobalId": "Animations/Birthday/Gift 2"
+        },
+        {
+            "id": "Birthday - Cat Bday 4",
+            "sourceGlobalId": "Animations/Birthday/Cat Bday 4"
+        },
+        {
+            "id": "Birthday - Duck Bday 2",
+            "sourceGlobalId": "Animations/Birthday/Duck Bday 2"
+        },
+        {
+            "id": "Birthday - Dino Bday",
+            "sourceGlobalId": "Animations/Birthday/Dino Bday"
+        }
+    ]
+}

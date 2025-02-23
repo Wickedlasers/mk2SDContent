@@ -1,0 +1,166 @@
+{
+    "version": 3,
+    "vis": [
+        {
+            "id": "Halloween - Pumpkin",
+            "sourceGlobalId": "Animations/Halloween/Pumpkin"
+        },
+        {
+            "id": "Halloween - Ghost Drums",
+            "sourceGlobalId": "Animations/Halloween/Ghost Drums"
+        },
+        {
+            "id": "Halloween - Zombie",
+            "sourceGlobalId": "Animations/Halloween/Zombie"
+        },
+        {
+            "id": "Halloween - Dancing Pumpkin 2",
+            "sourceGlobalId": "Animations/Halloween/Dancing Pumpkin 2"
+        },
+        {
+            "id": "Halloween - Boo",
+            "sourceGlobalId": "Animations/Halloween/Boo"
+        },
+        {
+            "fileName": "Happy Halloween.ldtxt",
+            "id": "Happy Halloween"
+        },
+        {
+            "id": "Halloween - Dancing Pumpkin 1",
+            "sourceGlobalId": "Animations/Halloween/Dancing Pumpkin 1"
+        },
+        {
+            "id": "Halloween - Witch",
+            "sourceGlobalId": "Animations/Halloween/Witch"
+        },
+        {
+            "id": "Halloween - Skelly Dance",
+            "sourceGlobalId": "Animations/Halloween/Skelly Dance"
+        },
+        {
+            "id": "Halloween - Skull Nod",
+            "sourceGlobalId": "Animations/Halloween/Skull Nod"
+        },
+        {
+            "id": "Halloween - Bat",
+            "sourceGlobalId": "Animations/Halloween/Bat"
+        },
+        {
+            "id": "Halloween - Black Cat 2",
+            "sourceGlobalId": "Animations/Halloween/Black Cat 2"
+        },
+        {
+            "id": "Halloween - Ghost",
+            "sourceGlobalId": "Animations/Halloween/Ghost"
+        },
+        {
+            "id": "Halloween - Bat Flying",
+            "sourceGlobalId": "Animations/Halloween/Bat Flying"
+        },
+        {
+            "id": "Halloween - Bat 3",
+            "sourceGlobalId": "Animations/Halloween/Bat 3"
+        },
+        {
+            "id": "Halloween - Dancing Pumpkin 3",
+            "sourceGlobalId": "Animations/Halloween/Dancing Pumpkin 3"
+        },
+        {
+            "id": "Halloween - Dancing Pumpkin 4",
+            "sourceGlobalId": "Animations/Halloween/Dancing Pumpkin 4"
+        },
+        {
+            "id": "Halloween - Ghost 3",
+            "sourceGlobalId": "Animations/Halloween/Ghost 3"
+        },
+        {
+            "id": "Halloween - Ghost Boo",
+            "sourceGlobalId": "Animations/Halloween/Ghost Boo"
+        },
+        {
+            "id": "Halloween - Ghost Guitar",
+            "sourceGlobalId": "Animations/Halloween/Ghost Guitar"
+        },
+        {
+            "id": "Halloween - Ghost Keytar",
+            "sourceGlobalId": "Animations/Halloween/Ghost Keytar"
+        },
+        {
+            "id": "Halloween - Ghost Laser Show",
+            "sourceGlobalId": "Animations/Halloween/Ghost Laser Show"
+        },
+        {
+            "id": "Halloween - Hand Grab",
+            "sourceGlobalId": "Animations/Halloween/Hand Grab"
+        },
+        {
+            "id": "Halloween - Happy Halloween 2",
+            "sourceGlobalId": "Animations/Halloween/Happy Halloween 2"
+        },
+        {
+            "id": "Halloween - Haunted House",
+            "sourceGlobalId": "Animations/Halloween/Haunted House"
+        },
+        {
+            "id": "Halloween - Pumpkin 3",
+            "sourceGlobalId": "Animations/Halloween/Pumpkin 3"
+        },
+        {
+            "id": "Halloween - Pumpkin 4",
+            "sourceGlobalId": "Animations/Halloween/Pumpkin 4"
+        },
+        {
+            "id": "Halloween - Pumpkin Run",
+            "sourceGlobalId": "Animations/Halloween/Pumpkin Run"
+        },
+        {
+            "id": "Halloween - Spider 2",
+            "sourceGlobalId": "Animations/Halloween/Spider 2"
+        },
+        {
+            "id": "Halloween - Skelly Head",
+            "sourceGlobalId": "Animations/Halloween/Skelly Head"
+        },
+        {
+            "id": "Halloween - Skelly Hand Thumbs Up",
+            "sourceGlobalId": "Animations/Halloween/Skelly Hand Thumbs Up"
+        },
+        {
+            "id": "Halloween - Jason Dance",
+            "sourceGlobalId": "Animations/Halloween/Jason Dance"
+        },
+        {
+            "id": "Halloween - Pennywise Dance",
+            "sourceGlobalId": "Animations/Halloween/Pennywise Dance"
+        },
+        {
+            "id": "Halloween - Spider",
+            "sourceGlobalId": "Animations/Halloween/Spider"
+        },
+        {
+            "id": "Halloween - Skelly Face",
+            "sourceGlobalId": "Animations/Halloween/Skelly Face"
+        },
+        {
+            "id": "Halloween - Frankenstein Walk",
+            "sourceGlobalId": "Animations/Halloween/Frankenstein Walk"
+        },
+        {
+            "id": "Halloween - Happy Halloween",
+            "renderQuality": 0.1673118621110916,
+            "sourceGlobalId": "Animations/Halloween/Happy Halloween"
+        },
+        {
+            "id": "Halloween - Jack",
+            "sourceGlobalId": "Animations/Halloween/Jack"
+        },
+        {
+            "id": "Halloween - Black Cat 3",
+            "sourceGlobalId": "Animations/Halloween/Black Cat 3"
+        },
+        {
+            "id": "Halloween - Pumpkin Carve",
+            "sourceGlobalId": "Animations/Halloween/Pumpkin Carve"
+        }
+    ]
+}
