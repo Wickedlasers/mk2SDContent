@@ -2,162 +2,242 @@
     "version": 3,
     "vis": [
         {
+	    "apc_note": 0,
+	    "apc_color": 1,
             "fileName": "Red Beam 1.ldbc",
             "id": "Red Beam 1"
         },
         {
+	    "apc_note": 1,
+	    "apc_color": 1,
             "id": "Silesia Lasers Pack 1 - SL ilda 19",
             "sourceGlobalId": "Beam Show/Silesia Lasers Pack 1/SL ilda 19"
         },
         {
+	    "apc_note": 2,
+	    "apc_color": 1,
             "fileName": "Strobe Circle 00.ldbc",
             "id": "Strobe Circle 00"
         },
         {
+	    "apc_note": 3,
+	    "apc_color": 1,
             "fileName": "Red Bar Strobe Top.ldbc",
             "id": "Red Bar Strobe Top"
         },
         {
+	    "apc_note": 4,
+	    "apc_color": 1,
             "fileName": "Red Bar Down Fade.ldbc",
             "id": "Red Bar Down Fade"
         },
         {
+	    "apc_note": 5,
+	    "apc_color": 1,
             "fileName": "line fade out2.ldbc",
             "id": "line fade out2"
         },
         {
+	    "apc_note": 6,
+	    "apc_color": 1,
             "fileName": "dots 13.ldbc",
             "id": "dots 13"
         },
         {
+	    "apc_note": 7,
+	    "apc_color": 1,
             "fileName": "Red Triangle.ldbc",
             "id": "Red Triangle"
         },
         {
+	    "apc_note": 8,
+	    "apc_color": 2,
             "fileName": "Greev Dot Wave.ldbc",
             "id": "Greev Dot Wave"
         },
         {
+	    "apc_note": 9,
+	    "apc_color": 2,
             "id": "Liquid Sky - CenterWave",
             "sourceGlobalId": "Beam Show/Liquid Sky/CenterWave"
         },
         {
+	    "apc_note": 10,
+	    "apc_color": 2,
             "fileName": "Green Circle H.ldbc",
             "id": "Green Circle H"
         },
         {
+	    "apc_note": 11,
+	    "apc_color": 2,
             "fileName": "Green Circle Scaling.ldbc",
             "id": "Green Circle Scaling"
         },
         {
+	    "apc_note": 12,
+	    "apc_color": 2,
             "fileName": "Green Cubes Spin.ldbc",
             "id": "Green Cubes Spin"
         },
         {
+	    "apc_note": 13,
+	    "apc_color": 2,
             "fileName": "Green Tri Sq.ldbc",
             "id": "Green Tri Sq"
         },
         {
+	    "apc_note": 14,
+	    "apc_color": 2,
             "fileName": "Green Dot Slide.ldbc",
             "id": "Green Dot Slide"
         },
         {
+	    "apc_note": 15,
+	    "apc_color": 2,
             "fileName": "Green Dot Rot.ldbc",
             "id": "Green Dot Rot"
         },
         {
+	    "apc_note": 16,
+	    "apc_color": 3,
             "fileName": "Strobe Circle 02.ldbc",
             "id": "Strobe Circle 02"
         },
         {
+	    "apc_note": 17,
+	    "apc_color": 3,
             "fileName": "6 freaky lines 3.ldbc",
             "id": "6 freaky lines 3"
         },
         {
+	    "apc_note": 18,
+	    "apc_color": 3,
             "fileName": "Bouncing Dash Circle.ldbc",
             "id": "Bouncing Dash Circle"
         },
         {
+	    "apc_note": 19,
+	    "apc_color": 3,
             "fileName": "solid speed wave.ldbc",
             "id": "solid speed wave"
         },
         {
+	    "apc_note": 20,
+	    "apc_color": 3,
             "fileName": "h48.ldbc",
             "id": "h48"
         },
         {
+	    "apc_note": 21,
+	    "apc_color": 3,
             "fileName": "triangle_triple.ldbc",
             "id": "triangle_triple"
         },
         {
+	    "apc_note": 22,
+	    "apc_color": 3,
             "fileName": "flashing blue circle.ldbc",
             "id": "flashing blue circle"
         },
         {
+	    "apc_note": 23,
+	    "apc_color": 3,
             "fileName": "Blue Circles.ldbc",
             "id": "Blue Circles"
         },
         {
+	    "apc_note": 24,
+	    "apc_color": 5,
             "fileName": "cyan strobe beams.ldbc",
             "id": "cyan strobe beams"
         },
         {
+	    "apc_note": 25,
+	    "apc_color": 5,
             "fileName": "Cyan Tri Wave.ldbc",
             "id": "Cyan Tri Wave"
         },
         {
+	    "apc_note": 26,
+	    "apc_color": 5,
             "fileName": "Cyan Circle.ldbc",
             "id": "Cyan Circle"
         },
         {
+	    "apc_note": 27,
+	    "apc_color": 5,
             "fileName": "Cyan TriWave Move.ldbc",
             "id": "Cyan TriWave Move"
         },
         {
+	    "apc_note": 28,
+	    "apc_color": 8,
             "fileName": "orange flash circle.ldbc",
             "id": "orange flash circle"
         },
         {
+	    "apc_note": 29,
+	    "apc_color": 8,
             "fileName": "orange strobe beams.ldbc",
             "id": "orange strobe beams"
         },
         {
+	    "apc_note": 30,
+	    "apc_color": 8,
             "fileName": "Orange Wave.ldbc",
             "id": "Orange Wave"
         },
         {
+	    "apc_note": 31,
+	    "apc_color": 8,
             "fileName": "Orange Lines.ldbc",
             "id": "Orange Lines"
         },
         {
+	    "apc_note": 32,
+	    "apc_color": 11,
             "fileName": "pink sine.ldbc",
             "id": "pink sine"
         },
         {
+	    "apc_note": 33,
+	    "apc_color": 11,
             "fileName": "pink running wave.ldbc",
             "id": "pink running wave"
         },
         {
+	    "apc_note": 34,
+	    "apc_color": 11,
             "fileName": "pink moving lines.ldbc",
             "id": "pink moving lines"
         },
         {
+	    "apc_note": 35,
+	    "apc_color": 11,
             "fileName": "pink triangles.ldbc",
             "id": "pink triangles"
         },
         {
+	    "apc_note": 36,
+	    "apc_color": 7,
             "fileName": "white beams.ldbc",
             "id": "white beams"
         },
         {
+	    "apc_note": 37,
+	    "apc_color": 7,
             "fileName": "White Sine.ldbc",
             "id": "White Sine"
         },
         {
+	    "apc_note": 38,
+	    "apc_color": 7,
             "fileName": "white yellow sine.ldbc",
             "id": "white yellow sine"
         },
         {
+	    "apc_note": 39,
+	    "apc_color": 7,
             "fileName": "White Triangles.ldbc",
             "id": "White Triangles"
         }
