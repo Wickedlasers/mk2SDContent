@@ -1,0 +1,167 @@
+{
+    "version": 3,
+    "vis": [
+        {
+            "id": "Dancers - Step Up",
+            "sourceGlobalId": "Dancers/Step Up"
+        },
+        {
+            "id": "Dancers - Electro",
+            "sourceGlobalId": "Dancers/Electro"
+        },
+        {
+            "id": "Dancers - Fortnite",
+            "sourceGlobalId": "Dancers/Fortnite"
+        },
+        {
+            "id": "Dancers - Fortnite 2",
+            "sourceGlobalId": "Dancers/Fortnite 2"
+        },
+        {
+            "id": "Dancers - Animation Double Hip Hop",
+            "sourceGlobalId": "Dancers/Animation Double Hip Hop"
+        },
+        {
+            "id": "Dancers - Anime Dance 1",
+            "sourceGlobalId": "Dancers/Anime Dance 1"
+        },
+        {
+            "id": "Dancers - Bonebreaking",
+            "sourceGlobalId": "Dancers/Bonebreaking"
+        },
+        {
+            "id": "Dancers - Break Dance 1",
+            "sourceGlobalId": "Dancers/Break Dance 1"
+        },
+        {
+            "id": "Dancers - Break Dance 2",
+            "sourceGlobalId": "Dancers/Break Dance 2"
+        },
+        {
+            "id": "Dancers - Break Dance 4",
+            "sourceGlobalId": "Dancers/Break Dance 4"
+        },
+        {
+            "id": "Dancers - Cheerleader Dance 1",
+            "sourceGlobalId": "Dancers/Cheerleader Dance 1"
+        },
+        {
+            "id": "Dancers - Cheerleader Dance 2",
+            "sourceGlobalId": "Dancers/Cheerleader Dance 2"
+        },
+        {
+            "id": "Dancers - Club Dance 1",
+            "sourceGlobalId": "Dancers/Club Dance 1"
+        },
+        {
+            "id": "Dancers - Club Dance 2",
+            "sourceGlobalId": "Dancers/Club Dance 2"
+        },
+        {
+            "id": "Dancers - Dance Girl",
+            "sourceGlobalId": "Dancers/Dance Girl"
+        },
+        {
+            "id": "Dancers - EDM Dancer",
+            "sourceGlobalId": "Dancers/EDM Dancer"
+        },
+        {
+            "autoPlayDuration": 5,
+            "autoPlayMode": "time",
+            "id": "Dancers - Acrobatic dance",
+            "sourceGlobalId": "Dancers/Acrobatic dance"
+        },
+        {
+            "id": "Dancers - Drunken Master 1",
+            "sourceGlobalId": "Dancers/Drunken Master 1"
+        },
+        {
+            "id": "Dancers - Disco Fever",
+            "sourceGlobalId": "Dancers/Disco Fever"
+        },
+        {
+            "id": "Dancers - Double Dancer",
+            "sourceGlobalId": "Dancers/Double Dancer"
+        },
+        {
+            "id": "Dancers - Fire Dance 1",
+            "sourceGlobalId": "Dancers/Fire Dance 1"
+        },
+        {
+            "id": "Dancers - Fire Dance 4",
+            "sourceGlobalId": "Dancers/Fire Dance 4"
+        },
+        {
+            "id": "Dancers - Fire Dance 5",
+            "sourceGlobalId": "Dancers/Fire Dance 5"
+        },
+        {
+            "id": "Dancers - Fire Dance 6",
+            "sourceGlobalId": "Dancers/Fire Dance 6"
+        },
+        {
+            "id": "Dancers - Freak Dance",
+            "sourceGlobalId": "Dancers/Freak Dance"
+        },
+        {
+            "id": "Dancers - Hip Hop 4",
+            "sourceGlobalId": "Dancers/Hip Hop 4"
+        },
+        {
+            "id": "Dancers - Kpop Dance 1",
+            "sourceGlobalId": "Dancers/Kpop Dance 1"
+        },
+        {
+            "id": "Dancers - Kpop Dance 2",
+            "sourceGlobalId": "Dancers/Kpop Dance 2"
+        },
+        {
+            "id": "Dancers - Kpop Dance 3",
+            "sourceGlobalId": "Dancers/Kpop Dance 3"
+        },
+        {
+            "id": "Dancers - Ribbon Girl",
+            "sourceGlobalId": "Dancers/Ribbon Girl"
+        },
+        {
+            "id": "Dancers - Rollerblade Dance 1",
+            "sourceGlobalId": "Dancers/Rollerblade Dance 1"
+        },
+        {
+            "id": "Dancers - Unicorn Pole Dancing 1",
+            "sourceGlobalId": "Dancers/Unicorn Pole Dancing 1"
+        },
+        {
+            "id": "Dancers - Woman Dance Move",
+            "sourceGlobalId": "Dancers/Woman Dance Move"
+        },
+        {
+            "id": "Dancers - Trex Trampoline 1",
+            "sourceGlobalId": "Dancers/Trex Trampoline 1"
+        },
+        {
+            "id": "Dancers - Vertigo",
+            "sourceGlobalId": "Dancers/Vertigo"
+        },
+        {
+            "id": "Dancers - Surf Longboard 2",
+            "sourceGlobalId": "Dancers/Surf Longboard 2"
+        },
+        {
+            "id": "Dancers - Surf 7",
+            "sourceGlobalId": "Dancers/Surf 7"
+        },
+        {
+            "id": "Dancers - Stripper Dance 2",
+            "sourceGlobalId": "Dancers/Stripper Dance 2"
+        },
+        {
+            "id": "Dancers - Soccer Freestyle 1",
+            "sourceGlobalId": "Dancers/Soccer Freestyle 1"
+        },
+        {
+            "id": "Dancers - Electro Shuffle",
+            "sourceGlobalId": "Dancers/Electro Shuffle"
+        }
+    ]
+}
