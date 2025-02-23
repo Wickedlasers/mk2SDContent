@@ -1,0 +1,165 @@
+{
+    "version": 3,
+    "vis": [
+        {
+            "id": "Christmas - Bird Meme Christmas",
+            "sourceGlobalId": "Animations/Christmas/Bird Meme Christmas"
+        },
+        {
+            "id": "Christmas - Bell 2",
+            "sourceGlobalId": "Animations/Christmas/Bell 2"
+        },
+        {
+            "id": "Christmas - Candy Cane 2",
+            "sourceGlobalId": "Animations/Christmas/Candy Cane 2"
+        },
+        {
+            "id": "Christmas - Candy Cane Cross",
+            "sourceGlobalId": "Animations/Christmas/Candy Cane Cross"
+        },
+        {
+            "id": "Christmas - Christmas Tree 2",
+            "sourceGlobalId": "Animations/Christmas/Christmas Tree 2"
+        },
+        {
+            "id": "Christmas - Christmas Tree 7",
+            "sourceGlobalId": "Animations/Christmas/Christmas Tree 7"
+        },
+        {
+            "id": "Christmas - Christmas Tree Dance",
+            "sourceGlobalId": "Animations/Christmas/Christmas Tree Dance"
+        },
+        {
+            "id": "Christmas - Christmas Tree Santa",
+            "sourceGlobalId": "Animations/Christmas/Christmas Tree Santa"
+        },
+        {
+            "id": "Christmas - Gingerbread Dance",
+            "sourceGlobalId": "Animations/Christmas/Gingerbread Dance"
+        },
+        {
+            "id": "Christmas - Grinch",
+            "sourceGlobalId": "Animations/Christmas/Grinch"
+        },
+        {
+            "id": "Christmas - Jingle Bell",
+            "sourceGlobalId": "Animations/Christmas/Jingle Bell"
+        },
+        {
+            "id": "Christmas - Merry",
+            "sourceGlobalId": "Animations/Christmas/Merry"
+        },
+        {
+            "id": "Christmas - Reindeer",
+            "sourceGlobalId": "Animations/Christmas/Reindeer"
+        },
+        {
+            "id": "Christmas - Ribbon",
+            "sourceGlobalId": "Animations/Christmas/Ribbon"
+        },
+        {
+            "id": "Christmas - Santa Clap",
+            "sourceGlobalId": "Animations/Christmas/Santa Clap"
+        },
+        {
+            "id": "Christmas - Santa Dance 2",
+            "sourceGlobalId": "Animations/Christmas/Santa Dance 2"
+        },
+        {
+            "id": "Christmas - Santa Dance",
+            "sourceGlobalId": "Animations/Christmas/Santa Dance"
+        },
+        {
+            "id": "Christmas - Santa Flying",
+            "sourceGlobalId": "Animations/Christmas/Santa Flying"
+        },
+        {
+            "id": "Christmas - Snowglobe",
+            "sourceGlobalId": "Animations/Christmas/Snowglobe"
+        },
+        {
+            "id": "Christmas - Snowman Jump",
+            "sourceGlobalId": "Animations/Christmas/Snowman Jump"
+        },
+        {
+            "id": "Christmas - Snowman",
+            "sourceGlobalId": "Animations/Christmas/Snowman"
+        },
+        {
+            "id": "Christmas - XMAS 2",
+            "sourceGlobalId": "Animations/Christmas/XMAS 2"
+        },
+        {
+            "id": "Christmas - Ornament Swing",
+            "sourceGlobalId": "Animations/Christmas/Ornament Swing"
+        },
+        {
+            "id": "Christmas - Ornament",
+            "sourceGlobalId": "Animations/Christmas/Ornament"
+        },
+        {
+            "id": "Christmas - Ornmanet 4",
+            "sourceGlobalId": "Animations/Christmas/Ornmanet 4"
+        },
+        {
+            "id": "Christmas - Reindeer 2",
+            "sourceGlobalId": "Animations/Christmas/Reindeer 2"
+        },
+        {
+            "id": "Christmas - XMAS",
+            "sourceGlobalId": "Animations/Christmas/XMAS"
+        },
+        {
+            "id": "Christmas - Xmas Ornaments 4",
+            "sourceGlobalId": "Animations/Christmas/Xmas Ornaments 4"
+        },
+        {
+            "id": "Christmas - Reindeer Nose",
+            "sourceGlobalId": "Animations/Christmas/Reindeer Nose"
+        },
+        {
+            "id": "Christmas - Santa Nod",
+            "sourceGlobalId": "Animations/Christmas/Santa Nod"
+        },
+        {
+            "id": "Christmas - Santa Stuck 2",
+            "sourceGlobalId": "Animations/Christmas/Santa Stuck 2"
+        },
+        {
+            "id": "Christmas - Snowman 2",
+            "sourceGlobalId": "Animations/Christmas/Snowman 2"
+        },
+        {
+            "id": "Christmas - Snowman Moonwalk",
+            "sourceGlobalId": "Animations/Christmas/Snowman Moonwalk"
+        },
+        {
+            "id": "Christmas - Snowflake 2",
+            "sourceGlobalId": "Animations/Christmas/Snowflake 2"
+        },
+        {
+            "id": "Christmas - Believe",
+            "sourceGlobalId": "Animations/Christmas/Believe"
+        },
+        {
+            "id": "Christmas - Bells",
+            "sourceGlobalId": "Animations/Christmas/Bells"
+        },
+        {
+            "id": "Christmas - Candle",
+            "sourceGlobalId": "Animations/Christmas/Candle"
+        },
+        {
+            "id": "Christmas - Christmas Tree 4",
+            "sourceGlobalId": "Animations/Christmas/Christmas Tree 4"
+        },
+        {
+            "id": "Christmas - Christmas Tree 5",
+            "sourceGlobalId": "Animations/Christmas/Christmas Tree 5"
+        },
+        {
+            "id": "Christmas - Gift 2 Tree",
+            "sourceGlobalId": "Animations/Christmas/Gift 2 Tree"
+        }
+    ]
+}
