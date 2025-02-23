@@ -1,0 +1,165 @@
+{
+    "version": 3,
+    "vis": [
+        {
+            "fileName": "Red Beam 1.ldbc",
+            "id": "Red Beam 1"
+        },
+        {
+            "id": "Silesia Lasers Pack 1 - SL ilda 19",
+            "sourceGlobalId": "Beam Show/Silesia Lasers Pack 1/SL ilda 19"
+        },
+        {
+            "fileName": "Strobe Circle 00.ldbc",
+            "id": "Strobe Circle 00"
+        },
+        {
+            "fileName": "Red Bar Strobe Top.ldbc",
+            "id": "Red Bar Strobe Top"
+        },
+        {
+            "fileName": "Red Bar Down Fade.ldbc",
+            "id": "Red Bar Down Fade"
+        },
+        {
+            "fileName": "line fade out2.ldbc",
+            "id": "line fade out2"
+        },
+        {
+            "fileName": "dots 13.ldbc",
+            "id": "dots 13"
+        },
+        {
+            "fileName": "Red Triangle.ldbc",
+            "id": "Red Triangle"
+        },
+        {
+            "fileName": "Greev Dot Wave.ldbc",
+            "id": "Greev Dot Wave"
+        },
+        {
+            "id": "Liquid Sky - CenterWave",
+            "sourceGlobalId": "Beam Show/Liquid Sky/CenterWave"
+        },
+        {
+            "fileName": "Green Circle H.ldbc",
+            "id": "Green Circle H"
+        },
+        {
+            "fileName": "Green Circle Scaling.ldbc",
+            "id": "Green Circle Scaling"
+        },
+        {
+            "fileName": "Green Cubes Spin.ldbc",
+            "id": "Green Cubes Spin"
+        },
+        {
+            "fileName": "Green Tri Sq.ldbc",
+            "id": "Green Tri Sq"
+        },
+        {
+            "fileName": "Green Dot Slide.ldbc",
+            "id": "Green Dot Slide"
+        },
+        {
+            "fileName": "Green Dot Rot.ldbc",
+            "id": "Green Dot Rot"
+        },
+        {
+            "fileName": "Strobe Circle 02.ldbc",
+            "id": "Strobe Circle 02"
+        },
+        {
+            "fileName": "6 freaky lines 3.ldbc",
+            "id": "6 freaky lines 3"
+        },
+        {
+            "fileName": "Bouncing Dash Circle.ldbc",
+            "id": "Bouncing Dash Circle"
+        },
+        {
+            "fileName": "solid speed wave.ldbc",
+            "id": "solid speed wave"
+        },
+        {
+            "fileName": "h48.ldbc",
+            "id": "h48"
+        },
+        {
+            "fileName": "triangle_triple.ldbc",
+            "id": "triangle_triple"
+        },
+        {
+            "fileName": "flashing blue circle.ldbc",
+            "id": "flashing blue circle"
+        },
+        {
+            "fileName": "Blue Circles.ldbc",
+            "id": "Blue Circles"
+        },
+        {
+            "fileName": "cyan strobe beams.ldbc",
+            "id": "cyan strobe beams"
+        },
+        {
+            "fileName": "Cyan Tri Wave.ldbc",
+            "id": "Cyan Tri Wave"
+        },
+        {
+            "fileName": "Cyan Circle.ldbc",
+            "id": "Cyan Circle"
+        },
+        {
+            "fileName": "Cyan TriWave Move.ldbc",
+            "id": "Cyan TriWave Move"
+        },
+        {
+            "fileName": "orange flash circle.ldbc",
+            "id": "orange flash circle"
+        },
+        {
+            "fileName": "orange strobe beams.ldbc",
+            "id": "orange strobe beams"
+        },
+        {
+            "fileName": "Orange Wave.ldbc",
+            "id": "Orange Wave"
+        },
+        {
+            "fileName": "Orange Lines.ldbc",
+            "id": "Orange Lines"
+        },
+        {
+            "fileName": "pink sine.ldbc",
+            "id": "pink sine"
+        },
+        {
+            "fileName": "pink running wave.ldbc",
+            "id": "pink running wave"
+        },
+        {
+            "fileName": "pink moving lines.ldbc",
+            "id": "pink moving lines"
+        },
+        {
+            "fileName": "pink triangles.ldbc",
+            "id": "pink triangles"
+        },
+        {
+            "fileName": "white beams.ldbc",
+            "id": "white beams"
+        },
+        {
+            "fileName": "White Sine.ldbc",
+            "id": "White Sine"
+        },
+        {
+            "fileName": "white yellow sine.ldbc",
+            "id": "white yellow sine"
+        },
+        {
+            "fileName": "White Triangles.ldbc",
+            "id": "White Triangles"
+        }
+    ]
+}
