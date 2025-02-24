@@ -1,0 +1,46 @@
+{
+	"version":	"1.0",
+	"shortcuts":	[{
+			"unique_id":	"VizPlayer/Spectrum 1",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	0,
+			"apc_color":	1,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Spectrum 2",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	1,
+			"apc_color":	2,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Voice",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	2,
+			"apc_color":	5,
+			"apc_style":	1
+		}, {
+			"unique_id":	"projection/Power",
+			"type":	"MIDI_CC",
+			"midi_ch":	0,
+			"midi_cc":	48,
+			"apc_color":	0,
+			"apc_style":	0
+		}, {
+			"unique_id":	"projection/X Size",
+			"type":	"MIDI_CC",
+			"midi_ch":	0,
+			"midi_cc":	49,
+			"apc_color":	0,
+			"apc_style":	0
+		}, {
+			"unique_id":	"projection/Rotation",
+			"type":	"MIDI_CC",
+			"midi_ch":	0,
+			"midi_cc":	50,
+			"apc_color":	0,
+			"apc_style":	0
+		}]
+}
