@@ -1,0 +1,60 @@
+{
+	"version":	"1.0",
+	"shortcuts":	[{
+			"unique_id":	"PlayList/Halloween 1",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	112,
+			"apc_color":	2,
+			"apc_style":	1
+		}, {
+			"unique_id":	"PlayList/Dancers 1",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	113,
+			"apc_color":	2,
+			"apc_style":	1
+		}, {
+			"unique_id":	"PlayList/Christmas 1",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	114,
+			"apc_color":	2,
+			"apc_style":	1
+		}, {
+			"unique_id":	"PlayList/Beams 1",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	115,
+			"apc_color":	2,
+			"apc_style":	1
+		}, {
+			"unique_id":	"PlayList/Birthday 1",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	116,
+			"apc_color":	2,
+			"apc_style":	1
+		}, {
+			"unique_id":	"projection/Power",
+			"type":	"MIDI_CC",
+			"midi_ch":	0,
+			"midi_cc":	48,
+			"apc_color":	0,
+			"apc_style":	0
+		}, {
+			"unique_id":	"projection/X Size",
+			"type":	"MIDI_CC",
+			"midi_ch":	0,
+			"midi_cc":	49,
+			"apc_color":	0,
+			"apc_style":	0
+		}, {
+			"unique_id":	"projection/Rotation",
+			"type":	"MIDI_CC",
+			"midi_ch":	0,
+			"midi_cc":	50,
+			"apc_color":	0,
+			"apc_style":	0
+		}]
+}
