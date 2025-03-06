@@ -141,6 +141,13 @@
 			"apc_color":	5,
 			"apc_style":	1
 		}, {
+			"unique_id":	"LaserShowPlayer/Imaginary Drone",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	20,
+			"apc_color":	6,
+			"apc_style":	1
+		}, {
 			"unique_id":	"projection/Power",
 			"type":	"MIDI_CC",
 			"midi_ch":	0,
