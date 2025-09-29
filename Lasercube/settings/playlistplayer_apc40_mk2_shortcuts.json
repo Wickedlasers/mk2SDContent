@@ -148,7 +148,7 @@
 			"apc_color":	0,
 			"apc_style":	0
 		}, {
-			"unique_id":	"projection/X Size",
+			"unique_id":	"projection/Zoom",
 			"type":	"MIDI_CC",
 			"midi_ch":	0,
 			"midi_cc":	18,
