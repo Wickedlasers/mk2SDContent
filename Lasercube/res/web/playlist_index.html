@@ -1,0 +1,1348 @@
+<!--
+	
+██╗    ██╗██╗ ██████╗██╗  ██╗███████╗██████╗     ██╗      █████╗ ███████╗███████╗██████╗ ███████╗
+██║    ██║██║██╔════╝██║ ██╔╝██╔════╝██╔══██╗    ██║     ██╔══██╗██╔════╝██╔════╝██╔══██╗██╔════╝
+██║ █╗ ██║██║██║     █████╔╝ █████╗  ██║  ██║    ██║     ███████║███████╗█████╗  ██████╔╝███████╗
+██║███╗██║██║██║     ██╔═██╗ ██╔══╝  ██║  ██║    ██║     ██╔══██║╚════██║██╔══╝  ██╔══██╗╚════██║
+╚███╔███╔╝██║╚██████╗██║  ██╗███████╗██████╔╝    ███████╗██║  ██║███████║███████╗██║  ██║███████║
+ ╚══╝╚══╝ ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═════╝     ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    Ultra MK2 Play list Control v1.0 (c)2025 Wicked Lasers                                                                                                                                                                                                                                                          
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="images/favicon.png">
+	<title>Ultra MK2 Playlist Control</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script>
+    	const savedTheme = localStorage.getItem('selectedTheme') || "theme-dark-blue";
+    	document.documentElement.classList.add(savedTheme);
+  	</script>
+	<style>
+		:root {			
+		  /* --- Sizes / misc --- */
+		  --track-height: 10px;
+		  --thumb-size: 40px;
+		  --track-radius: 999px;
+		  --footer-btn-size: 40px;
+		  --label-font-size: 18px;
+		  --label-font-weight: bold;
+		  --radius: 4px;
+		}
+
+		/* Available colour themes*/
+				
+		.theme-dark-blue {
+		  --color-bg: #111927;
+		  --color-surface: #1e2a3a;
+		  --color-surface-alt: #2a3a4f;
+		  --color-accent: #339AF0;
+		  --color-text: #ffffff;
+		  
+		  --bg-color: var(--color-bg);
+		  --highlight-color: var(--color-accent);
+		  --track-bg: var(--color-surface);
+		  --fill-bg: var(--color-accent);
+		  --baseFg: var(--color-accent);
+		  --baseBg: var(--color-surface-alt);
+		  --accentFg: var(--color-accent);
+		  --accentBg: var(--color-surface-alt);
+		  --label-color: var(--color-text);
+		  --btn-color: var(--color-surface-alt);
+		  --header-bg-color: var(--color-surface);
+		  --header-border-bot-color: var(--color-surface-alt);
+		  --thumb-bg-color: var(--color-surface-alt);
+		  --sliderpanel-bg-color: var(--color-surface-alt);
+		  --selected-bg-color: var(--color-bg);
+		  --footer-bg-color: var(--color-surface);
+		}
+		
+		.theme-icy-green {
+		  --color-bg: #0f1a12;
+		  --color-surface: #1a2a20;
+		  --color-surface-alt: #2a3a2f;
+		  --color-accent: #4ee28e;
+		  --color-text: #e0fff4;
+
+		  --bg-color: var(--color-bg);
+		  --highlight-color: var(--color-accent);
+		  --track-bg: var(--color-surface);
+		  --fill-bg: var(--color-accent);
+		  --baseFg: var(--color-accent);
+		  --baseBg: var(--color-surface-alt);
+		  --accentFg: var(--color-accent);
+		  --accentBg: var(--color-surface-alt);
+		  --label-color: var(--color-text);
+		  --btn-color: var(--color-surface-alt);
+		  --header-bg-color: var(--color-surface);
+		  --header-border-bot-color: var(--color-surface-alt);
+		  --thumb-bg-color: var(--color-surface-alt);
+		  --sliderpanel-bg-color: var(--color-surface-alt);
+		  --selected-bg-color: var(--color-bg);
+		  --footer-bg-color: var(--color-surface);
+		}
+		
+		.theme-dark-red {
+		  --color-bg: #2b0f0f;
+		  --color-surface: #3a1e1e;
+		  --color-surface-alt: #4f2a2a;
+		  --color-accent: #f05454;
+		  --color-text: #ffe0e0;
+		  
+		  --bg-color: var(--color-bg);
+		  --highlight-color: var(--color-accent);
+		  --track-bg: var(--color-surface);
+		  --fill-bg: var(--color-accent);
+		  --baseFg: var(--color-accent);
+		  --baseBg: var(--color-surface-alt);
+		  --accentFg: var(--color-accent);
+		  --accentBg: var(--color-surface-alt);
+		  --label-color: var(--color-text);
+		  --btn-color: var(--color-surface-alt);
+		  --header-bg-color: var(--color-surface);
+		  --header-border-bot-color: var(--color-surface-alt);
+		  --thumb-bg-color: var(--color-surface-alt);
+		  --sliderpanel-bg-color: var(--color-surface-alt);
+		  --selected-bg-color: var(--color-bg);
+		  --footer-bg-color: var(--color-surface);
+		}
+		
+		.theme-pink {
+		  --color-bg: #2a0f1a;
+		  --color-surface: #3a1e2a;
+		  --color-surface-alt: #4f2a3a;
+		  --color-accent: #ff69b4;
+		  --color-text: #ffe0f0;
+		
+		  --bg-color: var(--color-bg);
+		  --highlight-color: var(--color-accent);
+		  --track-bg: var(--color-surface);
+		  --fill-bg: var(--color-accent);
+		  --baseFg: var(--color-accent);
+		  --baseBg: var(--color-surface-alt);
+		  --accentFg: var(--color-accent);
+		  --accentBg: var(--color-surface-alt);
+		  --label-color: var(--color-text);
+		  --btn-color: var(--color-surface-alt);
+		  --header-bg-color: var(--color-surface);
+		  --header-border-bot-color: var(--color-surface-alt);
+		  --thumb-bg-color: var(--color-surface-alt);
+		  --sliderpanel-bg-color: var(--color-surface-alt);
+		  --selected-bg-color: var(--color-bg);
+		  --footer-bg-color: var(--color-surface);
+		}
+		
+		.theme-purple {
+		  --color-bg: #1a0f2a;
+		  --color-surface: #2a1e3a;
+		  --color-surface-alt: #3a2a4f;
+		  --color-accent: #9b59b6;
+		  --color-text: #f0e0ff;
+		  
+		  --bg-color: var(--color-bg);
+		  --highlight-color: var(--color-accent);
+		  --track-bg: var(--color-surface);
+		  --fill-bg: var(--color-accent);
+		  --baseFg: var(--color-accent);
+		  --baseBg: var(--color-surface-alt);
+		  --accentFg: var(--color-accent);
+		  --accentBg: var(--color-surface-alt);
+		  --label-color: var(--color-text);
+		  --btn-color: var(--color-surface-alt);
+		  --header-bg-color: var(--color-surface);
+		  --header-border-bot-color: var(--color-surface-alt);
+		  --thumb-bg-color: var(--color-surface-alt);
+		  --sliderpanel-bg-color: var(--color-surface-alt);
+		  --selected-bg-color: var(--color-bg);
+		  --footer-bg-color: var(--color-surface);
+		}
+		
+		.theme-orange {
+		  --color-bg: #2a1a0f;
+		  --color-surface: #3a2a1e;
+		  --color-surface-alt: #4f3a2a;
+		  --color-accent: #f5a623;
+		  --color-text: #fff5e0;
+		  
+		  --bg-color: var(--color-bg);
+		  --highlight-color: var(--color-accent);
+		  --track-bg: var(--color-surface);
+		  --fill-bg: var(--color-accent);
+		  --baseFg: var(--color-accent);
+		  --baseBg: var(--color-surface-alt);
+		  --accentFg: var(--color-accent);
+		  --accentBg: var(--color-surface-alt);
+		  --label-color: var(--color-text);
+		  --btn-color: var(--color-surface-alt);
+		  --header-bg-color: var(--color-surface);
+		  --header-border-bot-color: var(--color-surface-alt);
+		  --thumb-bg-color: var(--color-surface-alt);
+		  --sliderpanel-bg-color: var(--color-surface-alt);
+		  --selected-bg-color: var(--color-bg);
+		  --footer-bg-color: var(--color-surface);
+		}
+
+		html, body {
+			margin: 0;
+			padding: 0;
+			overflow-x: hidden;
+			max-width: 100vw;
+			background: var(--bg-color);
+			font-family: sans-serif;
+			color: var(--label-color);
+			-webkit-overflow-scrolling: touch;
+			touch-action: manipulation;
+		}
+
+		.header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 48px;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			border-radius: 4px;
+			background-color: var(--header-bg-color);
+			color: var(--baseBg);
+			font-size: 18px;
+			line-height: 48px;
+			text-align: center;
+			z-index: 1000;
+			border-bottom: 1px solid var(--header-border-bot-color);
+		}
+
+		.slider-row {
+			display: flex;
+			align-items: center;
+			margin-bottom: 30px;
+		}
+
+		.slider-label {
+			width: 80px;
+			font-size: var(--label-font-size);
+			color: var(--label-color);
+			margin-right: 20px;
+		}
+
+		.slider-wrap {
+			position: relative;
+			flex: 1;
+			height: var(--thumb-size);
+			user-select: none;
+		}
+
+		.thumb-value {
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			font-size: var(--label-font-size);
+			font-weight: var(--label-font-weight);
+			color: var(--label-color);
+			pointer-events: none;
+			-webkit-user-select: none;
+			user-select: none;
+			width: var(--thumb-size);
+			height: var(--thumb-size);
+			text-align: center;
+			line-height: var(--thumb-size);
+			border-radius: 50%;
+			background: var(--thumb-bg-color);
+			border: 2px solid rgba(0,0,0,0.25);
+			box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+			z-index: 3;
+		}
+
+		input[type="range"] {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			background: transparent;
+			position: relative;
+			z-index: 1;
+			touch-action: none;
+		}
+
+		input[type="range"]::-webkit-slider-runnable-track {
+			height: var(--track-height);
+			background: linear-gradient(to right,var(--fill-bg) 0%,var(--fill-bg) var(--percent,50%),var(--track-bg) var(--percent,50%),var(--track-bg) 100%);
+			border-radius: var(--track-radius);
+			border: none;
+			margin: calc((var(--thumb-size) - var(--track-height)) / 2) 0;
+		}
+
+		input[type="range"]::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: var(--thumb-size);
+			height: var(--thumb-size);
+			background: transparent;
+			border: none;
+			box-shadow: none;
+			cursor: pointer;
+			margin: 0;
+		}
+
+		input[type="range"]::-moz-range-track {
+			height: var(--track-height);
+			background: var(--track-bg);
+			border-radius: var(--track-radius);
+		}
+
+		input[type="range"]::-moz-range-progress {
+			height: var(--track-height);
+			background: var(--fill-bg);
+			border-radius: var(--track-radius);
+		}
+
+		input[type="range"]::-moz-range-thumb {
+			width: var(--thumb-size);
+			height: var(--thumb-size);
+			background: transparent;
+			border: none;
+			box-shadow: none;
+			cursor: pointer;
+		}
+
+		.slider-panel {
+			position: fixed;
+			bottom: 104px;
+			width: calc(100% - 50px);
+			left: 8px;
+			transform: translateX(0) translateY(100%);
+			background: var(--sliderpanel-bg-color);
+			box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+			border: 2px solid var(--footer-bg-color);
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.5s ease, transform 0.5s ease;
+			padding: 30px 10px 10px 20px;
+			border-radius: 16px;
+			overflow: hidden;
+		}
+
+		.slider-panel.active {
+			opacity: 0.95;
+			pointer-events: auto;
+			transform: translateY(0);
+		}
+
+		#selected-box {
+			flex: 0 0 40%;
+			height: 60%;
+			margin-left: 8px;
+			border: 1px solid var(--sliderpanel-bg-color);
+			border-radius: 6px;
+			padding: 4px 8px;
+			color: var(--label-color);
+			font-size: 0.8em;
+			font-weight: 200;
+		  	background-color: color-mix(in srgb, var(--selected-bg-color) 100%, white 3%);		
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: flex;
+			align-items: center;
+			transition: box-shadow 0.3s ease-in-out;
+		}
+
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 100px;
+			border-radius: 4px;
+			background-color: var(--footer-bg-color);
+			display: grid;
+			align-items: center;
+			grid-template-columns: 1fr auto 1fr;
+			padding: 0 6px;
+			box-shadow: 0 -2px 4px rgba(0,0,0,0.3);
+			z-index: 1000;
+		}
+
+		.img-wrapper {
+			background: #0e1623;
+			border-radius: 4px;
+			padding: 2px;
+			box-sizing: border-box;
+		}
+
+		.content {
+			margin-top: 4px;
+			position: fixed;
+			top: 48px;
+			bottom: 102px;
+			left: 0;
+			right: 0;
+			overflow-y: auto;
+			padding: 4px 8px 8px 8px;
+			box-sizing: border-box;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+			box-sizing: border-box;
+			gap: 5px;
+			align-content: start;			
+		}
+
+		.grid-item {
+			background-color: var(--header-bg-color);
+			border: 2px solid var(--sliderpanel-bg-color);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: border-color 0.2s, box-shadow 0.2s;
+			box-sizing: border-box;
+			-webkit-user-select: none;
+			-webkit-touch-callout: none;
+			user-select: none;
+			touch-action: manipulation;
+		}
+
+		.grid-item img {
+		 	width: 100%;
+		  	height: auto;
+		  	aspect-ratio: 1/1;
+		  	object-fit: cover;
+			display: block;
+			-webkit-user-drag: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			user-drag: none;
+			user-select: none;
+			touch-action: manipulation;
+		}
+
+		.grid-item img.selected {
+			border-color: var(--accentFg);
+			box-shadow: 0 0 12px var(--accentFg) inset, 0 0 8px var(--accentFg);
+		}
+
+		.topright {
+			position: absolute;
+			top: 1px;
+			right: 16px;
+		}
+
+		.blankarea {
+			height: 4px;
+		}
+
+		select {
+			font: 400 12px/1.3 sans-serif;
+			width: 120px;
+			-webkit-appearance: none;
+			appearance: none;
+			color: var(--baseFg);
+			border: 1px solid var(--baseFg);
+			line-height: 1;
+			outline: 0;
+			padding: 0.75em 2.5em 0.75em 0.75em;
+			border-radius: var(--radius);
+			background-color: var(--baseBg);			
+			background-image: linear-gradient(var(--baseFg),var(--baseFg)),linear-gradient(-135deg,transparent 50%,var(--accentBg) 50%),linear-gradient(-225deg,transparent 50%,var(--accentBg) 50%),linear-gradient(var(--accentBg) 42%,var(--accentFg) 42%);
+			background-repeat: no-repeat,no-repeat,no-repeat,no-repeat;
+			background-size: 1px 100%,20px 22px,20px 22px,20px 100%;
+			background-position: right 20px center,right bottom,right bottom,right bottom;
+		}
+
+		select:hover, select:active {
+			background-image: linear-gradient(var(--accentFg),var(--accentFg)),linear-gradient(-135deg,transparent 50%,var(--accentFg) 50%),linear-gradient(-225deg,transparent 50%,var(--accentFg) 50%),linear-gradient(var(--accentFg) 42%,var(--accentBg) 42%);
+		}
+
+		select:active {
+			color: var(--accentBg);
+			border-color: var(--accentFg);
+			background-color: var(--accentFg);
+		}
+
+		.footer-buttons, .footer-buttons-left {
+			display: flex;
+			align-self: center;
+			gap: 5px;
+		}
+
+		.footer-buttons-left {
+			justify-self: start;
+		}
+
+		.footer-buttons {
+			justify-self: end;
+		}
+		
+		.footer-buttons button, .footer-buttons-left button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			background: none;
+			border: none;
+			padding: 8px;             
+			border-radius: 50%;
+			background-color: color-mix(in srgb, var(--header-bg-color) 100%, white 3%);
+			transition: transform 0.2s ease, box-shadow 0.3s ease;
+		}
+		
+		.footer-buttons button img {
+			width: calc( var(--footer-btn-size) - 4px);
+			height: width;
+		}
+		
+		.footer-buttons button.clicked {
+			transform: scale(1.2);
+			box-shadow: 0 0 25px 10px var(--accentFg); 
+		}
+
+		.footer-buttons img, .footer-buttons-left img {
+			width: var(--footer-btn-size);
+			height: width;
+			display: block;
+			-webkit-user-drag: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			user-select: none;
+			pointer-events: none;
+		}
+
+		.power-btn.clicked {
+			transform: scale(1.2);
+			box-shadow: 0 0 25px 10px var(--accentFg); 
+		}
+		
+		.power-btn img {
+			width: 50px;
+			height: 50px;
+			display: block;
+			-webkit-user-drag: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			user-select: none;
+			pointer-events: none;
+		}
+
+		.power-btn, .reset-btn {
+			background-color: color-mix(in srgb, var(--header-bg-color) 100%, white 3%);
+			border: none;
+			border-radius: 32px;
+			padding: 8px;
+			cursor: pointer;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			justify-self: center;			
+			transition: transform 0.2s ease, box-shadow 0.3s ease;
+		}
+
+		.reset-btn img {
+			width: 30px;
+			height: 30px;
+			display: block;
+			-webkit-user-drag: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			user-select: none;
+			pointer-events: none;
+		}
+		
+		.reset-btn {
+			margin-left: 30px;
+		}
+		
+		.reset-btn.clicked {
+			transform: scale(1.2);
+			box-shadow: 0 0 25px 10px var(--accentFg);
+			transition: transform 0.2s ease, box-shadow 0.3s ease;
+		}
+		
+		#menuBtn,
+		#settingsBtn,
+		#colorBtn  {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 8px;              
+			border-radius: 50%;       
+			background-color: color-mix(in srgb, var(--header-bg-color) 100%, white 3%);
+			transition: transform 0.2s ease, box-shadow 0.3s ease;
+		}
+		
+		#menuBtn img,
+		#settingsBtn img,
+		#colorBtn img  {
+			width: calc( var(--footer-btn-size) - 4px);   
+			height: width;
+		}
+		
+		#menuBtn.active,
+		#settingsBtn.active,
+		#colorBtn.active  {
+			transform: scale(1.2);
+			box-shadow: 0 0 20px 6px var(--accentFg);
+		}
+
+		.colorize-row {
+		  display: flex;
+		  gap: 8px;
+		  justify-content: center;
+		  padding: 10px 0;
+		  margin-bottom: 30px;
+		}
+		
+		.colorize-btn {
+		  width: 34px;
+		  height: 34px;
+		  border-radius: 50%;
+		  border: 2px solid var(--btn-color);
+		  background: transparent;
+		  cursor: pointer;
+		  outline: none;
+		  transition: transform 0.2s ease, box-shadow 0.3s ease;
+		  background-color: gray;
+		}
+		
+		.colorize-btn.active {
+			transform: scale(1.2);
+			box-shadow: 0 0 20px 6px var(--accentFg);
+		}
+				
+		.colorize-btn.none {
+		  	background: transparent;
+		   	border: 2px solid var(--btn-color);
+		}
+		
+		.switch-row {
+		  display: flex;
+		  align-items: center;
+		  
+		  margin: 12px 0;
+		  margin-bottom: 30px;
+		}
+		
+		.switch-row > label:first-child {
+ 			width: 80px;
+		  	flex-shrink: 0;
+		  	margin-right: 20px;
+			font-size: var(--label-font-size);
+			color: var(--label-color);
+		}
+		
+		.switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 50px;
+		  height: 28px;
+		}
+		
+		.switch input {
+		  opacity: 0;
+		  width: 0;
+		  height: 0;
+		}
+		
+		.switch .slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0; left: 0; right: 0; bottom: 0;
+		  background-color: var(--thumb-bg-color);
+		  transition: 0.3s;
+		  border-radius: 28px;
+		}
+		
+		.switch .slider::before {
+		  position: absolute;
+		  content: "";
+		  height: 20px;
+		  width: 20px;
+		  left: 4px;
+		  bottom: 4px;
+		  background-color: white;
+		  transition: 0.3s;
+		  border-radius: 50%;
+		}
+		
+		.switch input:checked + .slider {
+		  background-color: var(--accentFg);
+		}
+		
+		.switch input:checked + .slider::before {
+		  transform: translateX(22px);
+		}
+		
+		.selectedBox-glow {
+		  box-shadow: 0 0 15px 5px var(--accentFg);
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div id="selected-box"><span id="selected-name"></span></div>
+		<div class="topright"><select class="theme-droplist" id="playlist-selection"></select></div>
+	</div>
+	<div class="content"><div class="grid" id="grid"></div></div>
+	<div class="footer">
+		<div class="footer-buttons-left">
+			<button id="menuBtn"><img src="/images/menu_sel.png" alt="Menu"></button>
+			<button id="settingsBtn"><img src="/images/settings_sel.png" alt="Settings"></button>
+			<button id="colorBtn"><img src="/images/color_wheel.png" alt="colorize"></button>
+		</div>
+		<button class="power-btn" onclick="togglePlaying()"><img id="power-icon" src="/images/power_blue.svg" alt="Power"></button>
+		<div class="footer-buttons">
+			<button id="prevBtn" onclick="prevCUE()"><img src="/images/previous_sel.png" alt="Prev"></button>
+			<button id="pauseBtn" onclick="toggleAutoplay()"><img id="pause-icon" src="/images/pause_sel.png" alt="Pause"></button>
+			<button id="nextBtn" onclick="nextCUE()"><img src="/images/next_sel.png" alt="Next"></button>
+		</div>
+	</div>
+	
+	<div id="sliderPanel" class="slider-panel">
+		<div class="slider-row">
+			<div class="slider-label">Rotation</div>
+			<div class="slider-wrap">
+				<input type="range" id="projection/Rotation" min="-180" max="180" value="0" step="1" />
+				<span class="thumb-value" id="rotation-value"></span>
+			</div>
+			<button class="reset-btn" id="resetRotationBtn"><img id="reset-rotation" src="/images/restart_sel.png" alt="RST"></button>
+		</div>
+		<div class="slider-row">
+			<div class="slider-label">Zoom</div>
+			<div class="slider-wrap">
+				<input type="range" id="projection/Zoom" min="0" max="100" value="50" step="1" />
+				<span class="thumb-value" id="zoom-value"></span>
+			</div>
+			<button class="reset-btn" id="resetZoomBtn"><img id="reset-zoom" src="/images/restart_sel.png" alt="RST"></button>
+		</div>
+		<div class="slider-row">
+			<div class="slider-label">Power</div>
+			<div class="slider-wrap">
+				<input type="range" id="projection/Power" min="0" max="100" value="100" step="1" />
+				<span class="thumb-value" id="power-value"></span>
+			</div>
+			<button class="reset-btn" id="resetPowerBtn"><img id="reset-power" src="/images/restart_sel.png" alt="RST"></button>
+		</div>
+	</div>
+	
+	<div id="settingsPanel" class="slider-panel">
+		<div class="slider-row">
+			<div class="slider-label">Theme</div>
+			<div class="slider-wrap">		
+					<select class="theme-droplist" id="theme-selection">
+					    <option value="theme-dark-blue">Dark Blue</option>
+    					<option value="theme-icy-green">Icy Green</option>
+    					<option value="theme-dark-red">Dark Red</option>
+    					<option value="theme-pink">Pink</option>
+    					<option value="theme-purple">Purple</option>
+    					<option value="theme-orange">Orange</option>
+					</select>			
+			</div>	
+		</div>
+		<div class="switch-row">
+		  <label for="animatedSwitch">Animated Previews</label>
+		  <label class="switch">
+		    <input type="checkbox" id="animatedSwitch">
+		    <span class="slider"></span>
+		  </label>
+		</div>
+		<div class="switch-row">
+		  <label for="shuffleSwitch">Shuffle Playlist</label>
+		  <label class="switch">
+		    <input type="checkbox" id="shuffleSwitch">
+		    <span class="slider"></span>
+		  </label>
+		</div>
+		<div class="slider-row">
+			<div class="slider-label">CUE Delay</div>
+			<div class="slider-wrap">
+				<input type="range" id="playlist_player/Cue Delay" step="1" />
+				<span class="thumb-value" id="cuedelay-value"></span>
+			</div>
+			<button class="reset-btn" id="resetCueDelayBtn"><img id="reset-cuedelay" src="/images/restart_sel.png" alt="RST"></button>
+		</div>
+		<div class="slider-row">
+			<div class="slider-label">Play Speed</div>
+			<div class="slider-wrap">
+				<input type="range" id="Speed" step="5" />
+				<span class="thumb-value" id="playspeed-value"></span>
+			</div>
+			<button class="reset-btn" id="resetSpeedBtn"><img id="reset-playspeed" src="/images/restart_sel.png" alt="RST"></button>
+		</div>
+	</div>
+
+	<div id="colorizePanel" class="slider-panel">
+		<div class="colorize-row">
+		  <button class="colorize-btn" data-color="rgb(255, 0, 0)"></button>
+		  <button class="colorize-btn" data-color="rgb(255, 100, 0)"></button>
+		  <button class="colorize-btn" data-color="rgb(0, 255, 0)"></button>
+		  <button class="colorize-btn" data-color="rgb(0, 0, 255)"></button>
+		  <button class="colorize-btn" data-color="rgb(0, 255, 255)"></button>
+		  <button class="colorize-btn" data-color="rgb(255, 255, 0)"></button>
+		  <button class="colorize-btn" data-color="rgb(255, 0, 255)"></button>
+		  <button class="colorize-btn" data-color="rgb(35, 11, 69)"></button>
+		  <button class="colorize-btn" data-color="rgb(255, 255, 255)"></button>
+		</div>
+		<div class="slider-row">
+			<div class="slider-label">Intensity</div>
+			<div class="slider-wrap">
+				<input type="range" id="hue_effect/Intensity" step="1" />
+				<span class="thumb-value" id="colorizeIntensity-value"></span>
+			</div>
+			<button class="reset-btn" id="resetcolorizeIntensityBtn"><img id="reset-colorizeIntensity" src="/images/restart_sel.png" alt="RST"></button>
+		</div>
+	</div>
+	
+	<script>
+		const RECONNECT_DELAY = 5000;
+		const KEEPALIVE_TIMEOUT = 1000;
+		const FLASH_PERIOD_MS = 200;
+
+		let ws;
+		let reconnectTimer;
+		let keepAliveTimer;	
+		let selectedImg = null;
+		let selectedUrl = null;
+		let selectedPlaylist = '';
+		let playing = false;
+		let autoplay = true;
+		const allSliderIds = [];
+			
+		function getHueSaturation(color) {
+		  if (!color) return { hue: null, saturation: null };
+		
+		  const ctx = document.createElement('canvas').getContext('2d');
+		  ctx.fillStyle = color;
+		  const computed = ctx.fillStyle;
+		
+		  let r, g, b;
+		
+		  // hex #rgb or #rrggbb
+		  if (computed[0] === '#') {
+		    const hex = computed.slice(1);
+		    if (hex.length === 3) {
+		      r = parseInt(hex[0] + hex[0], 16);
+		      g = parseInt(hex[1] + hex[1], 16);
+		      b = parseInt(hex[2] + hex[2], 16);
+		    } else if (hex.length === 6) {
+		      r = parseInt(hex.slice(0, 2), 16);
+		      g = parseInt(hex.slice(2, 4), 16);
+		      b = parseInt(hex.slice(4, 6), 16);
+		    } else {
+		      return { hue: null, saturation: null };
+		    }
+		  } else {
+		    // rgb(...) or rgba(...)
+		    const m = computed.match(/rgba?\s*\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})/i);
+		    if (!m) return { hue: null, saturation: null };
+		    r = parseInt(m[1], 10);
+		    g = parseInt(m[2], 10);
+		    b = parseInt(m[3], 10);
+		  }
+		
+		  // Normalize RGB 0..1
+		  const R = r / 255, G = g / 255, B = b / 255;
+		  const max = Math.max(R, G, B), min = Math.min(R, G, B);
+		  const d = max - min;
+		  const l = (max + min) / 2; // lightness
+		
+		  let h = 0;
+		  if (d !== 0) {
+		    if (max === R) h = ((G - B) / d) % 6;
+		    else if (max === G) h = (B - R) / d + 2;
+		    else h = (R - G) / d + 4;
+		    h = h * 60;
+		    if (h < 0) h += 360;
+		  }
+		
+		  let s = 0;
+		  if (d !== 0) {
+		    s = d / (1 - Math.abs(2 * l - 1));
+		  }
+		
+		  return {
+		    hue: Math.round(h),                // 0–360
+		    saturation: Math.round(s * 100)    // 0–100 %
+		  };
+		}
+				
+		function updatePlayingIcon() {
+			const icon = document.getElementById("power-icon");
+			icon.src = playing ? "/images/power_red.svg" : "/images/power_blue.svg";
+		}
+	
+		function updateAutoplayIcon() {
+			const icon = document.getElementById("pause-icon");
+			icon.src = autoplay ? "/images/pause_sel.png" : "/images/play_sel.png";
+		}
+	
+		function ws_send_button_event(item) {
+			if (ws && ws.readyState === WebSocket.OPEN) {
+				ws.send(JSON.stringify({ btn: item }));
+			}
+		}
+	
+		function togglePlaying() {
+			ws_send_button_event("play");
+		}
+	
+		function toggleAutoplay() {
+			ws_send_button_event("autoplay");
+		}
+	
+		function nextCUE() {
+			ws_send_button_event("next");
+		}
+	
+		function prevCUE() {
+			ws_send_button_event("previous");
+		}
+	
+		function setupSlider(sliderId, valueId, resetbtnId, min, max, def) {
+			const slider = document.getElementById(sliderId);
+			const thumbValue = document.getElementById(valueId);
+			if (!slider || !thumbValue) return;
+			
+			if (!allSliderIds.includes(sliderId)) allSliderIds.push(sliderId);
+					
+			slider.min = min;
+			slider.max = max;
+			slider.value = def;
+		
+			const wrap = slider.parentElement;
+					
+			slider.isActive = false;
+			slider.addEventListener("mousedown", () => slider.isActive = true);
+			slider.addEventListener("touchstart", () => slider.isActive = true);
+			slider.addEventListener("mouseup", () => slider.isActive = false);
+			slider.addEventListener("touchend", () => slider.isActive = false);
+		
+			function update() {
+				const minVal = +slider.min;
+				const maxVal = +slider.max;
+				const val = +slider.value;
+				const percent = (val - minVal) / (maxVal - minVal);
+		
+				wrap.style.setProperty('--percent', (percent * 100) + '%');
+				thumbValue.textContent = val;
+		
+				const sliderWidth = slider.offsetWidth;
+				thumbValue.style.left = percent * sliderWidth + 'px';
+			}
+		
+			update();
+			slider.addEventListener('input', () => {
+				update();				
+				if (ws && ws.readyState === WebSocket.OPEN) {
+					resetKeepAlive();
+					ws.send(JSON.stringify({ [sliderId]: parseFloat(slider.value) }));
+				}
+			});
+			window.addEventListener('resize', update);
+		
+			const resetbtn = document.getElementById(resetbtnId);
+			if (!resetbtn) return;
+		
+			resetbtn.addEventListener("click", () => {
+				slider.value = def;
+				slider.dispatchEvent(new Event("input"));
+			});
+			
+			resetbtn.classList.add('reset-btn-glow-base');
+			resetbtn.addEventListener("click", () => {
+				resetbtn.classList.add('clicked');
+				setTimeout(() => {
+					resetbtn.classList.remove('clicked');
+				}, FLASH_PERIOD_MS);
+			});
+		}
+			
+		function getDisplayNameFromUrl(src) {
+			const filename = decodeURIComponent(src);
+			const noQuery = filename.split('?')[0];
+			let name = noQuery.substring(noQuery.lastIndexOf('/') + 1);
+			name = name.replace(/\.webp$/i, '');
+			const dashIndex = name.indexOf('-');
+			if (dashIndex !== -1) {
+				name = name.substring(dashIndex + 1).trim();
+			}
+			return name;
+		}
+	
+		function updateSelectedName(name) {
+			const shortName = getDisplayNameFromUrl(name);
+			const nameEl = document.getElementById('selected-name');
+			if (nameEl) nameEl.textContent = shortName || '';
+		}
+	
+		function getSelectedPlaylistImage() {
+			fetch('/api/playlist/selected-image')
+				.then(res => res.json())
+				.then(data => { selectedUrl = data.url || null; })
+				.catch(err => console.error('Failed to fetch selected image:', err))
+				.finally(loadGrid);
+		}
+	
+		function loadPlaylists() {
+			fetch('/api/playlist/playlist-items')
+				.then(res => res.json())
+				.then(data => {
+					const select = document.getElementById('playlist-selection');
+					select.innerHTML = '';
+					data.options.forEach(opt => {
+						const option = document.createElement('option');
+						option.value = opt.value;
+						option.textContent = opt.label;
+						if (opt.value === data.current) {
+							option.selected = true;
+							selectedPlaylist = option.textContent;
+						}
+						select.appendChild(option);
+					});
+				})
+				.catch(err => console.error('Failed to load playlists:', err));
+		}
+	
+		function loadGrid() {
+			fetch('/api/playlist/image-list')
+				.then(res => res.json())
+				.then(list => {
+					const grid = document.getElementById('grid');
+					let selectedName = '';
+					grid.innerHTML = '';
+					list.forEach(url => {
+						const wrapper = document.createElement('div');
+						wrapper.className = 'grid-item';
+						const img = document.createElement('img');
+						img.src = url;
+						img.loading = 'lazy';
+						img.draggable = false;
+						img.onerror = () => { img.onerror = null; img.src = url; };
+						wrapper.appendChild(img);
+	
+						if (url === selectedUrl) {
+							img.classList.add('selected');
+							selectedImg = img;
+							wrapper.classList.add('selected');
+							selectedName = getDisplayNameFromUrl(url);
+						}
+	
+						img.onclick = () => {
+							if (selectedImg) selectedImg.classList.remove('selected');
+							selectedImg = img;
+							img.classList.add('selected');
+							selectedName = getDisplayNameFromUrl(url);
+							const nameEl = document.getElementById('selected-name');
+							if (nameEl) nameEl.textContent = selectedName || '';
+							fetch('/api/playlist/image-clicked', {
+								method: 'POST',
+								headers: { 'Content-Type': 'application/json' },
+								body: JSON.stringify({ url })
+							}).catch(err => console.error('Click handler error:', err));
+						};
+	
+						grid.appendChild(wrapper);
+					});
+	
+					const selected = grid.querySelector('.grid-item.selected');
+					if (selected) selected.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					updateSelectedName(selectedName);
+				})
+				.catch(err => console.error('Error loading images:', err));
+		}
+	
+		function highlightGridItemByUrl(url) {
+			const grid = document.getElementById('grid');
+			const container = grid.parentElement;
+			const gridItems = grid.querySelectorAll(".grid-item");
+		
+			gridItems.forEach(item => {
+				const img = item.querySelector("img");
+				if (!img) return;
+		
+				const imgSrc = new URL(img.src, window.location.origin).href;
+				const targetUrl = new URL(url, window.location.origin).href;
+		
+				if (imgSrc === targetUrl) {
+					img.classList.add('selected');
+		
+					const itemTop = item.offsetTop;
+					const itemBottom = itemTop + item.offsetHeight;
+					const containerTop = container.scrollTop;
+					const containerBottom = containerTop + container.clientHeight;
+		
+					if (itemTop < containerTop || itemBottom > containerBottom) {
+						item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					}
+		
+					updateSelectedName(url);
+		
+				} else {
+					img.classList.remove('selected');
+				}
+			});
+		}
+		
+		function parse_msg(msg)
+		{
+			if (msg.type === "init") {
+				
+				allSliderIds.forEach(sliderId => {
+					const slider = document.getElementById(sliderId);
+					if (slider && slider.type === "range" && !slider.isActive && Array.isArray(msg.sliders)) {
+					    const sliderObj = msg.sliders.find(obj => sliderId in obj);
+					    if (sliderObj) {
+					        const newValue = sliderObj[sliderId];
+					        if (slider.value != newValue) {
+					            slider.value = newValue;
+					            slider.dispatchEvent(new Event("input"));
+					        }
+					    }
+					}
+				});
+						
+				if (msg.playlist) {
+					const select = document.getElementById('playlist-selection');
+					if (select && select.options.length === 0) loadPlaylists();
+					if (select && select.value !== msg.playlist) {
+						select.value = msg.playlist;
+						loadGrid();
+					}
+				}
+		
+				if (msg.item_url && selectedUrl !== msg.item_url) {
+					selectedUrl = msg.item_url;
+					highlightGridItemByUrl(selectedUrl);
+				}
+		
+				if (typeof msg.play === "boolean") {
+					if (playing !== msg.play) {
+						playing = msg.play;
+						updatePlayingIcon();
+					}
+				}
+				
+				if (typeof msg.autoplay === "boolean") {
+					if (autoplay !== msg.autoplay) {
+						autoplay = msg.autoplay;
+						updateAutoplayIcon();
+					}
+				}
+				
+				if (typeof msg.previews === "boolean") {
+				    const animSwitch = document.getElementById("animatedSwitch");				    
+				    if (animSwitch && msg.previews !== animSwitch.checked) {
+						animSwitch.checked = msg.previews;
+						getSelectedPlaylistImage();
+					}
+				}
+				
+				if (typeof msg.shuffle === "boolean") {
+				    const shuffleSwitch = document.getElementById("shuffleSwitch");
+				    if (shuffleSwitch) shuffleSwitch.checked = msg.shuffle;
+				}
+			}			
+		}
+		
+		function send_ws_connect_msg()
+		{
+			if (ws && ws.readyState === WebSocket.OPEN) {
+				ws.send(JSON.stringify({ type: "connect", sliders: allSliderIds }));
+			}
+		}
+	
+		function initWebSocket() {
+			ws = new WebSocket(`ws://${location.host}/ws`);
+			ws.onopen = () => {
+				if (reconnectTimer) { clearTimeout(reconnectTimer); reconnectTimer = null; }
+				send_ws_connect_msg();
+				console.log("websocket opened to MK2");
+			};
+			ws.onclose = () => {
+				console.warn("WebSocket closed, retrying...");
+				reconnectTimer = setTimeout(initWebSocket, RECONNECT_DELAY);
+			};
+			ws.onmessage = (event) => {
+				const msg = JSON.parse(event.data);
+				resetKeepAlive();
+				parse_msg(msg);
+			};
+		}
+		
+		function resetKeepAlive() {
+			clearTimeout(keepAliveTimer);
+			keepAliveTimer = setTimeout(() => {
+				if (ws && ws.readyState === WebSocket.OPEN) {
+					ws.send(JSON.stringify({ type: "get_info" }));
+					resetKeepAlive();
+				}
+			}, KEEPALIVE_TIMEOUT);
+		}
+
+		function applyTheme(themeName) {
+		  // Remove any theme-* classes
+		  document.documentElement.classList.forEach(cls => {
+		    if (cls.startsWith("theme-")) {
+		      document.documentElement.classList.remove(cls);
+		    }
+		  });
+		
+		  // Add the chosen theme class
+		  document.documentElement.classList.add(themeName);
+		
+		  // Save to localStorage
+		  localStorage.setItem("selectedTheme", themeName);
+		}
+				
+		document.addEventListener('DOMContentLoaded', () => {
+	
+			const footerButtons = document.querySelectorAll('.footer-buttons button');
+			const selectedBox = document.getElementById('selected-box');
+			const powerBtn = document.querySelector('.power-btn');
+			const colorizeButtons = document.querySelectorAll('#colorizePanel .colorize-btn');
+			const menuBtn = document.getElementById('menuBtn');
+			const sliderPanel = document.getElementById('sliderPanel');
+			const settingsBtn = document.getElementById('settingsBtn');
+			const settingsPanel = document.getElementById('settingsPanel');
+			const colorizeBtn = document.getElementById('colorBtn');
+			const colorizePanel = document.getElementById('colorizePanel');
+			const themeselector = document.getElementById('theme-selection');
+		    const defaultTheme = 'theme-dark-blue';		
+		    const storedTheme = localStorage.getItem('selectedTheme') || defaultTheme;
+		    
+		    applyTheme(storedTheme);
+		    themeselector.value = storedTheme;
+		
+		    themeselector.addEventListener('change', () => {
+				applyTheme(themeselector.value);
+		    });
+
+			footerButtons.forEach(btn => {
+				btn.addEventListener('click', () => {				
+					btn.classList.add('clicked');			
+					setTimeout(() => {
+						btn.classList.remove('clicked');
+					}, FLASH_PERIOD_MS);
+				});
+			});
+			
+			powerBtn.addEventListener('click', () => {			
+				powerBtn.classList.add('clicked');
+				setTimeout(() => {
+					powerBtn.classList.remove('clicked');
+				}, FLASH_PERIOD_MS);
+			});
+		
+			colorizeButtons.forEach(btn => {
+			  const color = btn.dataset.color;
+			  btn.style.backgroundColor = color;
+			  
+			  btn.addEventListener('click', () => {	    
+			    colorizeButtons.forEach(b => b.classList.remove('active','clicked'));		
+			    btn.classList.add('clicked');
+				setTimeout(() => {
+		      		btn.classList.remove('clicked');
+		      		btn.classList.add('active');
+		    	}, 100);
+			    const { hue, saturation } = getHueSaturation(color);
+			    if (ws && ws.readyState === WebSocket.OPEN) {
+					ws.send(JSON.stringify({ "hue_effect/Hue" : hue, "hue_effect/Saturation" : saturation}));
+				}
+			  });
+			});
+					
+			selectedBox.addEventListener('click', () => {
+			if (selectedUrl) {
+					highlightGridItemByUrl(selectedUrl);
+					selectedBox.classList.add('selectedBox-glow');
+					setTimeout(() => {
+					  selectedBox.classList.remove('selectedBox-glow');
+					}, FLASH_PERIOD_MS);
+				}
+			});
+			
+			document.addEventListener("visibilitychange", () => {
+				if (document.visibilityState === "visible") {
+					if (!ws || ws.readyState !== WebSocket.OPEN) {
+						console.log("Reconnecting WebSocket after tab visible...");
+						initWebSocket();
+					} else {
+						send_ws_connect_msg();
+					}
+				}
+			});
+			
+			document.getElementById('playlist-selection').addEventListener('change', function() {
+				selectedPlaylist = this.value;
+				fetch('/api/playlist/playlist-selected', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					body: 'playlist=' + encodeURIComponent(this.value)
+				})
+				.then(res => {
+					if (!res.ok) throw new Error('Failed to set playlist');
+					return res.text();
+				})
+				.then(() => getSelectedPlaylistImage())
+				.catch(err => console.error('Error updating playlist:', err));
+			});
+			
+			document.getElementById('animatedSwitch').addEventListener('change', e => {
+				if (ws && ws.readyState === WebSocket.OPEN) {
+					let state = e.target.checked;
+					ws.send(JSON.stringify({ previews: state }));
+					getSelectedPlaylistImage();
+				}
+			});
+	
+			document.getElementById('shuffleSwitch').addEventListener('change', e => {
+				if (ws && ws.readyState === WebSocket.OPEN) {
+					let state = e.target.checked;
+					ws.send(JSON.stringify({ shuffle: state }));
+				}
+			});	
+					
+			menuBtn.addEventListener('click', () => {
+				sliderPanel.classList.toggle('active');
+				menuBtn.classList.toggle('active');
+  				settingsPanel.classList.remove('active');
+  				settingsBtn.classList.remove('active');
+  				colorizePanel.classList.remove('active');
+  				colorizeBtn.classList.remove('active');
+			});
+			
+			settingsBtn.addEventListener('click', () => {
+  				settingsPanel.classList.toggle('active');
+  				settingsBtn.classList.toggle('active');
+				sliderPanel.classList.remove('active');
+				menuBtn.classList.remove('active');  				
+  				colorizePanel.classList.remove('active');
+  				colorizeBtn.classList.remove('active');
+			});
+
+			colorizeBtn.addEventListener('click', () => {
+  				colorizePanel.classList.toggle('active');
+  				colorizeBtn.classList.toggle('active');
+				sliderPanel.classList.remove('active');
+				menuBtn.classList.remove('active');  				
+  				settingsPanel.classList.remove('active');
+  				settingsBtn.classList.remove('active');
+			});
+
+			loadPlaylists();
+			getSelectedPlaylistImage();
+			setupSlider('projection/Power', 'power-value', 'resetPowerBtn', 0, 100, 100);
+			setupSlider('projection/Zoom', 'zoom-value', 'resetZoomBtn', 0, 100, 100);
+			setupSlider('projection/Rotation', 'rotation-value', 'resetRotationBtn', -90, 90, 0);
+			setupSlider('Speed', 'playspeed-value', 'resetSpeedBtn', 10, 200, 100);
+			setupSlider('playlist_player/Cue Delay', 'cuedelay-value', 'resetCueDelayBtn', 1, 100, 10);
+			setupSlider('hue_effect/Intensity', 'colorizeIntensity-value', 'resetcolorizeIntensityBtn', 0, 100, 0);
+			initWebSocket();
+		});
+	</script>
+</body>
+</html>
