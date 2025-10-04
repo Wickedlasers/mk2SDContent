@@ -321,7 +321,7 @@
 			opacity: 0;
 			pointer-events: none;
 			transition: opacity 0.5s ease, transform 0.5s ease;
-			padding: 30px 10px 10px 20px;
+			padding: 30px 10px 30px 20px;
 			border-radius: 16px;
 			overflow: hidden;
 		}
@@ -541,7 +541,14 @@
 			justify-self: center;			
 			transition: transform 0.2s ease, box-shadow 0.3s ease;
 		}
-
+		
+		.power-btn.orange-active {
+		  	background-color: #ff8c00;
+		  	box-shadow: 0 0 8px 2px rgba(255, 140, 0, 1.0);
+  			transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  			opacity: 0.5;
+		}
+		
 		.reset-btn img {
 			width: 30px;
 			height: 30px;
@@ -680,6 +687,113 @@
 		.selectedBox-glow {
 		  box-shadow: 0 0 15px 5px var(--accentFg);
 		}
+		
+		#sdcard-panel {
+		    position: fixed;
+		    top: 48px;
+		    bottom: 102px;
+		    left: 0;
+		    right: 0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    background: rgba(0,0,0,0.5);
+		    z-index: 9999;
+		    opacity: 0;
+    		pointer-events: none;
+    		transition: opacity 0.4s ease;
+		}
+		
+		#sdcard-panel.active {
+    		opacity: 0.9;
+		}
+		
+		.sdcard-content {
+		    background: var(--header-bg-color);
+		    padding: 40px;
+		    border-radius: 16px;
+		    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+		    text-align: center;
+		    max-width: 400px;
+		    width: 90%;
+		    transform: scale(0.9);
+    		transition: transform 0.4s ease;
+    		pointer-events: none;
+		}
+		
+		#sdcard-panel.active .sdcard-content {
+    		transform: scale(1);
+		}
+		
+		.sdcard-content img {
+		    width: 160px;
+		    height: auto;
+		    margin-bottom: 20px;
+		    pointer-events: none;
+		}
+		
+		.sdcard-content p {
+		    font-size: 18px;
+		    color: var(--label-color);
+		    margin: 0;
+		    pointer-events: none;
+		}
+		
+		#batteryContainer {
+		  position: absolute;
+		  bottom: 10px;
+		  left: 50%;
+		  transform: translateX(-50%);
+		  display: flex;
+		  align-items: center;
+		  gap: 8px;
+		  font-size: 14px;
+		  color: #fff;
+		  opacity: 0.8;
+		  pointer-events: none;
+		}
+		
+		#batteryBar {
+		  width: 40px;
+		  height: 16px;
+		  border: 2px solid #ccc;
+		  border-radius: 4px;
+		  overflow: hidden;
+		  position: relative;
+		}
+		
+		#batteryLevel {
+		  height: 100%;
+		  width: 0%;
+		  transition: width 420ms ease;
+		  position: relative;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
+				
+		#batteryBar::after {
+		  content: '';
+		  position: absolute;
+		  right: -6px;
+		  top: 4px;
+		  width: 4px;
+		  height: 8px;
+		  background: #ccc;
+		  border-radius: 1px;
+		}
+		
+		#ilockLabel {
+		  background: #ff8c00;
+		  color: #fff;
+		  font-size: 13px;
+		  padding: 2px 8px;
+		  border-radius: 8px;
+		  white-space: nowrap;
+		  display: none;
+		  opacity: 0.9;
+		  margin-left: 10px;
+		}
 	</style>
 </head>
 <body>
@@ -687,18 +801,25 @@
 		<div id="selected-box"><span id="selected-name"></span></div>
 		<div class="topright"><select class="theme-droplist" id="playlist-selection"></select></div>
 	</div>
+	<div id="sdcard-panel">
+	  <div class="sdcard-content">
+	    <img src="/images/micro_sd.svg" alt="Micro SD Card">
+	    <p>Please insert the micro SD card into your MK2</p>
+	  </div>
+	</div>
+
 	<div class="content"><div class="grid" id="grid"></div></div>
 	<div class="footer">
 		<div class="footer-buttons-left">
-			<button id="menuBtn"><img src="/images/menu_sel.png" alt="Menu"></button>
-			<button id="settingsBtn"><img src="/images/settings_sel.png" alt="Settings"></button>
+			<button id="menuBtn"><img src="/images/menu.png" alt="Menu"></button>
+			<button id="settingsBtn"><img src="/images/settings.png" alt="Settings"></button>
 			<button id="colorBtn"><img src="/images/color_wheel.png" alt="colorize"></button>
 		</div>
 		<button class="power-btn" onclick="togglePlaying()"><img id="power-icon" src="/images/power_blue.svg" alt="Power"></button>
 		<div class="footer-buttons">
-			<button id="prevBtn" onclick="prevCUE()"><img src="/images/previous_sel.png" alt="Prev"></button>
-			<button id="pauseBtn" onclick="toggleAutoplay()"><img id="pause-icon" src="/images/pause_sel.png" alt="Pause"></button>
-			<button id="nextBtn" onclick="nextCUE()"><img src="/images/next_sel.png" alt="Next"></button>
+			<button id="prevBtn" onclick="prevCUE()"><img src="/images/previous.png" alt="Prev"></button>
+			<button id="pauseBtn" onclick="toggleAutoplay()"><img id="pause-icon" src="/images/pause.png" alt="Pause"></button>
+			<button id="nextBtn" onclick="nextCUE()"><img src="/images/next.png" alt="Next"></button>
 		</div>
 	</div>
 	
@@ -709,7 +830,7 @@
 				<input type="range" id="projection/Rotation" min="-180" max="180" value="0" step="1" />
 				<span class="thumb-value" id="rotation-value"></span>
 			</div>
-			<button class="reset-btn" id="resetRotationBtn"><img id="reset-rotation" src="/images/restart_sel.png" alt="RST"></button>
+			<button class="reset-btn" id="resetRotationBtn"><img id="reset-rotation" src="/images/restart.png" alt="RST"></button>
 		</div>
 		<div class="slider-row">
 			<div class="slider-label">Zoom</div>
@@ -717,7 +838,7 @@
 				<input type="range" id="projection/Zoom" min="0" max="100" value="50" step="1" />
 				<span class="thumb-value" id="zoom-value"></span>
 			</div>
-			<button class="reset-btn" id="resetZoomBtn"><img id="reset-zoom" src="/images/restart_sel.png" alt="RST"></button>
+			<button class="reset-btn" id="resetZoomBtn"><img id="reset-zoom" src="/images/restart.png" alt="RST"></button>
 		</div>
 		<div class="slider-row">
 			<div class="slider-label">Power</div>
@@ -725,7 +846,7 @@
 				<input type="range" id="projection/Power" min="0" max="100" value="100" step="1" />
 				<span class="thumb-value" id="power-value"></span>
 			</div>
-			<button class="reset-btn" id="resetPowerBtn"><img id="reset-power" src="/images/restart_sel.png" alt="RST"></button>
+			<button class="reset-btn" id="resetPowerBtn"><img id="reset-power" src="/images/restart.png" alt="RST"></button>
 		</div>
 	</div>
 	
@@ -763,7 +884,7 @@
 				<input type="range" id="playlist_player/Cue Delay" step="1" />
 				<span class="thumb-value" id="cuedelay-value"></span>
 			</div>
-			<button class="reset-btn" id="resetCueDelayBtn"><img id="reset-cuedelay" src="/images/restart_sel.png" alt="RST"></button>
+			<button class="reset-btn" id="resetCueDelayBtn"><img id="reset-cuedelay" src="/images/restart.png" alt="RST"></button>
 		</div>
 		<div class="slider-row">
 			<div class="slider-label">Play Speed</div>
@@ -771,7 +892,15 @@
 				<input type="range" id="Speed" step="5" />
 				<span class="thumb-value" id="playspeed-value"></span>
 			</div>
-			<button class="reset-btn" id="resetSpeedBtn"><img id="reset-playspeed" src="/images/restart_sel.png" alt="RST"></button>
+			<button class="reset-btn" id="resetSpeedBtn"><img id="reset-playspeed" src="/images/restart.png" alt="RST"></button>
+		</div>
+		
+		<div id="batteryContainer">
+		  <div id="batteryBar">
+		    <div id="batteryLevel"></div>
+		  </div>
+		  <span id="batteryPercent">--%</span>
+		  <span id="ilockLabel">INTERLOCK DISABLED</span>
 		</div>
 	</div>
 
@@ -793,7 +922,7 @@
 				<input type="range" id="hue_effect/Intensity" step="1" />
 				<span class="thumb-value" id="colorizeIntensity-value"></span>
 			</div>
-			<button class="reset-btn" id="resetcolorizeIntensityBtn"><img id="reset-colorizeIntensity" src="/images/restart_sel.png" alt="RST"></button>
+			<button class="reset-btn" id="resetcolorizeIntensityBtn"><img id="reset-colorizeIntensity" src="/images/restart.png" alt="RST"></button>
 		</div>
 	</div>
 	
@@ -810,8 +939,60 @@
 		let selectedPlaylist = '';
 		let playing = false;
 		let autoplay = true;
+		let lastSdcardState = null;
+		let battery_pct = 100;
+		let is_charging = null;
+		let is_ilock_en = null;
 		const allSliderIds = [];
+		
+		function updatePowerButton() {
+		  const btn = document.querySelector(".power-btn");
+		  if (btn) {		
+			  if (playing && is_ilock_en === false) {
+			    btn.classList.add("orange-active");
+			  } else {
+			    btn.classList.remove("orange-active");
+			  }
+		  }
+		}		
+		
+		function updateILockLabel() {
+		  const ilockEl = document.getElementById("ilockLabel");
+		  if (!ilockEl) return;
+		
+		  if (is_ilock_en === false) {
+		    ilockEl.style.display = "inline-block";
+		  } else {
+		    ilockEl.style.display = "none";
+		  }
+		}	
 			
+		function updateBatteryGauge() {
+			const levelEl = document.getElementById("batteryLevel");
+			const percentEl = document.getElementById("batteryPercent");
+			let pct = Math.min(100, Math.max(0, battery_pct || 0));
+						
+			if (is_charging === true) {
+			  	pct = 100;
+			  	levelEl.style.width = `${pct}%`;
+			  	percentEl.textContent = "CHG";
+			  	levelEl.style.background = "#808080";
+			}
+			else 
+			{			
+				levelEl.style.width = `${pct}%`;
+				percentEl.textContent = `${pct}%`;
+						
+				if (pct < 20) {
+				  levelEl.style.background = "#e74c3c"; // red
+				} else if (pct < 50) {
+				  levelEl.style.background = "#f1c40f"; // yellow
+				} else {
+				  levelEl.style.background = "#2ecc71"; // green
+				}
+			}
+		}
+					
 		function getHueSaturation(color) {
 		  if (!color) return { hue: null, saturation: null };
 		
@@ -872,12 +1053,13 @@
 				
 		function updatePlayingIcon() {
 			const icon = document.getElementById("power-icon");
-			icon.src = playing ? "/images/power_red.svg" : "/images/power_blue.svg";
+			icon.src = playing ? "/images/power_on.svg" : "/images/power_off.svg";
+			updatePowerButton();
 		}
 	
 		function updateAutoplayIcon() {
 			const icon = document.getElementById("pause-icon");
-			icon.src = autoplay ? "/images/pause_sel.png" : "/images/play_sel.png";
+			icon.src = autoplay ? "/images/pause.png" : "/images/play.png";
 		}
 	
 		function ws_send_button_event(item) {
@@ -1090,7 +1272,8 @@
 		function parse_msg(msg)
 		{
 			if (msg.type === "init") {
-				
+			    let updatedBattery = false;
+
 				allSliderIds.forEach(sliderId => {
 					const slider = document.getElementById(sliderId);
 					if (slider && slider.type === "range" && !slider.isActive && Array.isArray(msg.sliders)) {
@@ -1119,6 +1302,15 @@
 					highlightGridItemByUrl(selectedUrl);
 				}
 		
+				if ("ilock" in msg) {
+					const newilock = Boolean(msg.ilock);
+					if (newilock != is_ilock_en) {
+						is_ilock_en = newilock;
+						updateILockLabel();
+						updatePowerButton();						
+					}
+				}
+				
 				if (typeof msg.play === "boolean") {
 					if (playing !== msg.play) {
 						playing = msg.play;
@@ -1144,6 +1336,43 @@
 				if (typeof msg.shuffle === "boolean") {
 				    const shuffleSwitch = document.getElementById("shuffleSwitch");
 				    if (shuffleSwitch) shuffleSwitch.checked = msg.shuffle;
+				}
+				
+			    if ("sdcard" in msg) {
+					const sdcardpanel = document.getElementById("sdcard-panel");
+					const current = msg.sdcard;
+			      	if (current === false) {
+			        	sdcardpanel.classList.add("active");
+			      	} else {
+			        	sdcardpanel.classList.remove("active");
+			      	}
+			      	
+			      	if (lastSdcardState === false && current === true) {
+        				console.log("SD card inserted, refreshing...");
+        				location.href = location.href;
+      				}
+      				
+      				lastSdcardState = current;
+			    }
+			    
+				if ("batt_pct" in msg) {
+					const newPct = Number(msg.batt_pct);
+					if (newPct !== battery_pct) {
+						battery_pct = newPct;
+						updatedBattery = true;
+					}
+				}
+				
+				if ("charging" in msg) {
+					const newCharging = Boolean(msg.charging);
+					if (newCharging !== is_charging) {
+						is_charging = newCharging;
+						updatedBattery = true;
+					}
+				}
+				
+				if (updatedBattery) {
+					updateBatteryGauge();
 				}
 			}			
 		}
@@ -1197,9 +1426,10 @@
 		  // Save to localStorage
 		  localStorage.setItem("selectedTheme", themeName);
 		}
-				
+					
 		document.addEventListener('DOMContentLoaded', () => {
 	
+			const defaultTheme = 'theme-dark-blue';		
 			const footerButtons = document.querySelectorAll('.footer-buttons button');
 			const selectedBox = document.getElementById('selected-box');
 			const powerBtn = document.querySelector('.power-btn');
@@ -1211,15 +1441,35 @@
 			const colorizeBtn = document.getElementById('colorBtn');
 			const colorizePanel = document.getElementById('colorizePanel');
 			const themeselector = document.getElementById('theme-selection');
-		    const defaultTheme = 'theme-dark-blue';		
-		    const storedTheme = localStorage.getItem('selectedTheme') || defaultTheme;
+			const storedTheme = localStorage.getItem('selectedTheme') || defaultTheme;
+			const leftbtngroups = [
+			  { btn: menuBtn, panel: sliderPanel },
+			  { btn: settingsBtn, panel: settingsPanel },
+			  { btn: colorizeBtn, panel: colorizePanel }
+			];
 		    
+			function handleFooterLeftBtnGrpClick(clicked) {
+			  leftbtngroups.forEach(({ btn, panel }) => {
+			    if (btn === clicked.btn) {
+			      btn.classList.toggle("active");
+			      panel.classList.toggle("active");
+			    } else {
+			      btn.classList.remove("active");
+			      panel.classList.remove("active");
+			    }
+			  });
+			}
+
 		    applyTheme(storedTheme);
 		    themeselector.value = storedTheme;
-		
+		    
 		    themeselector.addEventListener('change', () => {
 				applyTheme(themeselector.value);
 		    });
+		    
+		    leftbtngroups.forEach(item => {
+			  	item.btn.addEventListener("click", () => handleFooterLeftBtnGrpClick(item));
+			});
 
 			footerButtons.forEach(btn => {
 				btn.addEventListener('click', () => {				
@@ -1306,33 +1556,6 @@
 				}
 			});	
 					
-			menuBtn.addEventListener('click', () => {
-				sliderPanel.classList.toggle('active');
-				menuBtn.classList.toggle('active');
-  				settingsPanel.classList.remove('active');
-  				settingsBtn.classList.remove('active');
-  				colorizePanel.classList.remove('active');
-  				colorizeBtn.classList.remove('active');
-			});
-			
-			settingsBtn.addEventListener('click', () => {
-  				settingsPanel.classList.toggle('active');
-  				settingsBtn.classList.toggle('active');
-				sliderPanel.classList.remove('active');
-				menuBtn.classList.remove('active');  				
-  				colorizePanel.classList.remove('active');
-  				colorizeBtn.classList.remove('active');
-			});
-
-			colorizeBtn.addEventListener('click', () => {
-  				colorizePanel.classList.toggle('active');
-  				colorizeBtn.classList.toggle('active');
-				sliderPanel.classList.remove('active');
-				menuBtn.classList.remove('active');  				
-  				settingsPanel.classList.remove('active');
-  				settingsBtn.classList.remove('active');
-			});
-
 			loadPlaylists();
 			getSelectedPlaylistImage();
 			setupSlider('projection/Power', 'power-value', 'resetPowerBtn', 0, 100, 100);
