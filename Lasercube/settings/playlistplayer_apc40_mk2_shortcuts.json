@@ -43,6 +43,13 @@
 			"apc_color":	1,
 			"apc_style":	0
 		}, {
+			"unique_id":	"playlist_player/On",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	62,
+			"apc_color":	1,
+			"apc_style":	0
+		}, {
 			"unique_id":	"playlist_player/",
 			"type":	"MIDI_NOTE",
 			"midi_ch":	0,
