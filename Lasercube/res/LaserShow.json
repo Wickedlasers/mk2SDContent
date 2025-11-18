@@ -1,0 +1,120 @@
+{
+	"version":	1,
+	"EDM Shows":	[{
+			"short_name":	"Rabbits Hop",
+			"full_name":	"TwinsMusic - Rabbits Hop",
+			"creator":	"Andrea Chan",
+			"offset_ms":	400
+		}, {
+			"short_name":	"Hanging Dress",
+			"full_name":	"Benjamin Lazzarus - Hanging Dress",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Poppy",
+			"full_name":	"Anton Vlasov - Poppy",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Move",
+			"full_name":	"Indie Box - Move",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-80
+		}, {
+			"short_name":	"Spitfire",
+			"full_name":	"Elliot - Spitfire",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Back to Reality",
+			"full_name":	"Ashley DuBose - Back to Reality",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Robot Love",
+			"full_name":	"Klaypex - Robot Love",
+			"creator":	"Jarek Kral",
+			"offset_ms":	500
+		}, {
+			"short_name":	"Falling",
+			"full_name":	"3LAU - Falling",
+			"creator":	"Jarek Kral",
+			"offset_ms":	550
+		}, {
+			"short_name":	"Ultraviolet",
+			"full_name":	"3LAU - ultraviolet",
+			"creator":	"Jarek Kral",
+			"offset_ms":	500
+		}, {
+			"short_name":	"Home",
+			"full_name":	"Edward Sharpe - Home",
+			"creator":	"Jarek Kral",
+			"offset_ms":	350
+		}, {
+			"short_name":	"Arcadia",
+			"full_name":	"Hardwell Joey Dale feat Luciana - Arcadia",
+			"creator":	"Jarek Kral",
+			"offset_ms":	350
+		}, {
+			"short_name":	"Winter",
+			"full_name":	"3LAU - Winter",
+			"creator":	"Jarek Kral",
+			"offset_ms":	650
+		}, {
+			"short_name":	"LSD25",
+			"full_name":	"Dexter Psychedelic - LSD25",
+			"creator":	"Jarek Kral",
+			"offset_ms":	500
+		}, {
+			"short_name":	"Oreo",
+			"full_name":	"Dexter Psychedelic - Oreo",
+			"creator":	"Jarek Kral",
+			"offset_ms":	500
+		}, {
+			"short_name":	"Fire In My Head",
+			"full_name":	"LEVEL UP - Fire In My Head",
+			"creator":	"Jarek Kral",
+			"offset_ms":	650
+		}, {
+			"short_name":	"Freaks",
+			"full_name":	"Levito - Freaks",
+			"creator":	"Jarek Kral",
+			"offset_ms":	650
+		}, {
+			"short_name":	"The Light",
+			"full_name":	"Matt Bukovski - The Light",
+			"creator":	"Jarek Kral",
+			"offset_ms":	600
+		}, {
+			"short_name":	"Human",
+			"full_name":	"PØP CULTUR - Human",
+			"creator":	"Jarek Kral",
+			"offset_ms":	400
+		}, {
+			"short_name":	"Step Back",
+			"full_name":	"PØP CULTUR - Step Back",
+			"creator":	"Jarek Kral",
+			"offset_ms":	400
+		}, {
+			"short_name":	"Turn It Down",
+			"full_name":	"PØP CULTUR - Turn It Down",
+			"creator":	"Jarek Kral",
+			"offset_ms":	400
+		}, {
+			"short_name":	"Imaginary Drone",
+			"full_name":	"Dexter Psychedelic - Imaginary Drone",
+			"creator":	"Jarek Kral",
+			"offset_ms":	450
+		}, {
+			"short_name":	"Gold Walls",
+			"full_name":	"Matt Bukovski - Gold Walls",
+			"creator":	"Jarek Kral",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Alive (2CH)",
+			"full_name":	"OVERWERK - Alive",
+			"creator":	"Andrea Chan",
+			"offset_ms":	0,
+			"dac_rate":	30000
+		}]
+}
