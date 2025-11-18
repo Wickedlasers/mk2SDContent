@@ -129,5 +129,11 @@
 			"creator":	"Andrea Chan",
 			"offset_ms":	350,
 			"dac_rate":	30000
+		}, {
+			"short_name":	"Christmas 03",
+			"full_name":	"Christmas Carol",
+			"creator":	"Andrea Chan",
+			"offset_ms":	340,
+			"dac_rate":	30000
 		}]
 }
