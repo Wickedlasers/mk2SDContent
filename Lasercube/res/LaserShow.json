@@ -116,5 +116,12 @@
 			"creator":	"Andrea Chan",
 			"offset_ms":	0,
 			"dac_rate":	30000
+		}],
+	"Christmas":	[{
+			"short_name":	"Christmas 01",
+			"full_name":	"Christmas is Here",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
 		}]
 }
