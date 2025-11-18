@@ -123,5 +123,11 @@
 			"creator":	"Andrea Chan",
 			"offset_ms":	120,
 			"dac_rate":	30000
+		}, {
+			"short_name":	"Christmas 02",
+			"full_name":	"Christmas Time",
+			"creator":	"Andrea Chan",
+			"offset_ms":	350,
+			"dac_rate":	30000
 		}]
 }
