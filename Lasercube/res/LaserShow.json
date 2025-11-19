@@ -160,5 +160,12 @@
 			"creator":	"Andrea Chan",
 			"offset_ms":	120,
 			"dac_rate":	30000
+		}],
+	"New Year":	[{
+			"short_name":	"Bliss 2026",
+			"full_name":	"New Year Bliss 2026",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
 		}]
 }
