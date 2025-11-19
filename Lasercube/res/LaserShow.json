@@ -154,5 +154,11 @@
 			"creator":	"Andrea Chan",
 			"offset_ms":	120,
 			"dac_rate":	30000
+		}, {
+			"short_name":	"Thanksgiving Joy",
+			"full_name":	"Thanksgiving Joy",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
 		}]
 }
