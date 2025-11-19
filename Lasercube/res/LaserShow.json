@@ -141,5 +141,12 @@
 			"creator":	"Andrea Chan",
 			"offset_ms":	340,
 			"dac_rate":	30000
+		}],
+	"Thanksgiving":	[{
+			"short_name":	"Thankful Hearts",
+			"full_name":	"Thankful Hearts",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
 		}]
 }
