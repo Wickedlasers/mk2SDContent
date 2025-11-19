@@ -148,5 +148,11 @@
 			"creator":	"Andrea Chan",
 			"offset_ms":	120,
 			"dac_rate":	30000
+		}, {
+			"short_name":	"Family Feast",
+			"full_name":	"Family Feast",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
 		}]
 }
