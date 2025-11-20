@@ -173,5 +173,18 @@
 			"creator":	"Andrea Chan",
 			"offset_ms":	120,
 			"dac_rate":	30000
+		}],
+	"Halloween":	[{
+			"short_name":	"Creepy",
+			"full_name":	"Creepy Halloween",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Thriller",
+			"full_name":	"Thriller",
+			"creator":	"Paul M",
+			"offset_ms":	0,
+			"dac_rate":	30000
 		}]
 }
