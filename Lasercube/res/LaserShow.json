@@ -167,5 +167,11 @@
 			"creator":	"Andrea Chan",
 			"offset_ms":	120,
 			"dac_rate":	30000
+		}, {
+			"short_name":	"Vibes 2026",
+			"full_name":	"New Year Vibes 2026",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
 		}]
 }
