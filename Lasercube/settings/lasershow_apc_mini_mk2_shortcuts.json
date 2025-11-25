@@ -1,6 +1,13 @@
 {
 	"version":	"1.0",
 	"shortcuts":	[{
+			"unique_id":	"lasershow_player/",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	100,
+			"apc_color":	1,
+			"apc_style":	0
+		}, {
 			"unique_id":	"LaserShowPlaylist/EDM Shows",
 			"type":	"MIDI_NOTE",
 			"midi_ch":	0,
