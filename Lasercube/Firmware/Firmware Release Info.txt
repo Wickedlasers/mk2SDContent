@@ -1,0 +1,20 @@
+Mk2 Firmware Release Info
+
+v1.18	(25/11/25)
+
+* New Laser show player with category selection, and new media controls. APC MIDI mappings for each show within a selected category are now assigned automatically within the main APC grid (white / flashing red for selected). This requires the new MIDI mappings which are included in the latest SD card image located here: https://github.com/Wickedlasers/mk2SDContent
+
+* New Playlist Web App, allowing playlist selection and control from any device with a web browser, in addition to controlling it from the LCD or APC MIDI device.
+
+* Playlist Web App can use internal HTML or external HTML from the SD card, allowing user customisation of the Web App (see the v1.2 full user guide for more info).
+
+* Playlist control mode can start projecting at power on (after interlock is enabled), or not depending on new playlist options menu.
+
+* Network - Gateway IP is now disabled, so the MK2 does not appear as an internet capable device.
+
+* Server IP address for WiFi and LAN changed from 192.168.0.1 to 192.168.4.1, to ensure it does not clash with common home router IP addresses.
+
+* Battery percent can now be periodically shown instead of the batter icon in the status bar (change this option in settings->general)
+
+* Gamma is now applied before the laser power setting, giving improved image output at lower laser power settings.
+
