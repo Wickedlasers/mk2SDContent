@@ -1,6 +1,13 @@
 {
 	"version":	"1.0",
 	"shortcuts":	[{
+			"unique_id":	"playlist_player/On",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	100,
+			"apc_color":	1,
+			"apc_style":	0
+		}, {
 			"unique_id":	"PlayList/Halloween 1",
 			"type":	"MIDI_NOTE",
 			"midi_ch":	0,
