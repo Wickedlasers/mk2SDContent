@@ -1,0 +1,216 @@
+{
+	"version":	1,
+	"EDM Shows":	[{
+			"short_name":	"Rabbits Hop",
+			"full_name":	"TwinsMusic - Rabbits Hop",
+			"creator":	"Andrea Chan",
+			"offset_ms":	400
+		}, {
+			"short_name":	"Hanging Dress",
+			"full_name":	"Benjamin Lazzarus - Hanging Dress",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Poppy",
+			"full_name":	"Anton Vlasov - Poppy",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Move",
+			"full_name":	"Indie Box - Move",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-80
+		}, {
+			"short_name":	"Spitfire",
+			"full_name":	"Elliot - Spitfire",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Back to Reality",
+			"full_name":	"Ashley DuBose - Back to Reality",
+			"creator":	"Andrea Chan",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Robot Love",
+			"full_name":	"Klaypex - Robot Love",
+			"creator":	"Jarek Kral",
+			"offset_ms":	500
+		}, {
+			"short_name":	"Falling",
+			"full_name":	"3LAU - Falling",
+			"creator":	"Jarek Kral",
+			"offset_ms":	550
+		}, {
+			"short_name":	"Ultraviolet",
+			"full_name":	"3LAU - ultraviolet",
+			"creator":	"Jarek Kral",
+			"offset_ms":	500
+		}, {
+			"short_name":	"Home",
+			"full_name":	"Edward Sharpe - Home",
+			"creator":	"Jarek Kral",
+			"offset_ms":	350
+		}, {
+			"short_name":	"Arcadia",
+			"full_name":	"Hardwell Joey Dale feat Luciana - Arcadia",
+			"creator":	"Jarek Kral",
+			"offset_ms":	350
+		}, {
+			"short_name":	"Winter",
+			"full_name":	"3LAU - Winter",
+			"creator":	"Jarek Kral",
+			"offset_ms":	650
+		}, {
+			"short_name":	"LSD25",
+			"full_name":	"Dexter Psychedelic - LSD25",
+			"creator":	"Jarek Kral",
+			"offset_ms":	500
+		}, {
+			"short_name":	"Oreo",
+			"full_name":	"Dexter Psychedelic - Oreo",
+			"creator":	"Jarek Kral",
+			"offset_ms":	500
+		}, {
+			"short_name":	"Fire In My Head",
+			"full_name":	"LEVEL UP - Fire In My Head",
+			"creator":	"Jarek Kral",
+			"offset_ms":	650
+		}, {
+			"short_name":	"Freaks",
+			"full_name":	"Levito - Freaks",
+			"creator":	"Jarek Kral",
+			"offset_ms":	650
+		}, {
+			"short_name":	"The Light",
+			"full_name":	"Matt Bukovski - The Light",
+			"creator":	"Jarek Kral",
+			"offset_ms":	600
+		}, {
+			"short_name":	"Human",
+			"full_name":	"PØP CULTUR - Human",
+			"creator":	"Jarek Kral",
+			"offset_ms":	400
+		}, {
+			"short_name":	"Step Back",
+			"full_name":	"PØP CULTUR - Step Back",
+			"creator":	"Jarek Kral",
+			"offset_ms":	400
+		}, {
+			"short_name":	"Turn It Down",
+			"full_name":	"PØP CULTUR - Turn It Down",
+			"creator":	"Jarek Kral",
+			"offset_ms":	400
+		}, {
+			"short_name":	"Imaginary Drone",
+			"full_name":	"Dexter Psychedelic - Imaginary Drone",
+			"creator":	"Jarek Kral",
+			"offset_ms":	450
+		}, {
+			"short_name":	"Gold Walls",
+			"full_name":	"Matt Bukovski - Gold Walls",
+			"creator":	"Jarek Kral",
+			"offset_ms":	-100
+		}, {
+			"short_name":	"Alive (2CH)",
+			"full_name":	"OVERWERK - Alive",
+			"creator":	"Andrea Chan",
+			"offset_ms":	0,
+			"dac_rate":	30000
+		}],
+	"Christmas":	[{
+			"short_name":	"Christmas 01",
+			"full_name":	"Christmas is Here",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Christmas 02",
+			"full_name":	"Christmas Time",
+			"creator":	"Andrea Chan",
+			"offset_ms":	350,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Christmas 03",
+			"full_name":	"Christmas Carol",
+			"creator":	"Andrea Chan",
+			"offset_ms":	340,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Christmas 04",
+			"full_name":	"Family Christmas",
+			"creator":	"Andrea Chan",
+			"offset_ms":	340,
+			"dac_rate":	30000
+		}],
+	"Thanksgiving":	[{
+			"short_name":	"Thankful Hearts",
+			"full_name":	"Thankful Hearts",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Family Feast",
+			"full_name":	"Family Feast",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Thanksgiving Joy",
+			"full_name":	"Thanksgiving Joy",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}],
+	"New Year":	[{
+			"short_name":	"Bliss 2026",
+			"full_name":	"New Year Bliss 2026",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Vibes 2026",
+			"full_name":	"New Year Vibes 2026",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}],
+	"Birthday":	[{
+			"short_name":	"Birthday Joy",
+			"full_name":	"Birthday Joy",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Birthday Melody",
+			"full_name":	"Birthday Melody",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}],
+	"Wedding":	[{
+			"short_name":	"Special Day",
+			"full_name":	"Our Special Day",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Forever Love",
+			"full_name":	"Forever Love",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}],
+	"Halloween":	[{
+			"short_name":	"Creepy",
+			"full_name":	"Creepy Halloween",
+			"creator":	"Andrea Chan",
+			"offset_ms":	120,
+			"dac_rate":	30000
+		}, {
+			"short_name":	"Thriller",
+			"full_name":	"Thriller",
+			"creator":	"Paul M",
+			"offset_ms":	0,
+			"dac_rate":	30000
+		}]
+}
