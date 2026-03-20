@@ -15,11 +15,193 @@
 			"apc_color":	2,
 			"apc_style":	1
 		}, {
-			"unique_id":	"VizPlayer/Voice",
+			"unique_id":	"VizPlayer/Spectrum 3",
 			"type":	"MIDI_NOTE",
 			"midi_ch":	0,
 			"midi_note":	2,
+			"apc_color":	11,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Voice",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	3,
 			"apc_color":	5,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Spectrum W1",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	4,
+			"apc_color":	4,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Spectrum W2",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	5,
+			"apc_color":	15,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Swirly Spheres",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	6,
+			"apc_color":	14,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Synesthesia",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	7,
+			"apc_color":	13,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Cubes",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	8,
+			"apc_color":	12,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Sunshine",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	9,
+			"apc_color":	11,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Flying Stars",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	10,
+			"apc_color":	10,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Wave Circles",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	11,
+			"apc_color":	9,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Lotus",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	12,
+			"apc_color":	8,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Circle Arc",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	13,
+			"apc_color":	7,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Atomic",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	14,
+			"apc_color":	6,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Plasma Ball",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	15,
+			"apc_color":	5,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Snake",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	16,
+			"apc_color":	4,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Crossed Lines",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	17,
+			"apc_color":	3,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Butterfly",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	18,
+			"apc_color":	2,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Solaris 1",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	19,
+			"apc_color":	1,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Solaris 2",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	20,
+			"apc_color":	3,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Vocoder",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	21,
+			"apc_color":	15,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Rage Bass 1",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	22,
+			"apc_color":	1,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Dashed Lines",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	23,
+			"apc_color":	14,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Spotlights C",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	24,
+			"apc_color":	2,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Spotlights T",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	25,
+			"apc_color":	4,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Linear C",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	26,
+			"apc_color":	5,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Linear L",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	27,
+			"apc_color":	6,
+			"apc_style":	1
+		}, {
+			"unique_id":	"VizPlayer/Linear S",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	28,
+			"apc_color":	7,
 			"apc_style":	1
 		}, {
 			"unique_id":	"tempo/Sync Beat",
