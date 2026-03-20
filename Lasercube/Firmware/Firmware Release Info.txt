@@ -1,5 +1,15 @@
 Mk2 Firmware Release Info
 
+V1-19 	(20/03/26)
+
+* visualizer control mode now has 29 audio reactive visualisers (up from 3)
+* Visualizer control mode now has a player which allows visualisers to be changed after a set delay period, shuffle option also added.
+* Visualizer control mode now fades in/out during transition from one visualizer to another (this can be set in the new viz options menu).
+* safety zone improvements to prevent potential beam leakage into safety zones with certain projections
+* fixed occasional toggling of the charge indication icon on the LCD when the cube is running, and the charger is plugged in.
+* Audio Gain now adjustable in 5dB increments (check current gain option as this may have changed due to this update!)
+
+
 v1.18	(25/11/25)
 
 * New Laser show player with category selection, and new media controls. APC MIDI mappings for each show within a selected category are now assigned automatically within the main APC grid (white / flashing red for selected). This requires the new MIDI mappings which are included in the latest SD card image located here: https://github.com/Wickedlasers/mk2SDContent
