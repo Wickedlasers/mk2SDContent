@@ -1,5 +1,11 @@
 Mk2 Firmware Release Info
 
+V1-20 (01/05/26)
+
+* 42 audio reactive visualizers are now available (up from 29 in v1.19)
+* IDN and ether-dream DAC modes added (* These are in Beta test)
+* Fixed bug introduced in v1.19, which had LaserOS output horizontally mirrored.
+
 V1-19 	(20/03/26)
 
 * visualizer control mode now has 29 audio reactive visualisers (up from 3)
