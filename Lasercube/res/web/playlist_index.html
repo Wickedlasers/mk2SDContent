@@ -1,13 +1,13 @@
 <!--
-	
+
 ██╗    ██╗██╗ ██████╗██╗  ██╗███████╗██████╗     ██╗      █████╗ ███████╗███████╗██████╗ ███████╗
 ██║    ██║██║██╔════╝██║ ██╔╝██╔════╝██╔══██╗    ██║     ██╔══██╗██╔════╝██╔════╝██╔══██╗██╔════╝
 ██║ █╗ ██║██║██║     █████╔╝ █████╗  ██║  ██║    ██║     ███████║███████╗█████╗  ██████╔╝███████╗
 ██║███╗██║██║██║     ██╔═██╗ ██╔══╝  ██║  ██║    ██║     ██╔══██║╚════██║██╔══╝  ██╔══██╗╚════██║
 ╚███╔███╔╝██║╚██████╗██║  ██╗███████╗██████╔╝    ███████╗██║  ██║███████║███████╗██║  ██║███████║
  ╚══╝╚══╝ ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═════╝     ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-    Ultra MK2 Play list Control v1.0 (c)2025 Wicked Lasers                                                                                                                                                                                                                                                          
+
+    Ultra MK2 Web Server HTML v1.1 (c)2026 Wicked Lasers
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,8 +21,7 @@
     	document.documentElement.classList.add(savedTheme);
   	</script>
 	<style>
-		:root {			
-		  /* --- Sizes / misc --- */
+		:root {
 		  --track-height: 10px;
 		  --thumb-size: 40px;
 		  --track-radius: 999px;
@@ -30,17 +29,23 @@
 		  --label-font-size: 18px;
 		  --label-font-weight: bold;
 		  --radius: 4px;
+		  --app-h: 100vh;
 		}
 
-		/* Available colour themes*/
-				
+		@supports (height: 100dvh) {
+		  :root {
+		    --app-h: 100dvh;
+		  }
+		}
+
+
 		.theme-dark-blue {
 		  --color-bg: #111927;
 		  --color-surface: #1e2a3a;
 		  --color-surface-alt: #2a3a4f;
 		  --color-accent: #339AF0;
 		  --color-text: #ffffff;
-		  
+
 		  --bg-color: var(--color-bg);
 		  --highlight-color: var(--color-accent);
 		  --track-bg: var(--color-surface);
@@ -58,7 +63,7 @@
 		  --selected-bg-color: var(--color-bg);
 		  --footer-bg-color: var(--color-surface);
 		}
-		
+
 		.theme-icy-green {
 		  --color-bg: #0f1a12;
 		  --color-surface: #1a2a20;
@@ -83,14 +88,14 @@
 		  --selected-bg-color: var(--color-bg);
 		  --footer-bg-color: var(--color-surface);
 		}
-		
+
 		.theme-dark-red {
 		  --color-bg: #2b0f0f;
 		  --color-surface: #3a1e1e;
 		  --color-surface-alt: #4f2a2a;
 		  --color-accent: #f05454;
 		  --color-text: #ffe0e0;
-		  
+
 		  --bg-color: var(--color-bg);
 		  --highlight-color: var(--color-accent);
 		  --track-bg: var(--color-surface);
@@ -108,14 +113,14 @@
 		  --selected-bg-color: var(--color-bg);
 		  --footer-bg-color: var(--color-surface);
 		}
-		
+
 		.theme-pink {
 		  --color-bg: #2a0f1a;
 		  --color-surface: #3a1e2a;
 		  --color-surface-alt: #4f2a3a;
 		  --color-accent: #ff69b4;
 		  --color-text: #ffe0f0;
-		
+
 		  --bg-color: var(--color-bg);
 		  --highlight-color: var(--color-accent);
 		  --track-bg: var(--color-surface);
@@ -133,14 +138,14 @@
 		  --selected-bg-color: var(--color-bg);
 		  --footer-bg-color: var(--color-surface);
 		}
-		
+
 		.theme-purple {
 		  --color-bg: #1a0f2a;
 		  --color-surface: #2a1e3a;
 		  --color-surface-alt: #3a2a4f;
 		  --color-accent: #9b59b6;
 		  --color-text: #f0e0ff;
-		  
+
 		  --bg-color: var(--color-bg);
 		  --highlight-color: var(--color-accent);
 		  --track-bg: var(--color-surface);
@@ -158,14 +163,14 @@
 		  --selected-bg-color: var(--color-bg);
 		  --footer-bg-color: var(--color-surface);
 		}
-		
+
 		.theme-orange {
 		  --color-bg: #2a1a0f;
 		  --color-surface: #3a2a1e;
 		  --color-surface-alt: #4f3a2a;
 		  --color-accent: #f5a623;
 		  --color-text: #fff5e0;
-		  
+
 		  --bg-color: var(--color-bg);
 		  --highlight-color: var(--color-accent);
 		  --track-bg: var(--color-surface);
@@ -333,7 +338,7 @@
 		}
 
 		#selected-box {
-			flex: 0 0 50%;
+			flex: 0 0 calc(50% - 60px);
 			height: 60%;
 			margin-left: 8px;
 			border: 1px solid var(--sliderpanel-bg-color);
@@ -342,7 +347,7 @@
 			color: var(--label-color);
 			font-size: 0.8em;
 			font-weight: 200;
-		  	background-color: color-mix(in srgb, var(--selected-bg-color) 100%, white 3%);		
+		  	background-color: color-mix(in srgb, var(--selected-bg-color) 100%, white 3%);
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -353,7 +358,7 @@
 
 		.footer {
 			position: fixed;
-			bottom: 0;
+			top: calc(var(--app-h) - 100px);
 			left: 0;
 			right: 0;
 			height: 100px;
@@ -365,6 +370,12 @@
 			padding: 0 6px;
 			box-shadow: 0 -2px 4px rgba(0,0,0,0.3);
 			z-index: 1000;
+			transition: opacity 0.3s ease;
+		}
+
+		.footer.offline {
+			opacity: 0.35;
+			pointer-events: none;
 		}
 
 		.img-wrapper {
@@ -378,7 +389,7 @@
 			margin-top: 4px;
 			position: fixed;
 			top: 48px;
-			bottom: 102px;
+			height: calc(var(--app-h) - 150px);
 			left: 0;
 			right: 0;
 			overflow-y: auto;
@@ -391,22 +402,78 @@
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
 			box-sizing: border-box;
-			gap: 5px;
-			align-content: start;			
+			gap: 14px 5px;
+			align-content: start;
+		}
+
+		@media (max-width: 480px) {
+			.grid {
+				grid-template-columns: repeat(5, minmax(0, 1fr));
+			}
+
+			:root {
+				--footer-btn-size: 32px;
+			}
+
+			.footer {
+				padding: 0 4px;
+			}
+
+			.footer-buttons button, .footer-buttons-left button {
+				padding: 6px;
+			}
+
+			.power-btn img {
+				width: 40px;
+				height: 40px;
+			}
+		}
+
+		@media (max-width: 360px) {
+			:root {
+				--footer-btn-size: 28px;
+			}
+
+			.footer-buttons button, .footer-buttons-left button {
+				padding: 5px;
+			}
+
+			.power-btn img {
+				width: 36px;
+				height: 36px;
+			}
+
+			#playlist-selection {
+				width: 140px;
+			}
+
+			#selected-box {
+				flex: 0 0 calc(50% - 40px);
+			}
 		}
 
 		.grid-item {
-			background-color: var(--header-bg-color);
-			border: 2px solid var(--sliderpanel-bg-color);
 			display: flex;
+			flex-direction: column;
 			align-items: center;
-			justify-content: center;
-			transition: border-color 0.2s, box-shadow 0.2s;
+			gap: 5px;
 			box-sizing: border-box;
 			-webkit-user-select: none;
 			-webkit-touch-callout: none;
 			user-select: none;
 			touch-action: manipulation;
+		}
+
+		.grid-tile {
+			position: relative;
+			width: 100%;
+			background-color: #000;
+			border: 2px solid var(--tile-color, var(--sliderpanel-bg-color));
+			border-radius: 18px;
+			box-shadow: 0 0 9px color-mix(in srgb, var(--tile-color, transparent) 55%, transparent);
+			overflow: hidden;
+			transition: border-color 0.2s, box-shadow 0.2s;
+			box-sizing: border-box;
 		}
 
 		.grid-item img {
@@ -423,15 +490,82 @@
 			touch-action: manipulation;
 		}
 
-		.grid-item img.selected {
+		.grid-label {
+			max-width: 100%;
+			color: #eee;
+			font-weight: normal;
+			font-size: 10.5px;
+			text-align: center;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.grid-item.selected .grid-tile {
 			border-color: var(--accentFg);
-			box-shadow: 0 0 12px var(--accentFg) inset, 0 0 8px var(--accentFg);
+			box-shadow: 0 0 14px color-mix(in srgb, var(--accentFg) 80%, transparent);
+		}
+
+		.grid-item.selected .grid-tile::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			border-radius: inherit;
+			pointer-events: none;
+			background: color-mix(in srgb, var(--accentFg) 40%, transparent);
+			box-shadow: 0 0 18px 4px var(--accentFg) inset, 0 0 14px 3px var(--accentFg);
+			animation: selectedPulse 2.5s ease-in-out infinite;
+		}
+
+		@keyframes selectedPulse {
+			0%, 100% { opacity: 1; }
+			50% { opacity: 0.55; }
+		}
+
+		.grid-item.dragging {
+			opacity: 0.85;
+			z-index: 10;
+		}
+
+		.grid-item.dragging .grid-tile,
+		.grid-item.drop-flash .grid-tile {
+			border-color: var(--accentFg);
+			box-shadow: 0 0 14px color-mix(in srgb, var(--accentFg) 80%, transparent);
+		}
+
+		#toast {
+			position: fixed;
+			top: calc(var(--app-h) - 112px);
+			left: 50%;
+			transform: translate(-50%, -100%);
+			background: var(--header-bg-color);
+			color: #e74c3c;
+			font-size: 13px;
+			padding: 8px 14px;
+			border-radius: 10px;
+			box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+			z-index: 10001;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.25s ease;
+		}
+
+		#toast.show {
+			opacity: 1;
 		}
 
 		.topright {
 			position: absolute;
-			top: 1px;
+			top: 50%;
+			transform: translateY(-50%);
 			right: 16px;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		#playlist-selection {
+			width: 180px;
 		}
 
 		.blankarea {
@@ -449,7 +583,7 @@
 			outline: 0;
 			padding: 0.75em 2.5em 0.75em 0.75em;
 			border-radius: var(--radius);
-			background-color: var(--baseBg);			
+			background-color: var(--baseBg);
 			background-image: linear-gradient(var(--baseFg),var(--baseFg)),linear-gradient(-135deg,transparent 50%,var(--accentBg) 50%),linear-gradient(-225deg,transparent 50%,var(--accentBg) 50%),linear-gradient(var(--accentBg) 42%,var(--accentFg) 42%);
 			background-repeat: no-repeat,no-repeat,no-repeat,no-repeat;
 			background-size: 1px 100%,20px 22px,20px 22px,20px 100%;
@@ -479,27 +613,27 @@
 		.footer-buttons {
 			justify-self: end;
 		}
-		
+
 		.footer-buttons button, .footer-buttons-left button {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
 			background: none;
 			border: none;
-			padding: 8px;             
+			padding: 8px;
 			border-radius: 50%;
 			background-color: color-mix(in srgb, var(--header-bg-color) 100%, white 3%);
 			transition: transform 0.2s ease, box-shadow 0.3s ease;
 		}
-		
+
 		.footer-buttons button img {
 			width: calc( var(--footer-btn-size) - 4px);
 			height: width;
 		}
-		
+
 		.footer-buttons button.clicked {
 			transform: scale(1.2);
-			box-shadow: 0 0 25px 10px var(--accentFg); 
+			box-shadow: 0 0 25px 10px var(--accentFg);
 		}
 
 		.footer-buttons img, .footer-buttons-left img {
@@ -515,9 +649,9 @@
 
 		.power-btn.clicked {
 			transform: scale(1.2);
-			box-shadow: 0 0 25px 10px var(--accentFg); 
+			box-shadow: 0 0 25px 10px var(--accentFg);
 		}
-		
+
 		.power-btn img {
 			width: 50px;
 			height: 50px;
@@ -538,17 +672,17 @@
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			justify-self: center;			
+			justify-self: center;
 			transition: transform 0.2s ease, box-shadow 0.3s ease;
 		}
-		
+
 		.power-btn.orange-active {
 		  	background-color: #ff8c00;
 		  	box-shadow: 0 0 8px 2px rgba(255, 140, 0, 1.0);
   			transition: background-color 0.25s ease, box-shadow 0.25s ease;
   			opacity: 0.5;
 		}
-		
+
 		.reset-btn img {
 			width: 30px;
 			height: 30px;
@@ -559,36 +693,36 @@
 			user-select: none;
 			pointer-events: none;
 		}
-		
+
 		.reset-btn {
 			margin-left: 30px;
 		}
-		
+
 		.reset-btn.clicked {
 			transform: scale(1.2);
 			box-shadow: 0 0 25px 10px var(--accentFg);
 			transition: transform 0.2s ease, box-shadow 0.3s ease;
 		}
-		
+
 		#menuBtn,
 		#settingsBtn,
 		#colorBtn  {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			padding: 8px;              
-			border-radius: 50%;       
+			padding: 8px;
+			border-radius: 50%;
 			background-color: color-mix(in srgb, var(--header-bg-color) 100%, white 3%);
 			transition: transform 0.2s ease, box-shadow 0.3s ease;
 		}
-		
+
 		#menuBtn img,
 		#settingsBtn img,
 		#colorBtn img  {
-			width: calc( var(--footer-btn-size) - 4px);   
+			width: calc( var(--footer-btn-size) - 4px);
 			height: width;
 		}
-		
+
 		#menuBtn.active,
 		#settingsBtn.active,
 		#colorBtn.active  {
@@ -596,44 +730,130 @@
 			box-shadow: 0 0 20px 6px var(--accentFg);
 		}
 
-		.colorize-row {
-		  display: flex;
-		  gap: 8px;
-		  justify-content: center;
-		  padding: 10px 0;
-		  margin-bottom: 30px;
+		.effects-panel {
+			top: calc((var(--app-h) - 150px) / 2 + 48px);
+			bottom: auto;
+			left: 50%;
+			max-height: calc(var(--app-h) - 150px - var(--grid-item-h, 90px));
+			display: flex;
+			flex-direction: column;
+			padding: 14px 10px 10px 14px;
+			transform: translateX(-50%) translateY(calc(var(--app-h) / 2 + 20px));
+			background: color-mix(in srgb, var(--sliderpanel-bg-color) 100%, white 8%);
 		}
-		
-		.colorize-btn {
-		  width: 34px;
-		  height: 34px;
-		  border-radius: 50%;
-		  border: 2px solid var(--btn-color);
-		  background: transparent;
-		  cursor: pointer;
-		  outline: none;
-		  transition: transform 0.2s ease, box-shadow 0.3s ease;
-		  background-color: gray;
+
+		.effects-panel.active {
+			transform: translateX(-50%) translateY(-50%);
 		}
-		
-		.colorize-btn.active {
-			transform: scale(1.2);
-			box-shadow: 0 0 20px 6px var(--accentFg);
+
+		.fx-tabs {
+			display: flex;
+			gap: 8px;
+			margin-bottom: 12px;
+			flex: 0 0 auto;
 		}
-				
-		.colorize-btn.none {
-		  	background: transparent;
-		   	border: 2px solid var(--btn-color);
+
+		.fx-tab {
+			flex: 1;
+			padding: 8px 0;
+			border: 2px solid var(--thumb-bg-color);
+			border-radius: 10px;
+			background: transparent;
+			color: var(--label-color);
+			font-size: var(--label-font-size);
+			cursor: pointer;
+			transition: border-color 0.2s, box-shadow 0.2s, color 0.2s;
 		}
-		
+
+		.fx-tab.active {
+			border-color: var(--accentFg);
+			color: var(--accentFg);
+			box-shadow: 0 0 10px color-mix(in srgb, var(--accentFg) 60%, transparent);
+		}
+
+		.fx-grid-wrap {
+			flex: 1 1 auto;
+			overflow-y: auto;
+			min-height: 0;
+			padding: 2px;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.fx-none-glyph {
+			width: 100%;
+			aspect-ratio: 1/1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 30px;
+			color: #e74c3c;
+			-webkit-user-select: none;
+			user-select: none;
+		}
+
+		.fx-grid-wrap .grid-label {
+			direction: rtl;
+		}
+
+		#fx-adj-popover {
+			position: fixed;
+			z-index: 10001;
+			width: min(340px, 92vw);
+			background: var(--sliderpanel-bg-color);
+			border: 2px solid var(--footer-bg-color);
+			border-radius: 16px;
+			box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+			padding: 12px 14px;
+			opacity: 0.97;
+		}
+
+		.fx-adj-title {
+			font-size: var(--label-font-size);
+			color: var(--accentFg);
+			margin-bottom: 14px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			text-align: center;
+		}
+
+		.fx-adj-row {
+			display: flex;
+			align-items: center;
+			margin-bottom: 14px;
+		}
+
+		.fx-adj-row:last-child {
+			margin-bottom: 4px;
+		}
+
+		.fx-adj-none {
+			font-size: var(--label-font-size);
+			color: var(--label-color);
+			text-align: center;
+			padding: 2px 0 8px;
+		}
+
+		.fx-has-adjs .grid-tile::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			border-style: solid;
+			border-width: 0 0 16px 16px;
+			border-color: transparent transparent var(--accentFg) transparent;
+			z-index: 2;
+			pointer-events: none;
+		}
+
 		.switch-row {
 		  display: flex;
 		  align-items: center;
-		  
+
 		  margin: 12px 0;
 		  margin-bottom: 30px;
 		}
-		
+
 		.switch-row > label:first-child {
  			width: 80px;
 		  	flex-shrink: 0;
@@ -641,20 +861,20 @@
 			font-size: var(--label-font-size);
 			color: var(--label-color);
 		}
-		
+
 		.switch {
 		  position: relative;
 		  display: inline-block;
 		  width: 50px;
 		  height: 28px;
 		}
-		
+
 		.switch input {
 		  opacity: 0;
 		  width: 0;
 		  height: 0;
 		}
-		
+
 		.switch .slider {
 		  position: absolute;
 		  cursor: pointer;
@@ -663,7 +883,7 @@
 		  transition: 0.3s;
 		  border-radius: 28px;
 		}
-		
+
 		.switch .slider::before {
 		  position: absolute;
 		  content: "";
@@ -675,23 +895,23 @@
 		  transition: 0.3s;
 		  border-radius: 50%;
 		}
-		
+
 		.switch input:checked + .slider {
 		  background-color: var(--accentFg);
 		}
-		
+
 		.switch input:checked + .slider::before {
 		  transform: translateX(22px);
 		}
-		
+
 		.selectedBox-glow {
 		  box-shadow: 0 0 15px 5px var(--accentFg);
 		}
-		
+
 		#sdcard-panel {
 		    position: fixed;
 		    top: 48px;
-		    bottom: 102px;
+		    height: calc(var(--app-h) - 150px);
 		    left: 0;
 		    right: 0;
 		    display: flex;
@@ -703,11 +923,11 @@
     		pointer-events: none;
     		transition: opacity 0.4s ease;
 		}
-		
+
 		#sdcard-panel.active {
     		opacity: 0.9;
 		}
-		
+
 		.sdcard-content {
 		    background: var(--header-bg-color);
 		    padding: 40px;
@@ -720,26 +940,300 @@
     		transition: transform 0.4s ease;
     		pointer-events: none;
 		}
-		
+
 		#sdcard-panel.active .sdcard-content {
     		transform: scale(1);
 		}
-		
+
 		.sdcard-content img {
 		    width: 160px;
 		    height: auto;
 		    margin-bottom: 20px;
 		    pointer-events: none;
 		}
-		
+
 		.sdcard-content p {
 		    font-size: 18px;
 		    color: var(--label-color);
 		    margin: 0;
 		    pointer-events: none;
 		}
-		
-		#statusContainer {
+
+		.modal-overlay {
+		    position: fixed;
+		    top: 48px;
+		    height: calc(var(--app-h) - 150px);
+		    left: 0;
+		    right: 0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    background: rgba(0,0,0,0.5);
+		    z-index: 10000;
+		    opacity: 0;
+		    pointer-events: none;
+		    transition: opacity 0.25s ease;
+		    padding: calc(var(--grid-item-h, 90px) / 2) 0;
+		    box-sizing: border-box;
+		}
+
+		.modal-overlay.active {
+		    opacity: 1;
+		    pointer-events: auto;
+		}
+
+		.modal-card {
+		    background: var(--header-bg-color);
+		    padding: 18px;
+		    border-radius: 16px;
+		    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+		    text-align: left;
+		    max-width: 340px;
+		    width: 88%;
+		    max-height: 100%;
+		    overflow-y: auto;
+		    transform: scale(0.9);
+		    transition: transform 0.25s ease;
+		}
+
+		.modal-overlay.active .modal-card {
+		    transform: scale(1);
+		}
+
+		#tile-popup .modal-card {
+		    display: flex;
+		    flex-direction: column;
+		}
+
+		#tile-popup-targets {
+		    overflow-y: auto;
+		    min-height: 0;
+		}
+
+		#tile-popup-targets::-webkit-scrollbar,
+		#apc-color-list::-webkit-scrollbar {
+		    display: none;
+		}
+
+		#tile-popup-targets,
+		#apc-color-list {
+		    scrollbar-width: none;
+		}
+
+		.scrollwrap {
+		    position: relative;
+		    min-height: 0;
+		    display: flex;
+		    flex-direction: column;
+		}
+
+		.scrollwrap-color {
+		    margin: 2px 0 4px 0;
+		}
+
+		.scroll-ind {
+		    position: absolute;
+		    right: 2px;
+		    top: 0;
+		    width: 4px;
+		    border-radius: 2px;
+		    background: color-mix(in srgb, var(--label-color) 45%, transparent);
+		    opacity: 0;
+		    pointer-events: none;
+		    transition: opacity 0.15s ease;
+		}
+
+		.tile-popup-header {
+		    display: flex;
+		    align-items: center;
+		    gap: 10px;
+		    margin-bottom: 6px;
+		}
+
+		.tile-popup-header .modal-title {
+		    margin-bottom: 0;
+		}
+
+		#tile-popup-img {
+		    width: 48px;
+		    height: 48px;
+		    object-fit: cover;
+		    border-radius: 10px;
+		    border: 2px solid var(--thumb-bg-color);
+		    background: #000;
+		    flex: 0 0 auto;
+		    display: none;
+		}
+
+		.modal-title {
+		    color: var(--label-color);
+		    font-weight: bold;
+		    font-size: 16px;
+		    margin-bottom: 6px;
+		    overflow-wrap: break-word;
+		}
+
+		#popup-msg, #confirm-msg, #sd-warn-msg {
+		    min-height: 18px;
+		    font-size: 13px;
+		    color: #e74c3c;
+		    margin-bottom: 6px;
+		}
+
+		#popup-msg.ok {
+		    color: #2ecc71;
+		}
+
+		#sd-warn-msg {
+		    white-space: pre-line;
+		}
+
+		.pl-target-btn {
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    width: 100%;
+		    box-sizing: border-box;
+		    background: none;
+		    border: 1px solid var(--thumb-bg-color);
+		    border-radius: 10px;
+		    color: var(--label-color);
+		    font-size: 14px;
+		    text-align: left;
+		    padding: 10px 12px;
+		    margin: 4px 0;
+		    cursor: pointer;
+		}
+
+		@media (hover: hover) and (pointer: fine) {
+			.pl-target-btn:hover {
+			    background: color-mix(in srgb, var(--label-color) 8%, transparent);
+			}
+		}
+
+		.pl-kind-badge {
+		    font-size: 11px;
+		    opacity: 0.65;
+		    margin-left: 10px;
+		    white-space: nowrap;
+		}
+
+		#pl-color-row {
+		    display: flex;
+		    align-items: center;
+		    gap: 8px;
+		    margin: 14px 0 10px 0;
+		}
+
+		.pl-color-label {
+		    color: var(--label-color);
+		    font-size: 14px;
+		    flex: 1;
+		}
+
+		#apc-color-btn {
+		    display: flex;
+		    align-items: center;
+		    gap: 8px;
+		    background: none;
+		    border: 1px solid var(--thumb-bg-color);
+		    border-radius: 10px;
+		    color: var(--label-color);
+		    font-size: 13px;
+		    padding: 7px 12px;
+		    cursor: pointer;
+		}
+
+		.apc-swatch {
+		    width: 22px;
+		    height: 14px;
+		    border-radius: 4px;
+		    border: 1px solid var(--thumb-bg-color);
+		    background: #555555;
+		    flex: 0 0 auto;
+		}
+
+		#apc-color-list {
+		    overflow-y: auto;
+		}
+
+		.apc-color-opt {
+		    display: flex;
+		    align-items: center;
+		    gap: 10px;
+		    width: 100%;
+		    box-sizing: border-box;
+		    background: none;
+		    border: 1px solid var(--thumb-bg-color);
+		    border-radius: 10px;
+		    color: var(--label-color);
+		    font-size: 13px;
+		    text-align: left;
+		    padding: 7px 12px;
+		    margin: 2px 0;
+		    cursor: pointer;
+		}
+
+		.pl-new-row {
+		    display: flex;
+		    gap: 6px;
+		    margin: 10px 0 4px 0;
+		}
+
+		.pl-new-row input {
+		    flex: 1;
+		    min-width: 0;
+		    font: 400 13px/1.3 sans-serif;
+		    color: var(--baseFg);
+		    background-color: var(--baseBg);
+		    border: 1px solid var(--baseFg);
+		    border-radius: var(--radius);
+		    padding: 0.6em 0.75em;
+		    outline: 0;
+		}
+
+		.pl-new-row button, .modal-btn-row button {
+		    font: 400 13px/1.3 sans-serif;
+		    color: var(--label-color);
+		    background: var(--btn-color);
+		    border: 1px solid var(--thumb-bg-color);
+		    border-radius: var(--radius);
+		    padding: 0.6em 1em;
+		    cursor: pointer;
+		}
+
+		.modal-btn-danger {
+		    color: #e74c3c !important;
+		    border-color: #e74c3c !important;
+		}
+
+		.modal-btn-row {
+		    display: flex;
+		    justify-content: flex-end;
+		    gap: 8px;
+		    margin-top: 10px;
+		}
+
+		.modal-btn-row.center {
+		    justify-content: center;
+		}
+
+		#playlist-delete-btn {
+		    display: none;
+		    background: none;
+		    border: none;
+		    padding: 4px;
+		    cursor: pointer;
+		}
+
+		#playlist-delete-btn svg {
+		    width: 20px;
+		    height: 20px;
+		    fill: var(--label-color);
+		    display: block;
+		}
+
+		.statusContainer {
 		  position: absolute;
 		  bottom: 10px;
 		  left: 50%;
@@ -752,7 +1246,7 @@
 		  opacity: 0.8;
 		  pointer-events: none;
 		}
-		
+
 		#batteryBar {
 		  width: 40px;
 		  height: 16px;
@@ -761,7 +1255,7 @@
 		  overflow: hidden;
 		  position: relative;
 		}
-		
+
 		#batteryLevel {
 		  height: 100%;
 		  width: 0%;
@@ -771,7 +1265,7 @@
 		  align-items: center;
 		  justify-content: center;
 		}
-				
+
 		#batteryBar::after {
 		  content: '';
 		  position: absolute;
@@ -782,8 +1276,8 @@
 		  background: #ccc;
 		  border-radius: 1px;
 		}
-		
-		#ilockLabel {
+
+		.orangelabel {
 		  background: #ff8c00;
 		  color: #fff;
 		  font-size: 13px;
@@ -794,7 +1288,7 @@
 		  opacity: 0.9;
 		  margin-left: 10px;
 		}
-		
+
 		.temp-gauge {
 		  display: flex;
 		  align-items: center;
@@ -819,7 +1313,7 @@
 <body>
 	<div class="header">
 		<div id="selected-box"><span id="selected-name"></span></div>
-		<div class="topright"><select class="theme-droplist" id="playlist-selection"></select></div>
+		<div class="topright"><select class="theme-droplist" id="playlist-selection"></select><button id="playlist-delete-btn"></button></div>
 	</div>
 	<div id="sdcard-panel">
 	  <div class="sdcard-content">
@@ -827,6 +1321,45 @@
 	    <p>Please insert the micro SD card into your MK2</p>
 	  </div>
 	</div>
+	<div id="tile-popup" class="modal-overlay">
+	  <div class="modal-card">
+	    <div class="tile-popup-header">
+	      <img id="tile-popup-img" alt="">
+	      <div class="modal-title" id="tile-popup-title"></div>
+	    </div>
+	    <div id="popup-msg"></div>
+	    <div class="scrollwrap"><div id="tile-popup-targets"></div><div class="scroll-ind" id="targets-ind"></div></div>
+	    <div class="pl-new-row">
+	      <input id="new-pl-name" maxlength="40" placeholder="New playlist name">
+	      <button id="new-pl-create">Create</button>
+	    </div>
+	    <div id="pl-color-row" style="display:none">
+	      <span class="pl-color-label">Pad colour</span>
+	      <button id="apc-color-btn"><span class="apc-swatch" id="apc-color-swatch"></span><span id="apc-color-name">Default</span></button>
+	    </div>
+	    <div class="scrollwrap scrollwrap-color"><div id="apc-color-list" style="display:none"></div><div class="scroll-ind" id="apc-color-ind"></div></div>
+	    <button id="tile-popup-remove" class="pl-target-btn modal-btn-danger" style="display:none"></button>
+	    <div class="modal-btn-row center"><button id="tile-popup-cancel">Close</button></div>
+	  </div>
+	</div>
+	<div id="confirm-popup" class="modal-overlay">
+	  <div class="modal-card">
+	    <div class="modal-title" id="confirm-text"></div>
+	    <div id="confirm-msg"></div>
+	    <div class="modal-btn-row">
+	      <button id="confirm-cancel">Cancel</button>
+	      <button id="confirm-yes" class="modal-btn-danger">Delete</button>
+	    </div>
+	  </div>
+	</div>
+	<div id="sd-warn-popup" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-title">No preview images found</div>
+    <div id="sd-warn-msg"></div>
+    <div class="modal-btn-row center"><button id="sd-warn-close">OK</button></div>
+  </div>
+</div>
+<div id="toast"></div>
 
 	<div class="content"><div class="grid" id="grid"></div></div>
 	<div class="footer">
@@ -842,7 +1375,7 @@
 			<button id="nextBtn" onclick="nextCUE()"><img src="/images/next.png" alt="Next"></button>
 		</div>
 	</div>
-	
+
 	<div id="sliderPanel" class="slider-panel">
 		<div class="slider-row">
 			<div class="slider-label">Rotation</div>
@@ -869,11 +1402,11 @@
 			<button class="reset-btn" id="resetPowerBtn"><img id="reset-power" src="/images/restart.png" alt="RST"></button>
 		</div>
 	</div>
-	
+
 	<div id="settingsPanel" class="slider-panel">
 		<div class="slider-row">
 			<div class="slider-label">Theme</div>
-			<div class="slider-wrap">		
+			<div class="slider-wrap">
 					<select class="theme-droplist" id="theme-selection">
 					    <option value="theme-dark-blue">Dark Blue</option>
     					<option value="theme-icy-green">Icy Green</option>
@@ -881,8 +1414,8 @@
     					<option value="theme-pink">Pink</option>
     					<option value="theme-purple">Purple</option>
     					<option value="theme-orange">Orange</option>
-					</select>			
-			</div>	
+					</select>
+			</div>
 		</div>
 		<div class="switch-row">
 		  <label for="animatedSwitch">Animated Previews</label>
@@ -914,45 +1447,34 @@
 			</div>
 			<button class="reset-btn" id="resetSpeedBtn"><img id="reset-playspeed" src="/images/restart.png" alt="RST"></button>
 		</div>
-		
-		<div id="statusContainer">
+
+		<div class="statusContainer">
 			<div class="temp-gauge">
 			  <svg class="temp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
 			    <path d="M192 384a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm64-112.8V112a64 64 0 1 0-128 0v159.2c-38.9 22.4-64 63.3-64 110.8
 			             0 70.7 57.3 128 128 128s128-57.3 128-128c0-47.5-25.1-88.4-64-110.8z"/>
-			  </svg>			
+			  </svg>
 			  <span class ="tempval" id="temp-value">23</span><span class="deg">&deg;C</span>
 			</div>
 		  <div id="batteryBar">
 		    <div id="batteryLevel"></div>
 		  </div>
 		  <span id="batteryPercent">--%</span>
-		  <span id="ilockLabel">INTERLOCK DISABLED</span>
+		  <span class="orangelabel" id="ilockLabel">INTERLOCK DISABLED</span>
 		</div>
 	</div>
 
-	<div id="colorizePanel" class="slider-panel">
-		<div class="colorize-row">
-		  <button class="colorize-btn" data-color="rgb(255, 0, 0)"></button>
-		  <button class="colorize-btn" data-color="rgb(255, 100, 0)"></button>
-		  <button class="colorize-btn" data-color="rgb(0, 255, 0)"></button>
-		  <button class="colorize-btn" data-color="rgb(0, 0, 255)"></button>
-		  <button class="colorize-btn" data-color="rgb(0, 255, 255)"></button>
-		  <button class="colorize-btn" data-color="rgb(255, 255, 0)"></button>
-		  <button class="colorize-btn" data-color="rgb(255, 0, 255)"></button>
-		  <button class="colorize-btn" data-color="rgb(35, 11, 69)"></button>
-		  <button class="colorize-btn" data-color="rgb(255, 255, 255)"></button>
+	<div id="effects-popup" class="slider-panel effects-panel">
+		<div class="fx-tabs">
+			<button id="fx-tab-img" class="fx-tab active">Image</button>
+			<button id="fx-tab-col" class="fx-tab">Colorize</button>
 		</div>
-		<div class="slider-row">
-			<div class="slider-label">Intensity</div>
-			<div class="slider-wrap">
-				<input type="range" id="hue_effect/Intensity" step="1" />
-				<span class="thumb-value" id="colorizeIntensity-value"></span>
-			</div>
-			<button class="reset-btn" id="resetcolorizeIntensityBtn"><img id="reset-colorizeIntensity" src="/images/restart.png" alt="RST"></button>
+		<div class="fx-grid-wrap"><div class="grid" id="fx-grid"></div></div>
+		<div class="statusContainer">
+			<span class="orangelabel" id="effEnLabel">effects need enabling on MK2 LCD</span>
 		</div>
 	</div>
-	
+
 	<script>
 		const RECONNECT_DELAY = 5000;
 		const KEEPALIVE_TIMEOUT = 1000;
@@ -960,216 +1482,488 @@
 
 		let ws;
 		let reconnectTimer;
-		let keepAliveTimer;	
+		let keepAliveTimer;
 		let selectedImg = null;
 		let selectedUrl = null;
 		let selectedPlaylist = '';
+		let deviceMode = 'playlist';
+		let seenMode = null;
+		let plRetryTimer = null;
+		let gridRetryTimer = null;
+		let lastWsMsgMs = Date.now();
 		let playing = false;
 		let autoplay = true;
 		let lastSdcardState = null;
 		let battery_pct = 100;
 		let is_charging = null;
 		let is_ilock_en = null;
+		let is_effects_en = null;
 		let temperature = null;
 		const allSliderIds = [];
-		
+
+		const TILE_COLORS = ['#ff4257', '#35d54a', '#ffd022', '#2ed3c2', '#3f8cff', '#ff8d1f', '#ff4fd8'];
+
+		let fxList = null;
+		let fxCacheVer = 1;
+		let fxSelImg = '';
+		let fxSelCol = '';
+		let fxTab = 'img';
+		let fxRetryTimer = null;
+
+		let plEdit = false;
+		let plRev = null;
+		let playlistOptions = [];
+		let popupItemName = null;
+		let popupCloseTimer = null;
+
+		let sdWarnShown = false;
+
+		const APC_COLORS = [
+			{ v: -1, label: 'Default',    hex: '#555555' },
+			{ v: 1,  label: 'Red',        hex: '#ff0000' },
+			{ v: 2,  label: 'Green',      hex: '#00d000' },
+			{ v: 3,  label: 'Blue',       hex: '#2050ff' },
+			{ v: 4,  label: 'Yellow',     hex: '#ffe000' },
+			{ v: 5,  label: 'Cyan',       hex: '#00e0e0' },
+			{ v: 6,  label: 'Magenta',    hex: '#ff00ff' },
+			{ v: 7,  label: 'White',      hex: '#ffffff' },
+			{ v: 8,  label: 'Orange',     hex: '#ff8000' },
+			{ v: 9,  label: 'Purple',     hex: '#9040ff' },
+			{ v: 10, label: 'Salmon',     hex: '#fa8072' },
+			{ v: 11, label: 'Pink',       hex: '#ff69b4' },
+			{ v: 12, label: 'Lime',       hex: '#b0ff30' },
+			{ v: 13, label: 'Cornflower', hex: '#6495ed' },
+			{ v: 14, label: 'Mocha',      hex: '#a0785a' },
+			{ v: 15, label: 'Ice Blue',   hex: '#a5f2f3' }
+		];
+
+		const TRASH_SVG = '<svg viewBox="0 0 448 512"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64s14.3 32 32 32h384c17.7 0 32-14.3 32-32s-14.3-32-32-32h-96l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32l21.2 339c1.6 25.3 22.6 45 47.9 45h245.8c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>';
+		const RESET_SVG = '<svg viewBox="0 0 512 512"><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>';
+
+		function getPlaylistKind(name) {
+			const opt = playlistOptions.find(o => o.value === name);
+			return opt ? opt.kind : 'builtin';
+		}
+
+		function setPopupMsg(text, ok) {
+			const el = document.getElementById('popup-msg');
+			el.textContent = text || '';
+			el.classList.toggle('ok', !!ok);
+		}
+
+		function closeOverlay(id) {
+			document.getElementById(id).classList.remove('active');
+		}
+
+		function setPopupInset(overlayId) {
+			const item = document.querySelector('.grid-item');
+			const overlay = document.getElementById(overlayId);
+			if (overlay) overlay.style.setProperty('--grid-item-h', (item ? item.offsetHeight : 90) + 'px');
+		}
+
+		function popupAutoClose() {
+			if (popupCloseTimer) clearTimeout(popupCloseTimer);
+			popupCloseTimer = setTimeout(() => closeOverlay('tile-popup'), 1000);
+		}
+
+		let toastTimer = null;
+		function showToast(msg) {
+			const t = document.getElementById('toast');
+			t.textContent = msg;
+			t.classList.add('show');
+			if (toastTimer) clearTimeout(toastTimer);
+			toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+		}
+
+		let autoScrollTimer = null, autoScrollDy = 0;
+		function autoScroll(clientY) {
+			const container = document.getElementById('grid').parentElement;
+			const r = container.getBoundingClientRect();
+			autoScrollDy = 0;
+			if (clientY < r.top + 48) autoScrollDy = -10;
+			else if (clientY > r.bottom - 48) autoScrollDy = 10;
+			if (autoScrollDy === 0) { stopAutoScroll(); return; }
+			if (!autoScrollTimer) {
+				autoScrollTimer = setInterval(() => { container.scrollTop += autoScrollDy; }, 30);
+			}
+		}
+		function stopAutoScroll() {
+			if (autoScrollTimer) { clearInterval(autoScrollTimer); autoScrollTimer = null; }
+			autoScrollDy = 0;
+		}
+
+		function flashTile(wrapper) {
+			wrapper.classList.add('drop-flash');
+			setTimeout(() => wrapper.classList.remove('drop-flash'), 400);
+		}
+
+		function swallowNextClicks(windowMs) {
+			const swallow = e => { e.stopPropagation(); e.preventDefault(); };
+			document.addEventListener('click', swallow, true);
+			setTimeout(() => document.removeEventListener('click', swallow, true), windowMs || 150);
+		}
+
+		function postPlaylistEdit(op, playlist, item, onOk, onFail, extra) {
+			const showFail = (m) => {
+				if (typeof onFail === 'function') {
+					onFail(m);
+				} else {
+					const el = document.getElementById(onFail || 'popup-msg');
+					if (el) { el.textContent = m; el.classList.remove('ok'); }
+				}
+				loadPlaylists();
+			};
+			if (lastSdcardState === false) { showFail('No SD card inserted'); return; }
+			fetch('/api/playlist/playlist-edit', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(Object.assign({ op, playlist, item }, extra || {}))
+			})
+			.then(res => res.json())
+			.then(d => {
+				if (d.ok) {
+					if (typeof d.pl_rev === 'number') plRev = d.pl_rev;
+					onOk(d);
+				} else {
+					showFail(d.error || 'Failed');
+				}
+			})
+			.catch(() => showFail('Device not responding'));
+		}
+
+
+		function setColorTrigger(v) {
+			const opt = APC_COLORS.find(o => o.v === v);
+			document.getElementById('apc-color-swatch').style.background = opt ? opt.hex : '#555555';
+			document.getElementById('apc-color-name').textContent = opt ? opt.label : ('Custom (' + v + ')');
+		}
+
+		function updateScrollInd(list, ind) {
+			const sh = list.scrollHeight, ch = list.clientHeight;
+			if (list.style.display === 'none' || sh <= ch + 1) {
+				ind.style.opacity = '0';
+				return;
+			}
+			const h = Math.max(20, ch * ch / sh);
+			ind.style.height = h + 'px';
+			ind.style.top = ((list.scrollTop / (sh - ch)) * (ch - h)) + 'px';
+			ind.style.opacity = '1';
+		}
+
+		function refreshPopupScrollInds() {
+			updateScrollInd(document.getElementById('tile-popup-targets'), document.getElementById('targets-ind'));
+			updateScrollInd(document.getElementById('apc-color-list'), document.getElementById('apc-color-ind'));
+		}
+
+		function toggleColorList(show) {
+			const list = document.getElementById('apc-color-list');
+			if (show) {
+				const card = list.closest('.modal-card');
+				if (card) list.style.maxHeight = Math.floor(card.getBoundingClientRect().height / 2) + 'px';
+				list.style.display = 'block';
+			} else {
+				list.style.display = 'none';
+			}
+			refreshPopupScrollInds();
+		}
+
+		function buildColorList() {
+			const list = document.getElementById('apc-color-list');
+			list.innerHTML = '';
+			APC_COLORS.forEach(opt => {
+				const btn = document.createElement('button');
+				btn.className = 'apc-color-opt';
+				const sw = document.createElement('span');
+				sw.className = 'apc-swatch';
+				sw.style.background = opt.hex;
+				const name = document.createElement('span');
+				name.textContent = opt.label;
+				btn.appendChild(sw);
+				btn.appendChild(name);
+				btn.onclick = () => {
+					const sel = document.getElementById('playlist-selection');
+					const cur = sel ? sel.value : '';
+					postPlaylistEdit('set_color', cur, popupItemName, () => {
+						setColorTrigger(opt.v);
+						toggleColorList(false);
+						setPopupMsg('Colour updated', true);
+					}, null, { color: opt.v });
+				};
+				list.appendChild(btn);
+			});
+		}
+
+		function openTilePopup(itemName, imgUrl) {
+			if (popupCloseTimer) { clearTimeout(popupCloseTimer); popupCloseTimer = null; }
+			setPopupInset('tile-popup');
+			popupItemName = itemName;
+			document.getElementById('tile-popup-title').textContent = 'Add "' + itemName + '" to playlist';
+			const imgEl = document.getElementById('tile-popup-img');
+			if (imgUrl) {
+				imgEl.src = imgUrl;
+				imgEl.style.display = 'block';
+			} else {
+				imgEl.removeAttribute('src');
+				imgEl.style.display = 'none';
+			}
+			setPopupMsg('');
+			document.getElementById('new-pl-name').value = '';
+
+			const sel = document.getElementById('playlist-selection');
+			const cur = sel ? sel.value : '';
+
+			const targets = document.getElementById('tile-popup-targets');
+			targets.innerHTML = '';
+			const badges = { user: 'custom', shadow: 'customised', builtin: 'built-in' };
+			playlistOptions.forEach(opt => {
+				if (opt.value === 'All') return;
+				const btn = document.createElement('button');
+				btn.className = 'pl-target-btn';
+				const nameSpan = document.createElement('span');
+				nameSpan.textContent = opt.label;
+				const badge = document.createElement('span');
+				badge.className = 'pl-kind-badge';
+				badge.textContent = badges[opt.kind] || '';
+				btn.appendChild(nameSpan);
+				btn.appendChild(badge);
+				btn.onclick = () => {
+					postPlaylistEdit('add', opt.value, popupItemName, () => {
+						setPopupMsg('Added to ' + opt.label, true);
+						popupAutoClose();
+						loadPlaylists();
+						if (sel && sel.value === opt.value) getSelectedPlaylistImage();
+					});
+				};
+				targets.appendChild(btn);
+			});
+
+			const colorRow = document.getElementById('pl-color-row');
+			toggleColorList(false);
+			if (cur && cur !== 'All') {
+				colorRow.style.display = 'flex';
+				setColorTrigger(-1);
+				postPlaylistEdit('get_color', cur, itemName, (d) => {
+					setColorTrigger(typeof d.color === 'number' ? d.color : -1);
+				});
+			} else {
+				colorRow.style.display = 'none';
+			}
+
+			const removeBtn = document.getElementById('tile-popup-remove');
+			const curKind = getPlaylistKind(cur);
+			if (cur && cur !== 'All' && (curKind === 'user' || curKind === 'shadow')) {
+				removeBtn.style.display = '';
+				removeBtn.textContent = 'Remove from ' + cur;
+				removeBtn.onclick = () => {
+					postPlaylistEdit('remove', cur, popupItemName, () => {
+						closeOverlay('tile-popup');
+						loadPlaylists();
+						getSelectedPlaylistImage();
+					});
+				};
+			} else {
+				removeBtn.style.display = 'none';
+			}
+
+			document.getElementById('tile-popup').classList.add('active');
+			refreshPopupScrollInds();
+		}
+
+		function updateDeleteBtn() {
+			const btn = document.getElementById('playlist-delete-btn');
+			if (!btn) return;
+			const sel = document.getElementById('playlist-selection');
+			const kind = (plEdit && sel && sel.value) ? getPlaylistKind(sel.value) : 'builtin';
+			if (kind === 'user') {
+				btn.innerHTML = TRASH_SVG;
+				btn.title = 'Delete playlist';
+				btn.style.display = 'block';
+			} else if (kind === 'shadow') {
+				btn.innerHTML = RESET_SVG;
+				btn.title = 'Reset to default';
+				btn.style.display = 'block';
+			} else {
+				btn.style.display = 'none';
+			}
+		}
+
+		function openConfirmPopup() {
+			const sel = document.getElementById('playlist-selection');
+			const name = sel ? sel.value : '';
+			if (!name || name === 'All') return;
+			setPopupInset('confirm-popup');
+			const kind = getPlaylistKind(name);
+			const confirmText = document.getElementById('confirm-text');
+			const yesBtn = document.getElementById('confirm-yes');
+			if (kind === 'shadow') {
+				confirmText.textContent = 'Reset "' + name + '" to its default contents?';
+				yesBtn.textContent = 'Reset';
+			} else {
+				confirmText.textContent = 'Are you sure you want to delete "' + name + '"?';
+				yesBtn.textContent = 'Delete';
+			}
+			document.getElementById('confirm-msg').textContent = '';
+			yesBtn.onclick = () => {
+				postPlaylistEdit('delete', name, null, () => {
+					closeOverlay('confirm-popup');
+					loadPlaylists();
+					getSelectedPlaylistImage();
+				}, 'confirm-msg');
+			};
+			document.getElementById('confirm-popup').classList.add('active');
+		}
+
 		function updateTemperature(value) {
 		  document.getElementById('temp-value').textContent = value;
-		  const icon = document.querySelector('.temp-icon');		  
+		  const icon = document.querySelector('.temp-icon');
 		  if (value < 65) icon.style.fill = 'deepskyblue';
 		  else if (value >= 75) icon.style.fill = 'red';
 		  else icon.style.fill = 'orange';
 		}
-		
+
 		function updatePowerButton() {
 		  const btn = document.querySelector(".power-btn");
-		  if (btn) {		
+		  if (btn) {
 			  if (playing && is_ilock_en === false) {
 			    btn.classList.add("orange-active");
 			  } else {
 			    btn.classList.remove("orange-active");
 			  }
 		  }
-		}		
-		
+		}
+
 		function updateILockLabel() {
 		  const ilockEl = document.getElementById("ilockLabel");
 		  if (!ilockEl) return;
-		
+
 		  if (is_ilock_en === false) {
 		    ilockEl.style.display = "inline-block";
 		  } else {
 		    ilockEl.style.display = "none";
 		  }
-		}	
-			
+		}
+
+		function updateEffEnLabel() {
+		  const effEl = document.getElementById("effEnLabel");
+		  if (!effEl) return;
+
+		  if (is_effects_en === false) {
+		    effEl.style.display = "inline-block";
+		  } else {
+		    effEl.style.display = "none";
+		  }
+		}
+
 		function updateBatteryGauge() {
 			const levelEl = document.getElementById("batteryLevel");
 			const percentEl = document.getElementById("batteryPercent");
 			let pct = Math.min(100, Math.max(0, battery_pct || 0));
-						
+
 			if (is_charging === true) {
 			  	pct = 100;
 			  	levelEl.style.width = `${pct}%`;
 			  	percentEl.textContent = "CHG";
 			  	levelEl.style.background = "#808080";
 			}
-			else 
-			{			
+			else
+			{
 				levelEl.style.width = `${pct}%`;
 				percentEl.textContent = `${pct}%`;
-						
+
 				if (pct < 20) {
-				  levelEl.style.background = "#e74c3c"; // red
+				  levelEl.style.background = "#e74c3c";
 				} else if (pct < 40) {
-				  levelEl.style.background = "#f1c40f"; // yellow
+				  levelEl.style.background = "#f1c40f";
 				} else {
-				  levelEl.style.background = "#2ecc71"; // green
+				  levelEl.style.background = "#2ecc71";
 				}
 			}
 		}
-					
-		function getHueSaturation(color) {
-		  if (!color) return { hue: null, saturation: null };
-		
-		  const ctx = document.createElement('canvas').getContext('2d');
-		  ctx.fillStyle = color;
-		  const computed = ctx.fillStyle;
-		
-		  let r, g, b;
-		
-		  // hex #rgb or #rrggbb
-		  if (computed[0] === '#') {
-		    const hex = computed.slice(1);
-		    if (hex.length === 3) {
-		      r = parseInt(hex[0] + hex[0], 16);
-		      g = parseInt(hex[1] + hex[1], 16);
-		      b = parseInt(hex[2] + hex[2], 16);
-		    } else if (hex.length === 6) {
-		      r = parseInt(hex.slice(0, 2), 16);
-		      g = parseInt(hex.slice(2, 4), 16);
-		      b = parseInt(hex.slice(4, 6), 16);
-		    } else {
-		      return { hue: null, saturation: null };
-		    }
-		  } else {
-		    // rgb(...) or rgba(...)
-		    const m = computed.match(/rgba?\s*\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})/i);
-		    if (!m) return { hue: null, saturation: null };
-		    r = parseInt(m[1], 10);
-		    g = parseInt(m[2], 10);
-		    b = parseInt(m[3], 10);
-		  }
-		
-		  // Normalize RGB 0..1
-		  const R = r / 255, G = g / 255, B = b / 255;
-		  const max = Math.max(R, G, B), min = Math.min(R, G, B);
-		  const d = max - min;
-		  const l = (max + min) / 2; // lightness
-		
-		  let h = 0;
-		  if (d !== 0) {
-		    if (max === R) h = ((G - B) / d) % 6;
-		    else if (max === G) h = (B - R) / d + 2;
-		    else h = (R - G) / d + 4;
-		    h = h * 60;
-		    if (h < 0) h += 360;
-		  }
-		
-		  let s = 0;
-		  if (d !== 0) {
-		    s = d / (1 - Math.abs(2 * l - 1));
-		  }
-		
-		  return {
-		    hue: Math.round(h),                // 0–360
-		    saturation: Math.round(s * 100)    // 0–100 %
-		  };
-		}
-				
+
 		function updatePlayingIcon() {
 			const icon = document.getElementById("power-icon");
 			icon.src = playing ? "/images/power_on.svg" : "/images/power_off.svg";
 			updatePowerButton();
 		}
-	
+
 		function updateAutoplayIcon() {
 			const icon = document.getElementById("pause-icon");
 			icon.src = autoplay ? "/images/pause.png" : "/images/play.png";
 		}
-	
+
 		function ws_send_button_event(item) {
 			if (ws && ws.readyState === WebSocket.OPEN) {
 				ws.send(JSON.stringify({ btn: item }));
 			}
 		}
-	
+
 		function togglePlaying() {
 			ws_send_button_event("playlist_player/On");
 		}
-	
+
 		function toggleAutoplay() {
 			ws_send_button_event("playlist_player/\uF04B");
 		}
-	
+
 		function nextCUE() {
 			ws_send_button_event("playlist_player/\uF051");
 		}
-	
+
 		function prevCUE() {
 			ws_send_button_event("playlist_player/\uF048");
 		}
-	
-		function setupSlider(sliderId, valueId, resetbtnId, min, max, def) {
+
+		function setupSlider(sliderId, valueId, resetbtnId, min, max, def, opts) {
 			const slider = document.getElementById(sliderId);
 			const thumbValue = document.getElementById(valueId);
 			if (!slider || !thumbValue) return;
-			
-			if (!allSliderIds.includes(sliderId)) allSliderIds.push(sliderId);
-					
+
+			opts = opts || {};
+			if (opts.track !== false && !allSliderIds.includes(sliderId)) allSliderIds.push(sliderId);
+
 			slider.min = min;
 			slider.max = max;
-			slider.value = def;
-		
+			slider.value = (opts.initial !== undefined) ? opts.initial : def;
+
 			const wrap = slider.parentElement;
-					
+
 			slider.isActive = false;
 			slider.addEventListener("mousedown", () => slider.isActive = true);
 			slider.addEventListener("touchstart", () => slider.isActive = true);
 			slider.addEventListener("mouseup", () => slider.isActive = false);
 			slider.addEventListener("touchend", () => slider.isActive = false);
-		
+
 			function update() {
 				const minVal = +slider.min;
 				const maxVal = +slider.max;
 				const val = +slider.value;
 				const percent = (val - minVal) / (maxVal - minVal);
-		
+
 				wrap.style.setProperty('--percent', (percent * 100) + '%');
-				thumbValue.textContent = val;
-		
+				thumbValue.textContent = opts.fmt ? opts.fmt(val) : val;
+
 				const sliderWidth = slider.offsetWidth;
 				thumbValue.style.left = percent * sliderWidth + 'px';
 			}
-		
+
 			update();
 			slider.addEventListener('input', () => {
-				update();				
+				update();
 				if (ws && ws.readyState === WebSocket.OPEN) {
 					resetKeepAlive();
 					ws.send(JSON.stringify({ [sliderId]: parseFloat(slider.value) }));
 				}
 			});
 			window.addEventListener('resize', update);
-		
+
 			const resetbtn = document.getElementById(resetbtnId);
 			if (!resetbtn) return;
-		
+
 			resetbtn.addEventListener("click", () => {
 				slider.value = def;
 				slider.dispatchEvent(new Event("input"));
 			});
-			
+
 			resetbtn.classList.add('reset-btn-glow-base');
 			resetbtn.addEventListener("click", () => {
 				resetbtn.classList.add('clicked');
@@ -1178,21 +1972,25 @@
 				}, FLASH_PERIOD_MS);
 			});
 		}
-			
+
 		function getDisplayNameFromUrl(src) {
 			const filename = decodeURIComponent(src);
 			const noQuery = filename.split('?')[0];
 			let name = noQuery.substring(noQuery.lastIndexOf('/') + 1);
-			name = name.replace(/\.webp$/i, '');
+			name = name.replace(/\.(webp|jpe?g|png)$/i, '');
+			if (deviceMode === 'playlist') {
+				const h = name.indexOf('-');
+				if (h >= 0) name = name.substring(h + 1).trim();
+			}
 			return name;
 		}
-	
+
 		function updateSelectedName(name) {
 			const shortName = getDisplayNameFromUrl(name);
 			const nameEl = document.getElementById('selected-name');
 			if (nameEl) nameEl.textContent = shortName || '';
 		}
-	
+
 		function getSelectedPlaylistImage() {
 			fetch('/api/playlist/selected-image')
 				.then(res => res.json())
@@ -1200,11 +1998,12 @@
 				.catch(err => console.error('Failed to fetch selected image:', err))
 				.finally(loadGrid);
 		}
-	
+
 		function loadPlaylists() {
 			fetch('/api/playlist/playlist-items')
 				.then(res => res.json())
 				.then(data => {
+					if (plRetryTimer) { clearTimeout(plRetryTimer); plRetryTimer = null; }
 					const select = document.getElementById('playlist-selection');
 					select.innerHTML = '';
 					data.options.forEach(opt => {
@@ -1217,10 +2016,70 @@
 						}
 						select.appendChild(option);
 					});
+					playlistOptions = data.options.map(o => ({ value: o.value, label: o.label, kind: o.kind || 'builtin' }));
+					updateDeleteBtn();
 				})
-				.catch(err => console.error('Failed to load playlists:', err));
+				.catch(err => {
+					console.error('Failed to load playlists:', err);
+					if (plRetryTimer) clearTimeout(plRetryTimer);
+					plRetryTimer = setTimeout(loadPlaylists, 2000);
+				});
 		}
-	
+
+		const sdWarnRes = { grid: null, fx: null };
+
+		function sdWarnShow(msg) {
+			if (sdWarnShown) return;
+			sdWarnShown = true;
+			document.getElementById('sd-warn-msg').textContent = msg;
+			document.getElementById('sd-warn-popup').classList.add('active');
+		}
+
+		function sdWarnArbiter() {
+			if (sdWarnShown) return;
+			if (sdWarnRes.grid === true) {
+				sdWarnShow('The SD card may contain the wrong content for this device.\nCheck you have updated to the latest SD card image');
+				return;
+			}
+			if (sdWarnRes.fx === true && sdWarnRes.grid === false) {
+				sdWarnShow('Effect preview images are missing from the SD card.\nCheck you have updated to the latest SD card image');
+			}
+		}
+
+		function sdWarnReport(key, allMissing) {
+			if (sdWarnRes[key] !== null) return;
+			if (lastSdcardState === false) return;
+			sdWarnRes[key] = allMissing;
+			sdWarnArbiter();
+		}
+
+		function makeThumbChecker(key) {
+			const c = { miss: 0, done: false, timer: null };
+			const evalChk = () => {
+				if (c.done || c.miss === 0) return;
+				c.done = true;
+				sdWarnReport(key, true);
+			};
+			return img => {
+				img.addEventListener('load', () => {
+					img.style.opacity = '';
+					if (c.done) return;
+					c.done = true;
+					if (c.timer) clearTimeout(c.timer);
+					sdWarnReport(key, false);
+				});
+				img.addEventListener('error', () => {
+					img.style.opacity = '0';
+					if (c.done) return;
+					c.miss++;
+					if (c.timer) clearTimeout(c.timer);
+					c.timer = setTimeout(evalChk, 1000);
+				});
+			};
+		}
+		const trackGridThumb = makeThumbChecker('grid');
+		const trackFxThumb = makeThumbChecker('fx');
+
 		function loadGrid() {
 			fetch('/api/playlist/image-list')
 				.then(res => res.json())
@@ -1228,27 +2087,47 @@
 					const grid = document.getElementById('grid');
 					let selectedName = '';
 					grid.innerHTML = '';
-					list.forEach(url => {
+					const gridSel = document.getElementById('playlist-selection');
+					const dragEligible = plEdit && gridSel && gridSel.value && gridSel.value !== 'All';
+					if (!list.length) sdWarnReport('grid', false);
+					list.forEach((url, i) => {
 						const wrapper = document.createElement('div');
 						wrapper.className = 'grid-item';
+
+						const tile = document.createElement('div');
+						tile.className = 'grid-tile';
+						tile.style.setProperty('--tile-color', TILE_COLORS[i % TILE_COLORS.length]);
+
 						const img = document.createElement('img');
 						img.src = url;
 						img.loading = 'lazy';
 						img.draggable = false;
-						img.onerror = () => { img.onerror = null; img.src = url; };
-						wrapper.appendChild(img);
-	
+						trackGridThumb(img);
+						tile.appendChild(img);
+						wrapper.appendChild(tile);
+
+						const label = document.createElement('div');
+						label.className = 'grid-label';
+						label.textContent = getDisplayNameFromUrl(url);
+						wrapper.appendChild(label);
+
 						if (url === selectedUrl) {
 							img.classList.add('selected');
 							selectedImg = img;
 							wrapper.classList.add('selected');
 							selectedName = getDisplayNameFromUrl(url);
 						}
-	
+
 						img.onclick = () => {
-							if (selectedImg) selectedImg.classList.remove('selected');
+							if (swallowTileClick) { swallowTileClick = false; return; }
+							if (selectedImg) {
+								selectedImg.classList.remove('selected');
+								const prev = selectedImg.closest('.grid-item');
+								if (prev) prev.classList.remove('selected');
+							}
 							selectedImg = img;
 							img.classList.add('selected');
+							wrapper.classList.add('selected');
 							selectedName = getDisplayNameFromUrl(url);
 							const nameEl = document.getElementById('selected-name');
 							if (nameEl) nameEl.textContent = selectedName || '';
@@ -1258,49 +2137,490 @@
 								body: JSON.stringify({ url })
 							}).catch(err => console.error('Click handler error:', err));
 						};
-	
+
+						if (dragEligible) wrapper.style.touchAction = 'pan-y';
+
+						let lpTimer = null, lpX = 0, lpY = 0, lpFired = false;
+						let dragging = false, dragFrom = -1, swallowTileClick = false;
+						let dragTx = 0, dragTy = 0, grabX = 0, grabY = 0, dragPointerId = null;
+						const cancelLongPress = () => { if (lpTimer) { clearTimeout(lpTimer); lpTimer = null; } };
+
+						const onDocPointerMove = (e) => { if (e.pointerId === dragPointerId) onDragMove(e); };
+						const onDocPointerUp = (e) => { if (e.pointerId === dragPointerId) endDrag(false); };
+						const onDocPointerCancel = (e) => { if (e.pointerId === dragPointerId) endDrag(true); };
+						const onDocTouchMove = (e) => { e.preventDefault(); };
+						const onDocTouchEnd = (e) => {
+							e.preventDefault();
+							document.removeEventListener('touchend', onDocTouchEnd);
+						};
+
+						const startDrag = (e) => {
+							dragging = true;
+							dragFrom = Array.prototype.indexOf.call(grid.children, wrapper);
+							cancelLongPress();
+							const r = wrapper.getBoundingClientRect();
+							grabX = e.clientX - r.left;
+							grabY = e.clientY - r.top;
+							dragTx = 0;
+							dragTy = 0;
+							wrapper.classList.add('dragging');
+							wrapper.style.transform = 'scale(1.06)';
+							dragPointerId = e.pointerId;
+							document.addEventListener('pointermove', onDocPointerMove);
+							document.addEventListener('pointerup', onDocPointerUp);
+							document.addEventListener('pointercancel', onDocPointerCancel);
+							document.addEventListener('touchmove', onDocTouchMove, { passive: false });
+							document.addEventListener('touchend', onDocTouchEnd, { passive: false });
+						};
+
+						const onDragMove = (e) => {
+							let target = null;
+							const kids = grid.children;
+							for (let k = 0; k < kids.length; k++) {
+								const el = kids[k];
+								if (el === wrapper) continue;
+								const kr = el.getBoundingClientRect();
+								if (e.clientX >= kr.left && e.clientX <= kr.right &&
+									e.clientY >= kr.top && e.clientY <= kr.bottom) {
+									target = el;
+									break;
+								}
+							}
+							if (target) {
+								const r = target.getBoundingClientRect();
+								const after = (e.clientY > r.top + r.height / 2) ||
+											  (e.clientY >= r.top && e.clientY <= r.bottom && e.clientX > r.left + r.width / 2);
+								const ref = after ? target.nextSibling : target;
+								if (ref !== wrapper && ref !== wrapper.nextSibling) {
+									grid.insertBefore(wrapper, ref);
+								}
+							}
+							const wr = wrapper.getBoundingClientRect();
+							dragTx = (e.clientX - grabX) - (wr.left - dragTx);
+							dragTy = (e.clientY - grabY) - (wr.top - dragTy);
+							wrapper.style.transform = 'translate(' + dragTx + 'px,' + dragTy + 'px) scale(1.06)';
+							autoScroll(e.clientY);
+						};
+
+						const endDrag = (aborted) => {
+							stopAutoScroll();
+							document.removeEventListener('pointermove', onDocPointerMove);
+							document.removeEventListener('pointerup', onDocPointerUp);
+							document.removeEventListener('pointercancel', onDocPointerCancel);
+							document.removeEventListener('touchmove', onDocTouchMove);
+							setTimeout(() => document.removeEventListener('touchend', onDocTouchEnd), 250);
+							dragPointerId = null;
+							wrapper.classList.remove('dragging');
+							wrapper.style.transform = '';
+							wrapper.style.pointerEvents = '';
+							const to = Array.prototype.indexOf.call(grid.children, wrapper);
+							dragging = false;
+							if (aborted) {
+								if (to !== dragFrom) getSelectedPlaylistImage();
+								return;
+							}
+							if (to === dragFrom) return;
+							swallowTileClick = true;
+							setTimeout(() => { swallowTileClick = false; }, 400);
+							const sel = document.getElementById('playlist-selection');
+							postPlaylistEdit('move', sel ? sel.value : '', getDisplayNameFromUrl(url), () => {
+								flashTile(wrapper);
+							}, (m) => {
+								showToast(m);
+								getSelectedPlaylistImage();
+							}, { from: dragFrom, to });
+						};
+
+						wrapper.addEventListener('pointerdown', e => {
+							if (!plEdit) return;
+							lpX = e.clientX; lpY = e.clientY;
+							cancelLongPress();
+							lpTimer = setTimeout(() => {
+								lpTimer = null;
+								lpFired = true;
+								openTilePopup(getDisplayNameFromUrl(url), url);
+							}, 550);
+						});
+						wrapper.addEventListener('pointermove', e => {
+							if (dragging) return;
+							if (!lpTimer) return;
+							const dx = Math.abs(e.clientX - lpX), dy = Math.abs(e.clientY - lpY);
+							if (dx <= 10 && dy <= 10) return;
+							if (dragEligible && (e.pointerType === 'mouse' || dx > dy)) {
+								startDrag(e);
+							} else {
+								cancelLongPress();
+							}
+						});
+						wrapper.addEventListener('pointerup', () => {
+							if (dragging) return;
+							if (lpFired) {
+								lpFired = false;
+								swallowNextClicks(150);
+							}
+							cancelLongPress();
+						});
+						wrapper.addEventListener('pointercancel', () => {
+							lpFired = false;
+							if (dragging) return;
+							cancelLongPress();
+						});
+						wrapper.addEventListener('pointerleave', () => {
+							if (dragging) return;
+							cancelLongPress();
+						});
+						wrapper.addEventListener('contextmenu', e => {
+							if (!plEdit) return;
+							e.preventDefault();
+							if (dragging) return;
+							cancelLongPress();
+							if (!document.getElementById('tile-popup').classList.contains('active')) {
+								openTilePopup(getDisplayNameFromUrl(url), url);
+							}
+						});
+
 						grid.appendChild(wrapper);
 					});
-	
+
 					const selected = grid.querySelector('.grid-item.selected');
 					if (selected) selected.scrollIntoView({ behavior: 'smooth', block: 'center' });
 					updateSelectedName(selectedName);
+					if (gridRetryTimer) { clearTimeout(gridRetryTimer); gridRetryTimer = null; }
 				})
-				.catch(err => console.error('Error loading images:', err));
+				.catch(err => {
+					console.error('Error loading images:', err);
+					if (gridRetryTimer) clearTimeout(gridRetryTimer);
+					gridRetryTimer = setTimeout(getSelectedPlaylistImage, 2000);
+				});
 		}
-	
+
 		function highlightGridItemByUrl(url) {
 			const grid = document.getElementById('grid');
 			const container = grid.parentElement;
 			const gridItems = grid.querySelectorAll(".grid-item");
-		
+
 			gridItems.forEach(item => {
 				const img = item.querySelector("img");
 				if (!img) return;
-		
+
 				const imgSrc = new URL(img.src, window.location.origin).href;
 				const targetUrl = new URL(url, window.location.origin).href;
-		
+
 				if (imgSrc === targetUrl) {
 					img.classList.add('selected');
-		
+					item.classList.add('selected');
+					selectedImg = img;
+
 					const itemTop = item.offsetTop;
 					const itemBottom = itemTop + item.offsetHeight;
 					const containerTop = container.scrollTop;
 					const containerBottom = containerTop + container.clientHeight;
-		
+
 					if (itemTop < containerTop || itemBottom > containerBottom) {
 						item.scrollIntoView({ behavior: 'smooth', block: 'center' });
 					}
-		
+
 					updateSelectedName(url);
-		
+
 				} else {
 					img.classList.remove('selected');
+					item.classList.remove('selected');
 				}
 			});
 		}
-		
+
+
+		function fxCurrentSel() {
+			return fxTab === 'col' ? fxSelCol : fxSelImg;
+		}
+
+
+		const FX_TY_BPM_MULT = 11;
+
+		function fxBpmMultLabel(v) {
+			if (v === 0) return '1';
+			return v < 0 ? String(1 << -v) : '1/' + (1 << v);
+		}
+
+		let fxAdjPopover = null;
+
+		function fxAdjOutsideDown(e) {
+			if (fxAdjPopover && !fxAdjPopover.contains(e.target)) closeFxAdjPopover();
+		}
+
+		let fxAdjReq = 0;
+
+		function closeFxAdjPopover() {
+			fxAdjReq++;
+			if (!fxAdjPopover) return;
+			fxAdjPopover.remove();
+			fxAdjPopover = null;
+			document.removeEventListener('pointerdown', fxAdjOutsideDown, true);
+		}
+
+		function openFxAdjPopover(id, tile) {
+			if (id !== fxCurrentSel()) return;
+			const eff = fxList && fxList.find(x => x.id === id);
+			if (!eff) return;
+			closeFxAdjPopover();
+			if (!Array.isArray(eff.adjs) || !eff.adjs.length) {
+				buildFxAdjPopover(eff, {}, tile);
+				return;
+			}
+			const req = ++fxAdjReq;
+			fetch('/api/effects/adj-vals?id=' + encodeURIComponent(id))
+				.then(res => res.json())
+				.then(vals => {
+					if (req !== fxAdjReq) return;
+					if (id !== fxCurrentSel()) return;
+					buildFxAdjPopover(eff, vals, tile);
+				})
+				.catch(err => console.error('Failed to load effect param values:', err));
+		}
+
+		function buildFxAdjPopover(eff, vals, tile) {
+			closeFxAdjPopover();
+
+			const pop = document.createElement('div');
+			pop.id = 'fx-adj-popover';
+			pop.dataset.fxId = eff.id;
+
+			const title = document.createElement('div');
+			title.className = 'fx-adj-title';
+			title.textContent = eff.name;
+			pop.appendChild(title);
+
+			const adjs = eff.adjs || [];
+			if (!adjs.length) {
+				const none = document.createElement('div');
+				none.className = 'fx-adj-none';
+				none.textContent = 'No adjustments';
+				pop.appendChild(none);
+			}
+
+			const sliders = [];
+			adjs.forEach(adj => {
+				const fid = eff.id + '/' + adj.n;
+				const row = document.createElement('div');
+				row.className = 'fx-adj-row';
+
+				const label = document.createElement('div');
+				label.className = 'slider-label';
+				label.textContent = adj.n;
+				row.appendChild(label);
+
+				if (adj.sw) {
+					const swLabel = document.createElement('label');
+					swLabel.className = 'switch';
+					const cb = document.createElement('input');
+					cb.type = 'checkbox';
+					cb.checked = (vals[fid] || 0) > 0;
+					const knob = document.createElement('span');
+					knob.className = 'slider';
+					swLabel.appendChild(cb);
+					swLabel.appendChild(knob);
+					row.appendChild(swLabel);
+					cb.addEventListener('change', () => {
+						if (ws && ws.readyState === WebSocket.OPEN) {
+							ws.send(JSON.stringify({ [fid]: cb.checked ? 1 : 0 }));
+						}
+					});
+				} else {
+					const wrap = document.createElement('div');
+					wrap.className = 'slider-wrap';
+					const input = document.createElement('input');
+					input.type = 'range';
+					input.id = fid;
+					input.step = adj.step > 0 ? adj.step : 1;
+					const thumb = document.createElement('span');
+					thumb.className = 'thumb-value';
+					thumb.id = fid + '-val';
+					wrap.appendChild(input);
+					wrap.appendChild(thumb);
+					row.appendChild(wrap);
+
+					const reset = document.createElement('button');
+					reset.className = 'reset-btn';
+					reset.id = fid + '-rst';
+					const img = document.createElement('img');
+					img.src = '/images/restart.png';
+					img.alt = 'RST';
+					reset.appendChild(img);
+					row.appendChild(reset);
+
+					sliders.push(adj);
+				}
+
+				pop.appendChild(row);
+			});
+
+			document.body.appendChild(pop);
+
+			const r = tile.getBoundingClientRect();
+			const w = pop.offsetWidth, h = pop.offsetHeight;
+			let top = r.bottom + 6;
+			if (top + h > window.innerHeight - 8) top = Math.max(8, r.top - h - 6);
+			const left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8);
+			pop.style.top = top + 'px';
+			pop.style.left = left + 'px';
+
+			sliders.forEach(adj => {
+				const fid = eff.id + '/' + adj.n;
+				setupSlider(fid, fid + '-val', fid + '-rst', adj.min, adj.max, adj.def, {
+					track: false,
+					initial: (vals[fid] !== undefined) ? vals[fid] : adj.def,
+					fmt: adj.ty === FX_TY_BPM_MULT ? fxBpmMultLabel : null
+				});
+			});
+
+			fxAdjPopover = pop;
+			document.addEventListener('pointerdown', fxAdjOutsideDown, true);
+			const gridWrap = document.querySelector('.fx-grid-wrap');
+			if (gridWrap) gridWrap.addEventListener('scroll', closeFxAdjPopover, { once: true });
+		}
+
+		function applyFxSelection() {
+			const sel = fxCurrentSel();
+			document.querySelectorAll('#fx-grid .grid-item').forEach(item => {
+				item.classList.toggle('selected', item.dataset.fxId === sel);
+			});
+			if (fxAdjPopover && fxAdjPopover.dataset.fxId !== sel) closeFxAdjPopover();
+		}
+
+		function fxTileClicked(id) {
+			if (fxTab === 'col') fxSelCol = id; else fxSelImg = id;
+			applyFxSelection();
+			if (ws && ws.readyState === WebSocket.OPEN) {
+				ws.send(JSON.stringify({ fx_sel: { cat: fxTab, id: id } }));
+			}
+		}
+
+		function buildFxGrid() {
+			const grid = document.getElementById('fx-grid');
+			grid.innerHTML = '';
+			if (!fxList) return;
+
+			const makeTile = (id, labelText, fill) => {
+				const wrapper = document.createElement('div');
+				wrapper.className = 'grid-item';
+				wrapper.dataset.fxId = id;
+
+				const tile = document.createElement('div');
+				tile.className = 'grid-tile';
+				fill(tile);
+				wrapper.appendChild(tile);
+
+				const label = document.createElement('div');
+				label.className = 'grid-label';
+				label.textContent = labelText;
+				wrapper.appendChild(label);
+
+				let lpFired = false;
+				wrapper.onclick = () => {
+					if (lpFired) { lpFired = false; return; }
+					fxTileClicked(id);
+				};
+
+				if (id) {
+					let lpTimer = null;
+					const cancelLp = () => { if (lpTimer) { clearTimeout(lpTimer); lpTimer = null; } };
+					wrapper.addEventListener('pointerdown', () => {
+						cancelLp();
+						lpFired = false;
+						lpTimer = setTimeout(() => {
+							lpTimer = null;
+							lpFired = true;
+							openFxAdjPopover(id, tile);
+						}, 550);
+					});
+					wrapper.addEventListener('pointerup', cancelLp);
+					wrapper.addEventListener('pointercancel', cancelLp);
+					wrapper.addEventListener('pointerleave', cancelLp);
+				}
+
+				grid.appendChild(wrapper);
+				return wrapper;
+			};
+
+			makeTile('', 'No Effect', tile => {
+				const glyph = document.createElement('div');
+				glyph.className = 'fx-none-glyph';
+				glyph.textContent = '∅';
+				tile.appendChild(glyph);
+			});
+
+			fxList.filter(e => e.cat === fxTab).forEach(e => {
+				const w = makeTile(e.id, e.name, tile => {
+					const url = '/effects/previews/' + encodeURIComponent(e.name) + '.png?v=' + fxCacheVer;
+					const img = document.createElement('img');
+					img.src = url;
+					img.loading = 'lazy';
+					img.draggable = false;
+					trackFxThumb(img);
+					tile.appendChild(img);
+				});
+				if (Array.isArray(e.adjs) && e.adjs.length) w.classList.add('fx-has-adjs');
+			});
+
+			applyFxSelection();
+		}
+
+		function scrollFxSelectedIntoView() {
+			const wrap = document.querySelector('.fx-grid-wrap');
+			const item = document.querySelector('#fx-grid .grid-item.selected');
+			if (!wrap || !item) return;
+			const wrapRect = wrap.getBoundingClientRect();
+			const itemRect = item.getBoundingClientRect();
+			if (itemRect.top < wrapRect.top || itemRect.bottom > wrapRect.bottom) {
+				item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			}
+		}
+
+		function setFxTab(tab) {
+			closeFxAdjPopover();
+			fxTab = tab;
+			document.getElementById('fx-tab-img').classList.toggle('active', tab === 'img');
+			document.getElementById('fx-tab-col').classList.toggle('active', tab === 'col');
+			buildFxGrid();
+			scrollFxSelectedIntoView();
+		}
+
+		function loadEffectsList() {
+			fetch('/api/effects/effect-list')
+				.then(res => res.json())
+				.then(data => {
+					if (fxRetryTimer) { clearTimeout(fxRetryTimer); fxRetryTimer = null; }
+					fxList = data.effects || [];
+					fxList.sort((a, b) => {
+						const an = a.name.toLowerCase(), bn = b.name.toLowerCase();
+						return an < bn ? -1 : an > bn ? 1 : 0;
+					});
+					fxCacheVer = data.cache_version || 1;
+					if (typeof data.sel_img === 'string') fxSelImg = data.sel_img;
+					if (typeof data.sel_col === 'string') fxSelCol = data.sel_col;
+					buildFxGrid();
+				})
+				.catch(err => {
+					console.error('Failed to load effects list:', err);
+					if (fxRetryTimer) clearTimeout(fxRetryTimer);
+					fxRetryTimer = setTimeout(loadEffectsList, 2000);
+				});
+		}
+
+		function openEffectsPopup() {
+			setPopupInset('effects-popup');
+			document.getElementById('effects-popup').classList.add('active');
+			document.getElementById('colorBtn').classList.add('active');
+			if (!fxList) loadEffectsList(); else buildFxGrid();
+			scrollFxSelectedIntoView();
+		}
+
+		function closeEffectsPopup() {
+			closeFxAdjPopover();
+			closeOverlay('effects-popup');
+			document.getElementById('colorBtn').classList.remove('active');
+		}
+
 		function parse_msg(msg)
 		{
 			if (msg.type === "init") {
@@ -1319,7 +2639,34 @@
 					    }
 					}
 				});
-						
+
+				if (Array.isArray(msg.sliders)) {
+					allSliderIds.forEach(sliderId => {
+						const slider = document.getElementById(sliderId);
+						const row = slider ? slider.closest('.slider-row') : null;
+						if (row) {
+							const alive = msg.sliders.some(obj => sliderId in obj);
+							row.style.display = alive ? '' : 'none';
+						}
+					});
+				}
+
+				if (msg.mode) {
+					const modeChanged = (seenMode && seenMode !== msg.mode);
+					seenMode = msg.mode;
+					deviceMode = msg.mode;
+					if (modeChanged) {
+						closeOverlay('tile-popup');
+						closeOverlay('confirm-popup');
+						toggleColorList(false);
+						loadPlaylists();
+						getSelectedPlaylistImage();
+					}
+					const animSwitch = document.getElementById('animatedSwitch');
+					const animRow = animSwitch ? animSwitch.closest('.switch-row') : null;
+					if (animRow) animRow.style.display = (msg.mode === 'playlist') ? '' : 'none';
+				}
+
 				if (msg.playlist) {
 					const select = document.getElementById('playlist-selection');
 					if (select && select.options.length === 0) loadPlaylists();
@@ -1327,49 +2674,77 @@
 						select.value = msg.playlist;
 						loadGrid();
 					}
+					updateDeleteBtn();
 				}
-		
+
+				if (typeof msg.pl_edit === "boolean" && plEdit !== msg.pl_edit) {
+					plEdit = msg.pl_edit;
+					updateDeleteBtn();
+					getSelectedPlaylistImage();
+				}
+
+				if (typeof msg.pl_rev === "number") {
+					if (plRev !== null && msg.pl_rev !== plRev) {
+						loadPlaylists();
+						getSelectedPlaylistImage();
+					}
+					plRev = msg.pl_rev;
+				}
+
 				if (msg.item_url && selectedUrl !== msg.item_url) {
 					selectedUrl = msg.item_url;
 					highlightGridItemByUrl(selectedUrl);
 				}
-		
-				if ("ilock" in msg) {
-					const newilock = Boolean(msg.ilock);
-					if (newilock != is_ilock_en) {
-						is_ilock_en = newilock;
+
+				if (typeof msg.ilock === "boolean") {
+					if (is_ilock_en !== msg.ilock) {
+						is_ilock_en = msg.ilock;
 						updateILockLabel();
-						updatePowerButton();						
+						updatePowerButton();
 					}
 				}
-				
+
+				if (typeof msg.eff_en === "boolean") {
+					if (is_effects_en !== msg.eff_en) {
+						is_effects_en = msg.eff_en;
+						updateEffEnLabel();
+					}
+				}
+
+				if (typeof msg.fx_img === "string" || typeof msg.fx_col === "string") {
+					let fxChanged = false;
+					if (typeof msg.fx_img === "string" && msg.fx_img !== fxSelImg) { fxSelImg = msg.fx_img; fxChanged = true; }
+					if (typeof msg.fx_col === "string" && msg.fx_col !== fxSelCol) { fxSelCol = msg.fx_col; fxChanged = true; }
+					if (fxChanged) applyFxSelection();
+				}
+
 				if (typeof msg.play === "boolean") {
 					if (playing !== msg.play) {
 						playing = msg.play;
 						updatePlayingIcon();
 					}
 				}
-				
+
 				if (typeof msg.autoplay === "boolean") {
 					if (autoplay !== msg.autoplay) {
 						autoplay = msg.autoplay;
 						updateAutoplayIcon();
 					}
 				}
-				
+
 				if (typeof msg.previews === "boolean") {
-				    const animSwitch = document.getElementById("animatedSwitch");				    
+				    const animSwitch = document.getElementById("animatedSwitch");
 				    if (animSwitch && msg.previews !== animSwitch.checked) {
 						animSwitch.checked = msg.previews;
 						getSelectedPlaylistImage();
 					}
 				}
-				
+
 				if (typeof msg.shuffle === "boolean") {
 				    const shuffleSwitch = document.getElementById("shuffleSwitch");
 				    if (shuffleSwitch) shuffleSwitch.checked = msg.shuffle;
 				}
-				
+
 			    if ("sdcard" in msg) {
 					const sdcardpanel = document.getElementById("sdcard-panel");
 					const current = msg.sdcard;
@@ -1378,15 +2753,15 @@
 			      	} else {
 			        	sdcardpanel.classList.remove("active");
 			      	}
-			      	
+
 			      	if (lastSdcardState === false && current === true) {
         				console.log("SD card inserted, refreshing...");
         				location.href = location.href;
       				}
-      				
+
       				lastSdcardState = current;
 			    }
-			    
+
 				if ("batt_pct" in msg) {
 					const newPct = Number(msg.batt_pct);
 					if (newPct !== battery_pct) {
@@ -1394,36 +2769,35 @@
 						updatedBattery = true;
 					}
 				}
-				
-				if ("charging" in msg) {
-					const newCharging = Boolean(msg.charging);
-					if (newCharging !== is_charging) {
-						is_charging = newCharging;
+
+				if (typeof msg.charging === "boolean") {
+					if (is_charging !== msg.charging) {
+						is_charging = msg.charging;
 						updatedBattery = true;
 					}
 				}
-				
+
 				if ("temp_degc" in msg) {
 					const newtemp = Number(msg.temp_degc);
-					if (newtemp != temperature) {
+					if (newtemp !== temperature) {
 						temperature = newtemp;
 						updateTemperature(temperature);
 					}
 				}
-				
+
 				if (updatedBattery) {
 					updateBatteryGauge();
 				}
-			}			
+			}
 		}
-		
+
 		function send_ws_connect_msg()
 		{
 			if (ws && ws.readyState === WebSocket.OPEN) {
 				ws.send(JSON.stringify({ type: "connect", sliders: allSliderIds }));
 			}
 		}
-	
+
 		function initWebSocket() {
 			ws = new WebSocket(`ws://${location.host}/ws`);
 			ws.onopen = () => {
@@ -1437,11 +2811,12 @@
 			};
 			ws.onmessage = (event) => {
 				const msg = JSON.parse(event.data);
+				lastWsMsgMs = Date.now();
 				resetKeepAlive();
 				parse_msg(msg);
 			};
 		}
-		
+
 		function resetKeepAlive() {
 			clearTimeout(keepAliveTimer);
 			keepAliveTimer = setTimeout(() => {
@@ -1453,42 +2828,37 @@
 		}
 
 		function applyTheme(themeName) {
-		  // Remove any theme-* classes
 		  document.documentElement.classList.forEach(cls => {
 		    if (cls.startsWith("theme-")) {
 		      document.documentElement.classList.remove(cls);
 		    }
 		  });
-		
-		  // Add the chosen theme class
+
 		  document.documentElement.classList.add(themeName);
-		
-		  // Save to localStorage
+
 		  localStorage.setItem("selectedTheme", themeName);
 		}
-					
+
 		document.addEventListener('DOMContentLoaded', () => {
-	
-			const defaultTheme = 'theme-dark-blue';		
+
+			const defaultTheme = 'theme-dark-blue';
 			const footerButtons = document.querySelectorAll('.footer-buttons button');
 			const selectedBox = document.getElementById('selected-box');
 			const powerBtn = document.querySelector('.power-btn');
-			const colorizeButtons = document.querySelectorAll('#colorizePanel .colorize-btn');
 			const menuBtn = document.getElementById('menuBtn');
 			const sliderPanel = document.getElementById('sliderPanel');
 			const settingsBtn = document.getElementById('settingsBtn');
 			const settingsPanel = document.getElementById('settingsPanel');
 			const colorizeBtn = document.getElementById('colorBtn');
-			const colorizePanel = document.getElementById('colorizePanel');
 			const themeselector = document.getElementById('theme-selection');
 			const storedTheme = localStorage.getItem('selectedTheme') || defaultTheme;
 			const leftbtngroups = [
 			  { btn: menuBtn, panel: sliderPanel },
-			  { btn: settingsBtn, panel: settingsPanel },
-			  { btn: colorizeBtn, panel: colorizePanel }
+			  { btn: settingsBtn, panel: settingsPanel }
 			];
-		    
+
 			function handleFooterLeftBtnGrpClick(clicked) {
+			  closeEffectsPopup();
 			  leftbtngroups.forEach(({ btn, panel }) => {
 			    if (btn === clicked.btn) {
 			      btn.classList.toggle("active");
@@ -1502,49 +2872,44 @@
 
 		    applyTheme(storedTheme);
 		    themeselector.value = storedTheme;
-		    
+
 		    themeselector.addEventListener('change', () => {
 				applyTheme(themeselector.value);
 		    });
-		    
+
 		    leftbtngroups.forEach(item => {
 			  	item.btn.addEventListener("click", () => handleFooterLeftBtnGrpClick(item));
 			});
 
 			footerButtons.forEach(btn => {
-				btn.addEventListener('click', () => {				
-					btn.classList.add('clicked');			
+				btn.addEventListener('click', () => {
+					btn.classList.add('clicked');
 					setTimeout(() => {
 						btn.classList.remove('clicked');
 					}, FLASH_PERIOD_MS);
 				});
 			});
-			
-			powerBtn.addEventListener('click', () => {			
+
+			powerBtn.addEventListener('click', () => {
 				powerBtn.classList.add('clicked');
 				setTimeout(() => {
 					powerBtn.classList.remove('clicked');
 				}, FLASH_PERIOD_MS);
 			});
-		
-			colorizeButtons.forEach(btn => {
-			  const color = btn.dataset.color;
-			  btn.style.backgroundColor = color;
-			  
-			  btn.addEventListener('click', () => {	    
-			    colorizeButtons.forEach(b => b.classList.remove('active','clicked'));		
-			    btn.classList.add('clicked');
-				setTimeout(() => {
-		      		btn.classList.remove('clicked');
-		      		btn.classList.add('active');
-		    	}, 100);
-			    const { hue, saturation } = getHueSaturation(color);
-			    if (ws && ws.readyState === WebSocket.OPEN) {
-					ws.send(JSON.stringify({ "hue_effect/Hue" : hue, "hue_effect/Saturation" : saturation}));
-				}
-			  });
+
+			colorizeBtn.addEventListener('click', () => {
+				leftbtngroups.forEach(({ btn, panel }) => {
+					btn.classList.remove('active');
+					panel.classList.remove('active');
+				});
+				const overlay = document.getElementById('effects-popup');
+				if (overlay.classList.contains('active')) closeEffectsPopup();
+				else openEffectsPopup();
 			});
-					
+
+			document.getElementById('fx-tab-img').addEventListener('click', () => setFxTab('img'));
+			document.getElementById('fx-tab-col').addEventListener('click', () => setFxTab('col'));
+
 			selectedBox.addEventListener('click', () => {
 			if (selectedUrl) {
 					highlightGridItemByUrl(selectedUrl);
@@ -1554,7 +2919,7 @@
 					}, FLASH_PERIOD_MS);
 				}
 			});
-			
+
 			document.addEventListener("visibilitychange", () => {
 				if (document.visibilityState === "visible") {
 					if (!ws || ws.readyState !== WebSocket.OPEN) {
@@ -1565,9 +2930,10 @@
 					}
 				}
 			});
-			
+
 			document.getElementById('playlist-selection').addEventListener('change', function() {
 				selectedPlaylist = this.value;
+				updateDeleteBtn();
 				fetch('/api/playlist/playlist-selected', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -1580,7 +2946,40 @@
 				.then(() => getSelectedPlaylistImage())
 				.catch(err => console.error('Error updating playlist:', err));
 			});
-			
+
+			buildColorList();
+			document.getElementById('tile-popup-targets').addEventListener('scroll', refreshPopupScrollInds);
+			document.getElementById('apc-color-list').addEventListener('scroll', refreshPopupScrollInds);
+			document.getElementById('apc-color-btn').addEventListener('click', () => {
+				const list = document.getElementById('apc-color-list');
+				toggleColorList(list.style.display === 'none');
+			});
+			document.getElementById('playlist-delete-btn').addEventListener('click', openConfirmPopup);
+			document.getElementById('tile-popup-cancel').addEventListener('click', () => closeOverlay('tile-popup'));
+			document.getElementById('confirm-cancel').addEventListener('click', () => closeOverlay('confirm-popup'));
+			document.getElementById('sd-warn-close').addEventListener('click', () => closeOverlay('sd-warn-popup'));
+			const tilePopupImg = document.getElementById('tile-popup-img');
+			tilePopupImg.addEventListener('error', () => { tilePopupImg.style.opacity = '0'; });
+			tilePopupImg.addEventListener('load', () => { tilePopupImg.style.opacity = ''; });
+			document.getElementById('new-pl-create').addEventListener('click', () => {
+				const name = document.getElementById('new-pl-name').value.trim();
+				if (!name) { setPopupMsg('Enter a playlist name'); return; }
+				if (new TextEncoder().encode(name).length > 63) {
+					setPopupMsg('Playlist name is too long');
+					return;
+				}
+				postPlaylistEdit('create', name, popupItemName, () => {
+					setPopupMsg('Created "' + name + '"', true);
+					popupAutoClose();
+					document.getElementById('new-pl-name').value = '';
+					loadPlaylists();
+				});
+			});
+			['tile-popup', 'confirm-popup', 'sd-warn-popup'].forEach(id => {
+				const overlay = document.getElementById(id);
+				overlay.addEventListener('click', e => { if (e.target === overlay) closeOverlay(id); });
+			});
+
 			document.getElementById('animatedSwitch').addEventListener('change', e => {
 				if (ws && ws.readyState === WebSocket.OPEN) {
 					let state = e.target.checked;
@@ -1588,24 +2987,28 @@
 					getSelectedPlaylistImage();
 				}
 			});
-	
+
 			document.getElementById('shuffleSwitch').addEventListener('change', e => {
 				if (ws && ws.readyState === WebSocket.OPEN) {
 					let state = e.target.checked;
 					ws.send(JSON.stringify({ shuffle: state }));
 				}
-			});	
-					
+			});
+
+			setInterval(() => {
+				document.querySelector('.footer').classList.toggle('offline', Date.now() - lastWsMsgMs > 10000);
+			}, 2000);
+
 			loadPlaylists();
 			getSelectedPlaylistImage();
+			loadEffectsList();
 			setupSlider('projection/Power', 'power-value', 'resetPowerBtn', 0, 100, 100);
 			setupSlider('projection/Zoom', 'zoom-value', 'resetZoomBtn', 0, 100, 100);
 			setupSlider('projection/Rotation', 'rotation-value', 'resetRotationBtn', -90, 90, 0);
 			setupSlider('Speed', 'playspeed-value', 'resetSpeedBtn', 10, 200, 100);
 			setupSlider('playlist_player/Cue Delay', 'cuedelay-value', 'resetCueDelayBtn', 1, 100, 10);
-			setupSlider('hue_effect/Intensity', 'colorizeIntensity-value', 'resetcolorizeIntensityBtn', 0, 100, 0);
 			initWebSocket();
-			
+
 			updateTemperature(temperature);
 		});
 	</script>
