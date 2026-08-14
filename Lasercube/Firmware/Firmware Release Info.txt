@@ -1,5 +1,22 @@
 Mk2 Firmware Release Info
 
+V2-0 (14/08/26)
+
+- New viz playlist player: create, edit and reorder your own playlists from the web UI
+- New effects engine: 40+ projection effects (3D globe/spin/twist, jellyfish, flames, many audio-reactive) with live adjustment from the menu or web UI
+- Menu now available in 12 languages, with extended fonts so non-ASCII names display correctly
+- Web UI redesign: tile-grid playlist view, effects panel, better mobile support, more reliable connection
+- 60+ new audio reactive laser visualizers added
+- New 2D and 3D output preview: skip through vizzes/playlist cues with the encoder in 2D, rotate the viewpoint in 3D
+- New animated boot logo, now showing the firmware version
+- Status page additions: Cube IP address and temperature; WiFi status icon when in client mode
+- Save indicator on the status bar whenever a setting is stored to internal flash
+- Improved blanking/error handling for smoother output on all connection types
+- Fixed missing green/blue colour on IDN mode with multiple scanners connected
+- Faster audio FFT response with an optional higher visualizer update rate
+- Smoother, more responsive ILDA playback when switching cues
+- Improved cubes visualizer projection quality and audio reactivity
+
 V1-20 (01/05/26)
 
 * 42 audio reactive visualizers are now available (up from 29 in v1.19)
