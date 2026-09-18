@@ -7,7 +7,7 @@
 ╚███╔███╔╝██║╚██████╗██║  ██╗███████╗██████╔╝    ███████╗██║  ██║███████║███████╗██║  ██║███████║
  ╚══╝╚══╝ ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═════╝     ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝
 
-    Ultra MK2 Web Server HTML v1.1 (c)2026 Wicked Lasers
+    Ultra MK2 Web Server HTML v1.7 (c)2026 Wicked Lasers
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +22,8 @@
   	</script>
 	<style>
 		:root {
+		  --card-radius: 10px;
+		  --card-gap: 2px;
 		  --track-height: 10px;
 		  --thumb-size: 40px;
 		  --track-radius: 999px;
@@ -203,21 +205,111 @@
 
 		.header {
 			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
+			top: calc(40px + (2 * var(--card-gap)));
+			left: 4px;
+			right: 4px;
 			height: 48px;
 			display: flex;
 			justify-content: flex-start;
 			align-items: center;
-			border-radius: 4px;
+			border-radius: var(--card-radius);
 			background-color: var(--header-bg-color);
 			color: var(--baseBg);
 			font-size: 18px;
 			line-height: 48px;
 			text-align: center;
 			z-index: 1000;
-			border-bottom: 1px solid var(--header-border-bot-color);
+		}
+
+		#cube-bar {
+			position: fixed;
+			top: var(--card-gap);
+			left: 4px;
+			right: 4px;
+			height: 40px;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			padding: 0 12px;
+			box-sizing: border-box;
+			background-color: var(--header-bg-color);
+			border-radius: var(--card-radius);
+			z-index: 1001;
+		}
+
+		#cube-tabs {
+			flex: 1;
+			display: flex;
+			gap: 4px;
+			overflow-x: auto;
+			scrollbar-width: none;
+		}
+
+		#cube-tabs::-webkit-scrollbar { display: none; }
+
+		.cube-tab {
+			flex: 0 0 auto;
+			padding: 4px 8px;
+			border: 1px solid var(--color-surface-alt);
+			border-radius: 999px;
+			background: var(--btn-color);
+			color: var(--label-color);
+			font-size: 12px;
+			white-space: nowrap;
+			cursor: pointer;
+		}
+
+		.cube-tab.active {
+			background: var(--color-accent);
+			color: var(--color-bg);
+			font-weight: bold;
+		}
+
+		.cube-tab.err {
+			border-color: #ff4257;
+			color: #ff4257;
+		}
+
+		#cube-refresh {
+			flex: 0 0 auto;
+			width: 30px;
+			height: 30px;
+			border: none;
+			border-radius: 50%;
+			background: var(--btn-color);
+			color: var(--label-color);
+			font-size: 18px;
+			line-height: 30px;
+			padding: 0;
+			cursor: pointer;
+			transition: transform 0.2s ease, box-shadow 0.3s ease;
+		}
+
+		#cube-refresh.clicked {
+			transform: scale(1.2);
+			box-shadow: 0 0 25px 10px var(--accentFg);
+		}
+
+		#cube-refresh.scanning { animation: cube-spin 1s linear infinite; }
+
+		@keyframes cube-spin { to { transform: rotate(360deg); } }
+
+		#status-bar {
+			position: fixed;
+			top: calc(var(--app-h) - 128px - (2 * var(--card-gap)));
+			left: 4px;
+			right: 4px;
+			height: 28px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 8px;
+			box-sizing: border-box;
+			background-color: var(--footer-bg-color);
+			border-radius: var(--card-radius);
+			font-size: 14px;
+			color: var(--label-color);
+			z-index: 1001;
 		}
 
 		.slider-row {
@@ -316,7 +408,7 @@
 
 		.slider-panel {
 			position: fixed;
-			bottom: 104px;
+			bottom: calc(128px + (3 * var(--card-gap)));
 			width: calc(100% - 50px);
 			left: 8px;
 			transform: translateX(0) translateY(100%);
@@ -327,7 +419,7 @@
 			pointer-events: none;
 			transition: opacity 0.5s ease, transform 0.5s ease;
 			padding: 30px 10px 30px 20px;
-			border-radius: 16px;
+			border-radius: var(--card-radius);
 			overflow: hidden;
 		}
 
@@ -340,9 +432,9 @@
 		#selected-box {
 			flex: 0 0 calc(50% - 60px);
 			height: 60%;
-			margin-left: 8px;
+			margin-left: 12px;
 			border: 1px solid var(--sliderpanel-bg-color);
-			border-radius: 6px;
+			border-radius: var(--card-radius);
 			padding: 4px 8px;
 			color: var(--label-color);
 			font-size: 0.8em;
@@ -358,11 +450,11 @@
 
 		.footer {
 			position: fixed;
-			top: calc(var(--app-h) - 100px);
-			left: 0;
-			right: 0;
+			top: calc(var(--app-h) - 100px - var(--card-gap));
+			left: 4px;
+			right: 4px;
 			height: 100px;
-			border-radius: 4px;
+			border-radius: var(--card-radius);
 			background-color: var(--footer-bg-color);
 			display: grid;
 			align-items: center;
@@ -386,15 +478,16 @@
 		}
 
 		.content {
-			margin-top: 4px;
 			position: fixed;
-			top: 48px;
-			height: calc(var(--app-h) - 150px);
-			left: 0;
-			right: 0;
+			top: calc(88px + (3 * var(--card-gap)));
+			height: calc(var(--app-h) - 216px - (6 * var(--card-gap)));
+			left: 4px;
+			right: 4px;
 			overflow-y: auto;
-			padding: 4px 8px 8px 8px;
+			padding: 8px 12px 12px 12px;
 			box-sizing: border-box;
+			background-color: var(--header-bg-color);
+			border-radius: var(--card-radius);
 			-webkit-overflow-scrolling: touch;
 		}
 
@@ -405,6 +498,29 @@
 			gap: 14px 5px;
 			align-content: start;
 		}
+
+		.grid-loading {
+			grid-column: 1 / -1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			padding: 40px 0;
+			color: var(--label-color);
+			font-size: 14px;
+		}
+
+		.grid-loading::before {
+			content: '';
+			width: 28px;
+			height: 28px;
+			border: 3px solid var(--accentBg);
+			border-top-color: var(--accentFg);
+			border-radius: 50%;
+			animation: grid-spin .8s linear infinite;
+		}
+
+		@keyframes grid-spin { to { transform: rotate(360deg); } }
 
 		@media (max-width: 480px) {
 			.grid {
@@ -482,6 +598,7 @@
 		  	aspect-ratio: 1/1;
 		  	object-fit: cover;
 			display: block;
+			transition: opacity 0.15s;
 			-webkit-user-drag: none;
 			-webkit-touch-callout: none;
 			-webkit-user-select: none;
@@ -535,14 +652,14 @@
 
 		#toast {
 			position: fixed;
-			top: calc(var(--app-h) - 112px);
+			top: calc(var(--app-h) - 140px - (2 * var(--card-gap)));
 			left: 50%;
 			transform: translate(-50%, -100%);
 			background: var(--header-bg-color);
 			color: #e74c3c;
 			font-size: 13px;
 			padding: 8px 14px;
-			border-radius: 10px;
+			border-radius: var(--card-radius);
 			box-shadow: 0 4px 14px rgba(0,0,0,0.4);
 			z-index: 10001;
 			opacity: 0;
@@ -582,7 +699,7 @@
 			line-height: 1;
 			outline: 0;
 			padding: 0.75em 2.5em 0.75em 0.75em;
-			border-radius: var(--radius);
+			border-radius: var(--card-radius);
 			background-color: var(--baseBg);
 			background-image: linear-gradient(var(--baseFg),var(--baseFg)),linear-gradient(-135deg,transparent 50%,var(--accentBg) 50%),linear-gradient(-225deg,transparent 50%,var(--accentBg) 50%),linear-gradient(var(--accentBg) 42%,var(--accentFg) 42%);
 			background-repeat: no-repeat,no-repeat,no-repeat,no-repeat;
@@ -731,10 +848,10 @@
 		}
 
 		.effects-panel {
-			top: calc((var(--app-h) - 150px) / 2 + 48px);
+			top: calc(((var(--app-h) - 216px - (6 * var(--card-gap))) / 2) + 88px + (3 * var(--card-gap)));
 			bottom: auto;
 			left: 50%;
-			max-height: calc(var(--app-h) - 150px - var(--grid-item-h, 90px));
+			max-height: calc(var(--app-h) - 216px - (6 * var(--card-gap)) - var(--grid-item-h, 90px));
 			display: flex;
 			flex-direction: column;
 			padding: 14px 10px 10px 14px;
@@ -801,7 +918,7 @@
 			width: min(340px, 92vw);
 			background: var(--sliderpanel-bg-color);
 			border: 2px solid var(--footer-bg-color);
-			border-radius: 16px;
+			border-radius: var(--card-radius);
 			box-shadow: 0 6px 20px rgba(0,0,0,0.45);
 			padding: 12px 14px;
 			opacity: 0.97;
@@ -910,10 +1027,11 @@
 
 		#sdcard-panel {
 		    position: fixed;
-		    top: 48px;
-		    height: calc(var(--app-h) - 150px);
-		    left: 0;
-		    right: 0;
+		    top: calc(88px + (3 * var(--card-gap)));
+		    height: calc(var(--app-h) - 216px - (6 * var(--card-gap)));
+		    left: 4px;
+		    right: 4px;
+		    border-radius: var(--card-radius);
 		    display: flex;
 		    justify-content: center;
 		    align-items: center;
@@ -931,7 +1049,7 @@
 		.sdcard-content {
 		    background: var(--header-bg-color);
 		    padding: 40px;
-		    border-radius: 16px;
+		    border-radius: var(--card-radius);
 		    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 		    text-align: center;
 		    max-width: 400px;
@@ -961,10 +1079,11 @@
 
 		.modal-overlay {
 		    position: fixed;
-		    top: 48px;
-		    height: calc(var(--app-h) - 150px);
-		    left: 0;
-		    right: 0;
+		    top: calc(88px + (3 * var(--card-gap)));
+		    height: calc(var(--app-h) - 216px - (6 * var(--card-gap)));
+		    left: 4px;
+		    right: 4px;
+		    border-radius: var(--card-radius);
 		    display: flex;
 		    justify-content: center;
 		    align-items: center;
@@ -985,7 +1104,7 @@
 		.modal-card {
 		    background: var(--header-bg-color);
 		    padding: 18px;
-		    border-radius: 16px;
+		    border-radius: var(--card-radius);
 		    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 		    text-align: left;
 		    max-width: 340px;
@@ -1259,7 +1378,6 @@
 		#batteryLevel {
 		  height: 100%;
 		  width: 0%;
-		  transition: width 420ms ease;
 		  position: relative;
 		  display: flex;
 		  align-items: center;
@@ -1289,6 +1407,20 @@
 		  margin-left: 10px;
 		}
 
+		#wifiIcon {
+		  width: 20px;
+		  height: 16px;
+		  display: none;
+		  fill: #808080;
+		}
+
+		#wifiChan {
+		  display: none;
+		  font-size: 11px;
+		  margin-left: -5px;
+		  color: #808080;
+		}
+
 		.temp-gauge {
 		  display: flex;
 		  align-items: center;
@@ -1315,6 +1447,7 @@
 		<div id="selected-box"><span id="selected-name"></span></div>
 		<div class="topright"><select class="theme-droplist" id="playlist-selection"></select><button id="playlist-delete-btn"></button></div>
 	</div>
+	<div id="cube-bar"><div id="cube-tabs"></div><button id="cube-refresh">&#8635;</button></div>
 	<div id="sdcard-panel">
 	  <div class="sdcard-content">
 	    <img src="/images/micro_sd.svg" alt="Micro SD Card">
@@ -1362,6 +1495,24 @@
 <div id="toast"></div>
 
 	<div class="content"><div class="grid" id="grid"></div></div>
+	<div id="status-bar">
+		<svg id="wifiIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+		  <path d="M634.91 154.88C457.74-8.99 182.19-8.93 5.09 154.88c-6.66 6.16-6.79 16.59-.35 22.98l34.24 33.97c6.14 6.1 16.02 6.23 22.4.38 145.92-133.68 371.3-133.71 517.25 0 6.38 5.85 16.26 5.71 22.4-.38l34.24-33.97c6.43-6.39 6.3-16.82-.36-22.98zM320 352c-35.35 0-64 28.65-64 64s28.65 64 64 64 64-28.65 64-64-28.65-64-64-64zm202.67-83.59c-115.26-101.93-290.21-101.82-405.34 0-6.9 6.1-7.12 16.69-.57 23.15l34.44 33.99c6 5.92 15.66 6.32 22.05.8 83.95-72.57 209.74-72.41 293.49 0 6.39 5.52 16.05 5.13 22.05-.8l34.44-33.99c6.56-6.46 6.33-17.06-.56-23.15z"/>
+		</svg>
+		<span id="wifiChan"></span>
+		<div class="temp-gauge">
+		  <svg class="temp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+		    <path d="M192 384a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm64-112.8V112a64 64 0 1 0-128 0v159.2c-38.9 22.4-64 63.3-64 110.8
+		             0 70.7 57.3 128 128 128s128-57.3 128-128c0-47.5-25.1-88.4-64-110.8z"/>
+		  </svg>
+		  <span class="tempval" id="temp-value">--</span><span class="deg">&deg;C</span>
+		</div>
+		<div id="batteryBar">
+		  <div id="batteryLevel"></div>
+		</div>
+		<span id="batteryPercent">--%</span>
+		<span class="orangelabel" id="ilockLabel">INTERLOCK DISABLED</span>
+	</div>
 	<div class="footer">
 		<div class="footer-buttons-left">
 			<button id="menuBtn"><img src="/images/menu.png" alt="Menu"></button>
@@ -1431,6 +1582,13 @@
 		    <span class="slider"></span>
 		  </label>
 		</div>
+		<div class="slider-row" id="clockRow" style="display:none;">
+			<div class="slider-label">Device Clock</div>
+			<div class="slider-wrap" style="height:auto;">
+				<span id="deviceClockVal" style="font-size:var(--label-font-size);color:var(--label-color);">--</span>
+			</div>
+			<button class="reset-btn" id="syncClockBtn" style="padding:8px 14px;font-size:var(--label-font-size);color:var(--label-color);">Sync</button>
+		</div>
 		<div class="slider-row">
 			<div class="slider-label">CUE Delay</div>
 			<div class="slider-wrap">
@@ -1446,21 +1604,6 @@
 				<span class="thumb-value" id="playspeed-value"></span>
 			</div>
 			<button class="reset-btn" id="resetSpeedBtn"><img id="reset-playspeed" src="/images/restart.png" alt="RST"></button>
-		</div>
-
-		<div class="statusContainer">
-			<div class="temp-gauge">
-			  <svg class="temp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-			    <path d="M192 384a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm64-112.8V112a64 64 0 1 0-128 0v159.2c-38.9 22.4-64 63.3-64 110.8
-			             0 70.7 57.3 128 128 128s128-57.3 128-128c0-47.5-25.1-88.4-64-110.8z"/>
-			  </svg>
-			  <span class ="tempval" id="temp-value">23</span><span class="deg">&deg;C</span>
-			</div>
-		  <div id="batteryBar">
-		    <div id="batteryLevel"></div>
-		  </div>
-		  <span id="batteryPercent">--%</span>
-		  <span class="orangelabel" id="ilockLabel">INTERLOCK DISABLED</span>
 		</div>
 	</div>
 
@@ -1482,6 +1625,7 @@
 
 		let ws;
 		let reconnectTimer;
+		let wsRetryMs = 1000;
 		let keepAliveTimer;
 		let selectedImg = null;
 		let selectedUrl = null;
@@ -1494,11 +1638,18 @@
 		let playing = false;
 		let autoplay = true;
 		let lastSdcardState = null;
-		let battery_pct = 100;
+		let battery_pct = null;
 		let is_charging = null;
 		let is_ilock_en = null;
 		let is_effects_en = null;
 		let temperature = null;
+		let wifi_col = null;
+		let wifi_ch = 0;
+		let wifi_ch_col = null;
+		let devClockEpoch = null;
+		let devClockAtMs = 0;
+		let devTimeValid = 0;
+		let timeSyncSent = false;
 		const allSliderIds = [];
 
 		const TILE_COLORS = ['#ff4257', '#35d54a', '#ffd022', '#2ed3c2', '#3f8cff', '#ff8d1f', '#ff4fd8'];
@@ -1517,6 +1668,61 @@
 		let popupCloseTimer = null;
 
 		let sdWarnShown = false;
+
+		let cubes = [];
+		let activeCube = null;
+		let cubeErr = {};
+		let cubeScanTimer = null;
+		let cubeScanActive = false;
+		let userScanReq = false;
+		let cubeSavedApplied = false;
+		let cubeAutoRefreshed = false;
+		let jumpToCue = false;
+		let fxPopupPending = false;
+		let cubeGen = 0;
+		let errToastGen = -1;
+		let gotInit = false;
+		let gridSig = null;
+		let plSig = null;
+		let fxSig = null;
+		let lastCubesSig = '';
+		let prefetchGen = 0;
+		let prefetchTimer = null;
+		const CUBE_CACHE_MAX = 12;
+		const cubeCache = new Map();
+
+		function cacheFor(mac) {
+			let e = cubeCache.get(mac);
+			if (!e) {
+				if (cubeCache.size >= CUBE_CACHE_MAX) cubeCache.delete(cubeCache.keys().next().value);
+				e = {};
+				cubeCache.set(mac, e);
+			}
+			return e;
+		}
+
+		function setGridLoading(on) {
+			const grid = document.getElementById('grid');
+			const cur = grid.querySelector('.grid-loading');
+			if (on) {
+				if (cur) return;
+				grid.innerHTML = '';
+				const el = document.createElement('div');
+				el.className = 'grid-loading';
+				el.textContent = 'Loading…';
+				grid.appendChild(el);
+			} else if (cur) {
+				cur.remove();
+			}
+		}
+
+		function cubeBase() {
+			return (!activeCube || activeCube.self) ? '' : 'http://' + activeCube.ip;
+		}
+
+		function wsHost() {
+			return (activeCube && !activeCube.self) ? activeCube.ip : location.host;
+		}
 
 		const APC_COLORS = [
 			{ v: -1, label: 'Default',    hex: '#555555' },
@@ -1614,15 +1820,18 @@
 				loadPlaylists();
 			};
 			if (lastSdcardState === false) { showFail('No SD card inserted'); return; }
-			fetch('/api/playlist/playlist-edit', {
+			fetch(cubeBase() + '/api/playlist/playlist-edit', {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
+				headers: { 'Content-Type': 'text/plain' },
 				body: JSON.stringify(Object.assign({ op, playlist, item }, extra || {}))
 			})
 			.then(res => res.json())
 			.then(d => {
 				if (d.ok) {
-					if (typeof d.pl_rev === 'number') plRev = d.pl_rev;
+					if (typeof d.pl_rev === 'number') {
+						plRev = d.pl_rev;
+						if (activeCube) cacheFor(activeCube.mac).plRev = plRev;
+					}
 					onOk(d);
 				} else {
 					showFail(d.error || 'Failed');
@@ -1700,7 +1909,7 @@
 			document.getElementById('tile-popup-title').textContent = 'Add "' + itemName + '" to playlist';
 			const imgEl = document.getElementById('tile-popup-img');
 			if (imgUrl) {
-				imgEl.src = imgUrl;
+				imgEl.src = cubeBase() + imgUrl;
 				imgEl.style.display = 'block';
 			} else {
 				imgEl.removeAttribute('src');
@@ -1814,11 +2023,35 @@
 		}
 
 		function updateTemperature(value) {
-		  document.getElementById('temp-value').textContent = value;
 		  const icon = document.querySelector('.temp-icon');
+		  if (value === null) {
+		    document.getElementById('temp-value').textContent = '--';
+		    icon.style.fill = 'orange';
+		    return;
+		  }
+		  document.getElementById('temp-value').textContent = value;
 		  if (value < 65) icon.style.fill = 'deepskyblue';
 		  else if (value >= 75) icon.style.fill = 'red';
 		  else icon.style.fill = 'orange';
+		}
+
+		function updateWifiIcon() {
+		  const icon = document.getElementById('wifiIcon');
+		  const chan = document.getElementById('wifiChan');
+		  if (!wifi_col) {
+		    icon.style.display = 'none';
+		    chan.style.display = 'none';
+		    return;
+		  }
+		  icon.style.display = 'block';
+		  icon.style.fill = wifi_col;
+		  if (wifi_ch > 0) {
+		    chan.style.display = 'block';
+		    chan.textContent = wifi_ch;
+		    chan.style.color = wifi_ch_col || wifi_col;
+		  } else {
+		    chan.style.display = 'none';
+		  }
 		}
 
 		function updatePowerButton() {
@@ -1857,6 +2090,11 @@
 		function updateBatteryGauge() {
 			const levelEl = document.getElementById("batteryLevel");
 			const percentEl = document.getElementById("batteryPercent");
+			if (battery_pct === null && is_charging !== true) {
+				levelEl.style.width = "0%";
+				percentEl.textContent = "--%";
+				return;
+			}
 			let pct = Math.min(100, Math.max(0, battery_pct || 0));
 
 			if (is_charging === true) {
@@ -1991,36 +2229,69 @@
 			if (nameEl) nameEl.textContent = shortName || '';
 		}
 
-		function getSelectedPlaylistImage() {
-			fetch('/api/playlist/selected-image')
+		function fetchSelectedUrl() {
+			const gen = cubeGen;
+			return fetch(cubeBase() + '/api/playlist/selected-image')
 				.then(res => res.json())
-				.then(data => { selectedUrl = data.url || null; })
+				.then(data => {
+					if (gen !== cubeGen) return;
+					selectedUrl = data.url || null;
+					if (activeCube) cacheFor(activeCube.mac).selUrl = selectedUrl;
+				});
+		}
+
+		function getSelectedPlaylistImage() {
+			fetchSelectedUrl()
 				.catch(err => console.error('Failed to fetch selected image:', err))
 				.finally(loadGrid);
 		}
 
+		function renderPlaylistOptions(data) {
+			plSig = JSON.stringify(data);
+			const select = document.getElementById('playlist-selection');
+			select.innerHTML = '';
+			data.options.forEach(opt => {
+				const option = document.createElement('option');
+				option.value = opt.value;
+				option.textContent = opt.label;
+				if (opt.value === data.current) {
+					option.selected = true;
+					selectedPlaylist = option.textContent;
+				}
+				select.appendChild(option);
+			});
+			playlistOptions = data.options.map(o => ({ value: o.value, label: o.label, kind: o.kind || 'builtin' }));
+			updateDeleteBtn();
+		}
+
 		function loadPlaylists() {
-			fetch('/api/playlist/playlist-items')
+			const gen = cubeGen;
+			fetch(cubeBase() + '/api/playlist/playlist-items')
 				.then(res => res.json())
 				.then(data => {
+					if (gen !== cubeGen) return;
 					if (plRetryTimer) { clearTimeout(plRetryTimer); plRetryTimer = null; }
-					const select = document.getElementById('playlist-selection');
-					select.innerHTML = '';
-					data.options.forEach(opt => {
-						const option = document.createElement('option');
-						option.value = opt.value;
-						option.textContent = opt.label;
-						if (opt.value === data.current) {
-							option.selected = true;
-							selectedPlaylist = option.textContent;
+					if (activeCube) {
+						cacheFor(activeCube.mac).pl = data;
+						if (cubeErr[activeCube.mac]) {
+							delete cubeErr[activeCube.mac];
+							renderCubeTabs();
 						}
-						select.appendChild(option);
-					});
-					playlistOptions = data.options.map(o => ({ value: o.value, label: o.label, kind: o.kind || 'builtin' }));
-					updateDeleteBtn();
+					}
+					if (JSON.stringify(data) === plSig) { updateDeleteBtn(); return; }
+					renderPlaylistOptions(data);
 				})
 				.catch(err => {
+					if (gen !== cubeGen) return;
 					console.error('Failed to load playlists:', err);
+					if (activeCube && !activeCube.self) {
+						cubeErr[activeCube.mac] = true;
+						renderCubeTabs();
+						if (errToastGen !== cubeGen) {
+							errToastGen = cubeGen;
+							showToast('Cube unreachable - check power or update its firmware');
+						}
+					}
 					if (plRetryTimer) clearTimeout(plRetryTimer);
 					plRetryTimer = setTimeout(loadPlaylists, 2000);
 				});
@@ -2053,6 +2324,8 @@
 			sdWarnArbiter();
 		}
 
+		const loadedImgUrls = new Set();
+
 		function makeThumbChecker(key) {
 			const c = { miss: 0, done: false, timer: null };
 			const evalChk = () => {
@@ -2062,6 +2335,7 @@
 			};
 			return img => {
 				img.addEventListener('load', () => {
+					loadedImgUrls.add(img.src);
 					img.style.opacity = '';
 					if (c.done) return;
 					c.done = true;
@@ -2080,10 +2354,13 @@
 		const trackGridThumb = makeThumbChecker('grid');
 		const trackFxThumb = makeThumbChecker('fx');
 
-		function loadGrid() {
-			fetch('/api/playlist/image-list')
-				.then(res => res.json())
-				.then(list => {
+		function gridSigOf(list) {
+			const sel = document.getElementById('playlist-selection');
+			return plEdit + '|' + deviceMode + '|' + (sel ? sel.value : '') + '|' + JSON.stringify(list);
+		}
+
+		function renderGrid(list) {
+					gridSig = gridSigOf(list);
 					const grid = document.getElementById('grid');
 					let selectedName = '';
 					grid.innerHTML = '';
@@ -2099,7 +2376,8 @@
 						tile.style.setProperty('--tile-color', TILE_COLORS[i % TILE_COLORS.length]);
 
 						const img = document.createElement('img');
-						img.src = url;
+						img.src = cubeBase() + url;
+						if (!loadedImgUrls.has(img.src)) img.style.opacity = '0';
 						img.loading = 'lazy';
 						img.draggable = false;
 						trackGridThumb(img);
@@ -2131,9 +2409,9 @@
 							selectedName = getDisplayNameFromUrl(url);
 							const nameEl = document.getElementById('selected-name');
 							if (nameEl) nameEl.textContent = selectedName || '';
-							fetch('/api/playlist/image-clicked', {
+							fetch(cubeBase() + '/api/playlist/image-clicked', {
 								method: 'POST',
-								headers: { 'Content-Type': 'application/json' },
+								headers: { 'Content-Type': 'text/plain' },
 								body: JSON.stringify({ url })
 							}).catch(err => console.error('Click handler error:', err));
 						};
@@ -2283,11 +2561,31 @@
 					});
 
 					const selected = grid.querySelector('.grid-item.selected');
-					if (selected) selected.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					if (selected) selected.scrollIntoView({ behavior: jumpToCue ? 'auto' : 'smooth', block: 'center' });
 					updateSelectedName(selectedName);
 					if (gridRetryTimer) { clearTimeout(gridRetryTimer); gridRetryTimer = null; }
+		}
+
+		function loadGrid() {
+			const gen = cubeGen;
+			fetch(cubeBase() + '/api/playlist/image-list')
+				.then(res => res.json())
+				.then(list => {
+					if (gen !== cubeGen) return;
+					if (activeCube) {
+						const e = cacheFor(activeCube.mac);
+						e.grid = list;
+						e.selUrl = selectedUrl;
+					}
+					if (gridSigOf(list) === gridSig) {
+						if (selectedUrl) highlightGridItemByUrl(selectedUrl);
+						if (gridRetryTimer) { clearTimeout(gridRetryTimer); gridRetryTimer = null; }
+						return;
+					}
+					renderGrid(list);
 				})
 				.catch(err => {
+					if (gen !== cubeGen) return;
 					console.error('Error loading images:', err);
 					if (gridRetryTimer) clearTimeout(gridRetryTimer);
 					gridRetryTimer = setTimeout(getSelectedPlaylistImage, 2000);
@@ -2303,8 +2601,8 @@
 				const img = item.querySelector("img");
 				if (!img) return;
 
-				const imgSrc = new URL(img.src, window.location.origin).href;
-				const targetUrl = new URL(url, window.location.origin).href;
+				const imgSrc = new URL(img.src, cubeBase() || window.location.origin).href;
+				const targetUrl = new URL(url, cubeBase() || window.location.origin).href;
 
 				if (imgSrc === targetUrl) {
 					img.classList.add('selected');
@@ -2317,7 +2615,7 @@
 					const containerBottom = containerTop + container.clientHeight;
 
 					if (itemTop < containerTop || itemBottom > containerBottom) {
-						item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+						item.scrollIntoView({ behavior: jumpToCue ? 'auto' : 'smooth', block: 'center' });
 					}
 
 					updateSelectedName(url);
@@ -2368,7 +2666,7 @@
 				return;
 			}
 			const req = ++fxAdjReq;
-			fetch('/api/effects/adj-vals?id=' + encodeURIComponent(id))
+			fetch(cubeBase() + '/api/effects/adj-vals?id=' + encodeURIComponent(id))
 				.then(res => res.json())
 				.then(vals => {
 					if (req !== fxAdjReq) return;
@@ -2551,9 +2849,10 @@
 
 			fxList.filter(e => e.cat === fxTab).forEach(e => {
 				const w = makeTile(e.id, e.name, tile => {
-					const url = '/effects/previews/' + encodeURIComponent(e.name) + '.png?v=' + fxCacheVer;
+					const url = cubeBase() + '/effects/previews/' + encodeURIComponent(e.name) + '.png?v=' + fxCacheVer;
 					const img = document.createElement('img');
 					img.src = url;
+					if (!loadedImgUrls.has(img.src)) img.style.opacity = '0';
 					img.loading = 'lazy';
 					img.draggable = false;
 					trackFxThumb(img);
@@ -2586,9 +2885,11 @@
 		}
 
 		function loadEffectsList() {
-			fetch('/api/effects/effect-list')
+			const gen = cubeGen;
+			fetch(cubeBase() + '/api/effects/effect-list')
 				.then(res => res.json())
 				.then(data => {
+					if (gen !== cubeGen) return;
 					if (fxRetryTimer) { clearTimeout(fxRetryTimer); fxRetryTimer = null; }
 					fxList = data.effects || [];
 					fxList.sort((a, b) => {
@@ -2598,24 +2899,60 @@
 					fxCacheVer = data.cache_version || 1;
 					if (typeof data.sel_img === 'string') fxSelImg = data.sel_img;
 					if (typeof data.sel_col === 'string') fxSelCol = data.sel_col;
-					buildFxGrid();
+					if (activeCube) {
+						const e = cacheFor(activeCube.mac);
+						e.fxList = fxList;
+						e.fxCacheVer = fxCacheVer;
+					}
+					const sig = JSON.stringify(fxList) + '|' + fxCacheVer;
+					if (sig === fxSig) {
+						applyFxSelection();
+					} else {
+						fxSig = sig;
+						buildFxGrid();
+					}
+					if (fxPopupPending) {
+						fxPopupPending = false;
+						showEffectsPanel();
+					}
 				})
 				.catch(err => {
+					if (gen !== cubeGen) return;
 					console.error('Failed to load effects list:', err);
 					if (fxRetryTimer) clearTimeout(fxRetryTimer);
 					fxRetryTimer = setTimeout(loadEffectsList, 2000);
 				});
 		}
 
-		function openEffectsPopup() {
-			setPopupInset('effects-popup');
+		function showEffectsPanel() {
 			document.getElementById('effects-popup').classList.add('active');
-			document.getElementById('colorBtn').classList.add('active');
-			if (!fxList) loadEffectsList(); else buildFxGrid();
 			scrollFxSelectedIntoView();
 		}
 
+		function openEffectsPopup() {
+			setPopupInset('effects-popup');
+			document.getElementById('colorBtn').classList.add('active');
+			if (!fxList) {
+				const e = activeCube ? cubeCache.get(activeCube.mac) : null;
+				if (e && e.fxList) {
+					fxList = e.fxList;
+					fxCacheVer = e.fxCacheVer || 1;
+					fxSig = JSON.stringify(fxList) + '|' + fxCacheVer;
+					buildFxGrid();
+					loadEffectsList();
+					showEffectsPanel();
+				} else {
+					fxPopupPending = true;
+					loadEffectsList();
+				}
+			} else {
+				buildFxGrid();
+				showEffectsPanel();
+			}
+		}
+
 		function closeEffectsPopup() {
+			fxPopupPending = false;
 			closeFxAdjPopover();
 			closeOverlay('effects-popup');
 			document.getElementById('colorBtn').classList.remove('active');
@@ -2625,6 +2962,21 @@
 		{
 			if (msg.type === "init") {
 			    let updatedBattery = false;
+
+				if (typeof msg.mac === 'string' && activeCube && activeCube.mac && msg.mac !== activeCube.mac) {
+					showToast('Cube changed address, rescanning');
+					teardownWs();
+					loadCubes(true);
+					return;
+				}
+
+				if (!gotInit) {
+					gotInit = true;
+					jumpToCue = false;
+					schedulePrefetch(4000);
+					const gen = cubeGen;
+					setTimeout(() => { if (gen === cubeGen && !fxList) loadEffectsList(); }, 1500);
+				}
 
 				allSliderIds.forEach(sliderId => {
 					const slider = document.getElementById(sliderId);
@@ -2689,10 +3041,12 @@
 						getSelectedPlaylistImage();
 					}
 					plRev = msg.pl_rev;
+					if (activeCube) cacheFor(activeCube.mac).plRev = plRev;
 				}
 
 				if (msg.item_url && selectedUrl !== msg.item_url) {
 					selectedUrl = msg.item_url;
+					if (activeCube) cacheFor(activeCube.mac).selUrl = selectedUrl;
 					highlightGridItemByUrl(selectedUrl);
 				}
 
@@ -2788,6 +3142,42 @@
 				if (updatedBattery) {
 					updateBatteryGauge();
 				}
+
+				if ("wifi_col" in msg) {
+					const newcol = msg.wifi_col || null;
+					const newch = ("wifi_ch" in msg) ? Number(msg.wifi_ch) : 0;
+					const newchcol = msg.wifi_ch_col || null;
+					if (newcol !== wifi_col || newch !== wifi_ch || newchcol !== wifi_ch_col) {
+						wifi_col = newcol;
+						wifi_ch = newch;
+						wifi_ch_col = newchcol;
+						updateWifiIcon();
+					}
+				}
+
+				if (typeof msg.time === "number") {
+					devClockEpoch = msg.time;
+					devClockAtMs = Date.now();
+					devTimeValid = Number(msg.time_valid) || 0;
+					if (!timeSyncSent && devTimeValid > 0 && (devTimeValid === 1 ||
+					    Math.abs(localWallEpoch() - msg.time) > 60)) {
+						timeSyncSent = true;
+						if (ws && ws.readyState === WebSocket.OPEN)
+							ws.send(JSON.stringify({ settime: localWallEpoch() }));
+					}
+					updateClockRow();
+				}
+
+				if (activeCube) {
+					const e = cacheFor(activeCube.mac);
+					e.batt = battery_pct;
+					e.chg = is_charging;
+					e.ilk = is_ilock_en;
+					e.tmp = temperature;
+					e.wcol = wifi_col;
+					e.wch = wifi_ch;
+					e.wchc = wifi_ch_col;
+				}
 			}
 		}
 
@@ -2798,16 +3188,286 @@
 			}
 		}
 
+		function localWallEpoch() {
+			return Math.floor(Date.now() / 1000) - 60 * new Date().getTimezoneOffset();
+		}
+
+		function updateClockRow() {
+			const row = document.getElementById('clockRow');
+			if (!row) return;
+			if (!devTimeValid || devClockEpoch === null) { row.style.display = 'none'; return; }
+			row.style.display = '';
+			const now = devClockEpoch + Math.round((Date.now() - devClockAtMs) / 1000);
+			document.getElementById('deviceClockVal').textContent =
+				new Date(now * 1000).toISOString().replace('T', ' ').slice(0, 19);
+		}
+
+		function cubeLabel(c) {
+			let m = c.model || 'Cube';
+			if (m.indexOf('LaserCube ') === 0) m = m.substring(10);
+			const suffix = (c.mac || '').replace(/:/g, '').slice(-4);
+			return m + '-' + suffix;
+		}
+
+		let cubeTabsSig = '';
+
+		function renderCubeTabs() {
+			const tabs = document.getElementById('cube-tabs');
+			const sig = cubes.map(c =>
+				c.mac + '|' + cubeLabel(c) + '|' +
+				((activeCube && activeCube.mac === c.mac) ? 'a' : '') +
+				(cubeErr[c.mac] ? 'e' : '')).join(',');
+			if (sig === cubeTabsSig) return;
+			cubeTabsSig = sig;
+			tabs.innerHTML = '';
+			cubes.forEach(c => {
+				const b = document.createElement('button');
+				b.className = 'cube-tab';
+				if (activeCube && activeCube.mac === c.mac) b.classList.add('active');
+				if (cubeErr[c.mac]) b.classList.add('err');
+				b.dataset.mac = c.mac;
+				b.textContent = cubeLabel(c);
+				tabs.appendChild(b);
+			});
+		}
+
+		function teardownWs() {
+			if (reconnectTimer) { clearTimeout(reconnectTimer); reconnectTimer = null; }
+			wsRetryMs = 1000;
+			clearTimeout(keepAliveTimer);
+			if (ws) {
+				ws.onopen = null;
+				ws.onclose = null;
+				ws.onmessage = null;
+				try { ws.close(); } catch (e) {}
+				ws = null;
+			}
+		}
+
+		function resetCubeState() {
+			closeEffectsPopup();
+			closeOverlay('tile-popup');
+			closeOverlay('confirm-popup');
+			toggleColorList(false);
+			document.getElementById('grid').innerHTML = '';
+			document.getElementById('fx-grid').innerHTML = '';
+			document.getElementById('playlist-selection').innerHTML = '';
+			updateSelectedName('');
+			selectedImg = null;
+			selectedUrl = null;
+			selectedPlaylist = '';
+			seenMode = null;
+			plRev = null;
+			plEdit = false;
+			playlistOptions = [];
+			fxList = null;
+			fxCacheVer = 1;
+			fxSelImg = '';
+			fxSelCol = '';
+			if (plRetryTimer) { clearTimeout(plRetryTimer); plRetryTimer = null; }
+			if (gridRetryTimer) { clearTimeout(gridRetryTimer); gridRetryTimer = null; }
+			if (fxRetryTimer) { clearTimeout(fxRetryTimer); fxRetryTimer = null; }
+			gridSig = null;
+			plSig = null;
+			fxSig = null;
+			gotInit = false;
+			fxPopupPending = false;
+			battery_pct = null;
+			is_charging = null;
+			is_ilock_en = null;
+			temperature = null;
+			wifi_col = null;
+			wifi_ch = 0;
+			wifi_ch_col = null;
+			devClockEpoch = null;
+			devTimeValid = 0;
+			updateBatteryGauge();
+			updateTemperature(temperature);
+			updateILockLabel();
+			updateWifiIcon();
+			updateClockRow();
+		}
+
+		function bootstrapCube() {
+			loadGrid();
+			fetchSelectedUrl()
+				.then(() => { if (selectedUrl) highlightGridItemByUrl(selectedUrl); })
+				.catch(err => console.error('Failed to fetch selected image:', err));
+			loadPlaylists();
+			initWebSocket();
+		}
+
+		function restoreFromCache(e) {
+			if (e.pl) renderPlaylistOptions(e.pl);
+			selectedUrl = e.selUrl || null;
+			if (e.grid) renderGrid(e.grid); else setGridLoading(true);
+			plRev = (typeof e.plRev === 'number') ? e.plRev : null;
+			if ('batt' in e) {
+				battery_pct = e.batt;
+				is_charging = e.chg;
+				is_ilock_en = e.ilk;
+				temperature = e.tmp;
+				wifi_col = e.wcol || null;
+				wifi_ch = e.wch || 0;
+				wifi_ch_col = e.wchc || null;
+				updateBatteryGauge();
+				updateTemperature(temperature);
+				updateILockLabel();
+				updateWifiIcon();
+			}
+		}
+
+		function selectCube(c) {
+			if (activeCube && activeCube.mac === c.mac) return;
+			cubeSavedApplied = true;
+			cubeGen++;
+			prefetchGen++;
+			clearTimeout(prefetchTimer);
+			teardownWs();
+			resetCubeState();
+			activeCube = c;
+			deviceMode = (c.ctrl_mode === 3) ? 'viz' : 'playlist';
+			localStorage.setItem('selectedCubeMac', c.mac);
+			renderCubeTabs();
+			jumpToCue = true;
+			const cached = cubeCache.get(c.mac);
+			if (cached) restoreFromCache(cached); else setGridLoading(true);
+			bootstrapCube();
+		}
+
+		function loadCubes(refresh) {
+			if (refresh) {
+				cubeScanActive = true;
+				if (userScanReq) document.getElementById('cube-refresh').classList.add('scanning');
+			}
+			fetch('/api/cubes' + (refresh ? '?refresh=1' : ''))
+				.then(res => res.json())
+				.then(d => {
+					cubes = (d.cubes || []).sort((a, b) =>
+						(b.self ? 1 : 0) - (a.self ? 1 : 0) ||
+						a.ip.localeCompare(b.ip, undefined, { numeric: true }));
+					if (!activeCube) activeCube = cubes.find(c => c.self) || null;
+					const cubesSig = cubes.map(c => c.mac + '@' + c.ip).join(',');
+					if (cubesSig !== lastCubesSig) {
+						lastCubesSig = cubesSig;
+						if (gotInit) schedulePrefetch(2000);
+					}
+					cubeScanActive = !!d.scanning;
+					if (!d.scanning) userScanReq = false;
+					document.getElementById('cube-refresh').classList.toggle('scanning', !!d.scanning && userScanReq);
+					renderCubeTabs();
+					if (d.scanning) {
+						clearTimeout(cubeScanTimer);
+						cubeScanTimer = setTimeout(() => loadCubes(false), 1000);
+						return;
+					}
+					if (cubeScanTimer) { clearTimeout(cubeScanTimer); cubeScanTimer = null; }
+					if (!cubeAutoRefreshed && cubes.length < 2) {
+						cubeAutoRefreshed = true;
+						loadCubes(true);
+						return;
+					}
+					cubeAutoRefreshed = true;
+					if (activeCube) {
+						const cur = cubes.find(c => c.mac === activeCube.mac);
+						if (!cur) {
+							const self = cubes.find(c => c.self);
+							if (self) { activeCube = null; selectCube(self); return; }
+						} else if (cur.ip !== activeCube.ip || !ws) {
+							activeCube = null;
+							selectCube(cur);
+							return;
+						} else {
+							activeCube = cur;
+						}
+					}
+					if (!cubeSavedApplied) {
+						cubeSavedApplied = true;
+						const saved = localStorage.getItem('selectedCubeMac');
+						const c = saved ? cubes.find(x => x.mac === saved && !x.self) : null;
+						if (c) selectCube(c);
+					}
+				})
+				.catch(() => {
+					if (cubeScanTimer) { clearTimeout(cubeScanTimer); cubeScanTimer = null; }
+					cubeScanActive = false;
+					userScanReq = false;
+					document.getElementById('cube-refresh').classList.remove('scanning');
+				});
+		}
+
+		function fetchWithTimeout(url) {
+			const ctl = new AbortController();
+			const t = setTimeout(() => ctl.abort(), 5000);
+			return fetch(url, { signal: ctl.signal }).finally(() => clearTimeout(t));
+		}
+
+		function schedulePrefetch(ms) {
+			clearTimeout(prefetchTimer);
+			prefetchTimer = setTimeout(runPrefetch, ms || 4000);
+		}
+
+		function runPrefetch() {
+			const myGen = ++prefetchGen;
+			if (!gotInit || cubeScanActive) {
+				schedulePrefetch(5000);
+				return;
+			}
+			const targets = cubes.filter(c => !activeCube || c.mac !== activeCube.mac);
+			const next = i => {
+				if (myGen !== prefetchGen || i >= targets.length) return;
+				const c = targets[i];
+				const base = c.self ? '' : 'http://' + c.ip;
+				fetchWithTimeout(base + '/api/playlist/playlist-items')
+					.then(r => r.json())
+					.then(pl => {
+						if (myGen !== prefetchGen) throw 0;
+						cacheFor(c.mac).pl = pl;
+						return fetchWithTimeout(base + '/api/playlist/selected-image');
+					})
+					.then(r => r.json())
+					.then(d => {
+						if (myGen !== prefetchGen) throw 0;
+						cacheFor(c.mac).selUrl = d.url || null;
+						return fetchWithTimeout(base + '/api/playlist/image-list');
+					})
+					.then(r => r.json())
+					.then(list => {
+						if (myGen !== prefetchGen) throw 0;
+						cacheFor(c.mac).grid = list;
+						return fetchWithTimeout(base + '/api/effects/effect-list');
+					})
+					.then(r => r.json())
+					.then(data => {
+						if (myGen !== prefetchGen) return;
+						const fx = data.effects || [];
+						fx.sort((a, b) => {
+							const an = a.name.toLowerCase(), bn = b.name.toLowerCase();
+							return an < bn ? -1 : an > bn ? 1 : 0;
+						});
+						const e = cacheFor(c.mac);
+						e.fxList = fx;
+						e.fxCacheVer = data.cache_version || 1;
+					})
+					.catch(() => {})
+					.finally(() => next(i + 1));
+			};
+			next(0);
+		}
+
 		function initWebSocket() {
-			ws = new WebSocket(`ws://${location.host}/ws`);
+			ws = new WebSocket(`ws://${wsHost()}/ws`);
 			ws.onopen = () => {
 				if (reconnectTimer) { clearTimeout(reconnectTimer); reconnectTimer = null; }
+				wsRetryMs = 1000;
+				timeSyncSent = false;
 				send_ws_connect_msg();
 				console.log("websocket opened to MK2");
 			};
 			ws.onclose = () => {
 				console.warn("WebSocket closed, retrying...");
-				reconnectTimer = setTimeout(initWebSocket, RECONNECT_DELAY);
+				reconnectTimer = setTimeout(initWebSocket, wsRetryMs);
+				wsRetryMs = Math.min(wsRetryMs * 2, RECONNECT_DELAY);
 			};
 			ws.onmessage = (event) => {
 				const msg = JSON.parse(event.data);
@@ -2877,6 +3537,13 @@
 				applyTheme(themeselector.value);
 		    });
 
+		    document.getElementById('syncClockBtn').addEventListener('click', () => {
+				if (ws && ws.readyState === WebSocket.OPEN) {
+					ws.send(JSON.stringify({ settime: localWallEpoch() }));
+				}
+		    });
+		    setInterval(updateClockRow, 1000);
+
 		    leftbtngroups.forEach(item => {
 			  	item.btn.addEventListener("click", () => handleFooterLeftBtnGrpClick(item));
 			});
@@ -2934,7 +3601,7 @@
 			document.getElementById('playlist-selection').addEventListener('change', function() {
 				selectedPlaylist = this.value;
 				updateDeleteBtn();
-				fetch('/api/playlist/playlist-selected', {
+				fetch(cubeBase() + '/api/playlist/playlist-selected', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 					body: 'playlist=' + encodeURIComponent(this.value)
@@ -2999,15 +3666,33 @@
 				document.querySelector('.footer').classList.toggle('offline', Date.now() - lastWsMsgMs > 10000);
 			}, 2000);
 
-			loadPlaylists();
-			getSelectedPlaylistImage();
-			loadEffectsList();
+			document.getElementById('cube-refresh').addEventListener('click', e => {
+				const b = e.currentTarget;
+				b.classList.add('clicked');
+				setTimeout(() => b.classList.remove('clicked'), FLASH_PERIOD_MS);
+				userScanReq = true;
+				loadCubes(true);
+			});
+			document.getElementById('cube-tabs').addEventListener('click', e => {
+				let tab = e.target.closest ? e.target.closest('.cube-tab') : null;
+				if (!tab) {
+					const el = document.elementFromPoint(e.clientX, e.clientY);
+					tab = el ? el.closest('.cube-tab') : null;
+				}
+				if (!tab) return;
+				const c = cubes.find(x => x.mac === tab.dataset.mac);
+				if (c) selectCube(c);
+			});
+			loadCubes(false);
+			setInterval(() => {
+				if (!cubeScanTimer && !cubeScanActive) loadCubes(cubes.length < 2);
+			}, 10000);
 			setupSlider('projection/Power', 'power-value', 'resetPowerBtn', 0, 100, 100);
 			setupSlider('projection/Zoom', 'zoom-value', 'resetZoomBtn', 0, 100, 100);
 			setupSlider('projection/Rotation', 'rotation-value', 'resetRotationBtn', -90, 90, 0);
 			setupSlider('Speed', 'playspeed-value', 'resetSpeedBtn', 10, 200, 100);
 			setupSlider('playlist_player/Cue Delay', 'cuedelay-value', 'resetCueDelayBtn', 1, 100, 10);
-			initWebSocket();
+			bootstrapCube();
 
 			updateTemperature(temperature);
 		});
