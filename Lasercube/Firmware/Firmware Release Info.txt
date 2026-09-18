@@ -1,5 +1,27 @@
 Mk2 Firmware Release Info
 
+V2-1 (18/9/26)
+
+- New multi-cube web UI: control every cube on the network from one browser tab, with an always-visible cube switcher, near-instant tab switching, live per-cube status, and auto-recovery after a cube reboots
+
+- 6 new Halloween dancing figures - two pumpkins (a jack-o'-lantern on a vine, and a pumpkin-headed stick dancer), a ghost, a zombie, a dancing skull, and a full skeleton - each with a dozen-plus audio-reactive moves (spins, flips, head pops, patrols, collapses)
+
+- New "Dancing W1" 3D dancer with 11 moves, including a leap, and idle breathing when the music goes quiet
+
+- 82 more visualizers added (classic laserOS effects ported over, plus new originals like Tesseract, Galaxy Arms, Spiral Stair, Ocean Swell), bringing the total to 174
+
+- Runtime network switching: change WiFi/Ethernet mode, IP settings, and WiFi credentials from the menu or web UI without rebooting the cube
+
+- Real-time clock support added (PRO models only): on-device date & time, plus a laser diode usage odometer shown on the status page in hours
+
+- Web UI polish: rounded card-based layout, WiFi status icon and channel shown in the header, faster reconnects, smoother playlist tile loading
+
+- Effects now auto-enable with reset intensities on first web connection, without disturbing sliders already linked to MIDI
+
+- Fixed a DHCP server crash on live network changes, an Art-Net unicast targeting bug, and an SD-card crash when removing the card during file browsing
+
+- Numerous stability fixes across MIDI hotplug handling, playlist loading, and display/network stall recovery
+
 V2-0 (14/08/26)
 
 - New viz playlist player: create, edit and reorder your own playlists from the web UI
