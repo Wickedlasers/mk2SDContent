@@ -22,6 +22,13 @@
 			"apc_color":	3,
 			"apc_style":	1
 		}, {
+			"unique_id":	"VizPlaylist/WL Halloween",
+			"type":	"MIDI_NOTE",
+			"midi_ch":	0,
+			"midi_note":	84,
+			"apc_color":	2,
+			"apc_style":	1
+		}, {
 			"unique_id":	"tempo/Sync Beat",
 			"type":	"MIDI_NOTE",
 			"midi_ch":	0,
